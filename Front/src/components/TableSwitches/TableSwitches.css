@@ -10,7 +10,6 @@
 .table-container-sw table {
   width: 100%;
   border-collapse: collapse;
-  white-space: nowrap;
 }
 
 .table-container-sw th,
