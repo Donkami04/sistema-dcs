@@ -13,7 +13,7 @@ export function Hamburmenu(props) {
   return (
     <>
       <div className="hambur-container">
-        <img onClick={handleMenuToggle} src="../../src/assets/menu.png" alt="menu" />
+        <img onClick={handleMenuToggle} src="/menu.png" alt="menu" />
       </div>
     <div className={`asidemenu ${menuVisible ? "hidden" : "visible"}`}>
       <span className="close" onClick={handleMenuToggle}>

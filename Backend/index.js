@@ -8,7 +8,11 @@ const { logErrors, errorHandler, ormErrorHandler } = require('./middlewares/erro
 app.use(express.json());
 
 app.use(cors({
-  origin: ['http://localhost:5174',],
+  origin: [
+  'http://localhost:4000',
+  'http://10.224.116.78:4000',
+  'http://10.224.116.14:4000',
+],
   methods: ['GET'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
