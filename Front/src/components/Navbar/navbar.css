@@ -1,0 +1,51 @@
+.navbar {
+  width: 100%;
+  height: 4rem;
+  background-color: #e5e5e5;
+  display: flex;
+  align-items: center;
+  position: relative;
+  
+}
+
+.logo {
+  width: 12.5rem;
+  height: 3rem;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main-title {
+  position: absolute;
+  left: 50%; 
+  transform: translateX(-50%);
+  text-align: center;
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 2.5rem;
+  color: #bd0b21;
+}
+
+@media (max-width: 830px) {
+
+  .main-title {
+    position: absolute;
+    left: 11rem;
+  }
+  .logo{
+    display: none;
+  }
+}
+
+@media (max-width: 550px) {
+  .button-interfaz {
+    display: none;
+  }
+  .main-title {
+    font-size: 2rem;
+    left: 9rem;
+  }
+}

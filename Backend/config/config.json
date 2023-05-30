@@ -1,0 +1,9 @@
+{
+  "development": {
+    "dialect": "mysql",
+    "host": "db",
+    "username": "candelaria",
+    "password": "candelaria",
+    "database": "dcs"
+  }
+}

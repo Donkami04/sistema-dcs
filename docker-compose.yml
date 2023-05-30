@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: candelaria
+      MYSQL_DATABASE: dcs
+      MYSQL_USER: candelaria
+      MYSQL_PASSWORD: candelaria
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: candelaria
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+
+  concentradora_switches:
+    build:
+      context: DCS-Candelaria/Services/Switches
+    restart: always
+    depends_on:
+      - db
+
+  concentradora_update_ids:
+    build:
+      context: DCS-Candelaria/Services/Update_ids
+    restart: always
+    depends_on:
+      - db
+
+  concentradora_clients:
+    build:
+      context: DCS-Candelaria/Services/Clientes
+    restart: always
+    depends_on:
+      - db
+
+  concentradora-api-rest:
+    build:
+      context: Backend
+    ports:
+      - '3000:3000'
+    restart: always
+    command: sh -c "npx sequelize-cli db:migrate && npm test && node index.js"
+
+  concentradora-frontend:
+    build:
+      context: Front
+    ports:
+      - '4000:4000'
+    restart: always
+    command: sh -c "npm run dev"
