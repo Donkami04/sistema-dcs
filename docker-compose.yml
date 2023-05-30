@@ -26,26 +26,26 @@ services:
     depends_on:
       - db
 
-  # concentradora_switches:
-  #   build:
-  #     context: DCS-Candelaria/Services/Switches
-  #   restart: always
-  #   depends_on:
-  #     - db
+  concentradora_switches:
+    build:
+      context: DCS-Candelaria/Services/Switches
+    restart: always
+    depends_on:
+      - db
 
-  # concentradora_update_ids:
-  #   build:
-  #     context: DCS-Candelaria/Services/Update_ids
-  #   restart: always
-  #   depends_on:
-  #     - db
+  concentradora_update_ids:
+    build:
+      context: DCS-Candelaria/Services/Update_ids
+    restart: always
+    depends_on:
+      - db
 
-  # concentradora_clients:
-  #   build:
-  #     context: DCS-Candelaria/Services/Clientes
-  #   restart: always
-  #   depends_on:
-      # - db
+  concentradora_clients:
+    build:
+      context: DCS-Candelaria/Services/Clientes
+    restart: always
+    depends_on:
+      - db
 
   concentradora-api-rest:
     build:
