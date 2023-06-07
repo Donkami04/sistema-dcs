@@ -666,6 +666,64 @@ module.exports = {
       },
     });
 
+    await queryInterface.createTable('data_ups', {
+      id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      ip: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+    });
+
+    await queryInterface.createTable('ups', {
+      id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      ip: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      name: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      status_prtg: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+      },
+      batery: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+      },
+      switch: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+    });
+
+    await queryInterface.createTable('fechas_consultas_ups', {
+      id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      ultima_consulta: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      estado: {
+        type: Sequelize.STRING(20),
+        allowNull: true,
+      },
+    });
   },
 
   down: async (queryInterface, Sequelize) => {
@@ -681,5 +739,8 @@ module.exports = {
     await queryInterface.dropTable('data_clients');
     await queryInterface.dropTable('fechas_consultas_switches');
     await queryInterface.dropTable('fechas_consultas_clientes');
+    await queryInterface.dropTable('data_ups');
+    await queryInterface.dropTable('ups');
+    await queryInterface.dropTable('fechas_consultas_ups');
   },
 };

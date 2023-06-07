@@ -3,6 +3,7 @@ const clientsRoutes = require("./clients.routes");
 const switchesRoutes = require("./switches.routes");
 const statusRoutes = require("./status_system.routes");
 const indicatorsRoutes = require("./indicators.routes");
+const upsRoutes = require("./ups.routes");
 const router = express.Router();
 
 const allRoutes = (app) => {
@@ -11,6 +12,7 @@ const allRoutes = (app) => {
   router.use("/switches", switchesRoutes);
   router.use("/status", statusRoutes);
   router.use("/indicators", indicatorsRoutes);
+  router.use("/ups", upsRoutes);
 };
 
 module.exports = { allRoutes };

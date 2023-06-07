@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const { getClients } = require("../controllers/clients");
+const { getUps } = require("../controllers/ups");
 
 router.get("/", async (req, res, next) => {
   try {
-    const allClients = await getClients();
-    res.json(allClients);
+    const upsList = await getUps();
+    res.json(upsList);
   } catch (error) {
     next(error);
   }
