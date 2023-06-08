@@ -32,6 +32,10 @@ p span {
   font-weight: bold;
 }
 
+a {
+  text-decoration: none;
+}
+
 .green {
   background-color: greenyellow;
 }

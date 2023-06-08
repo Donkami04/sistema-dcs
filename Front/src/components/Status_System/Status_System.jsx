@@ -21,8 +21,10 @@ export function Status_System({ tableToShow }) {
   const table = () => {
     if (tableToShow === 'dcs') {
       return 'Clientes'
-    } else {
+    } else if(tableToShow === 'sw'){
       return 'Switches'
+    } else if(tableToShow === 'ups'){
+      return "UPS"
     }
   } 
 

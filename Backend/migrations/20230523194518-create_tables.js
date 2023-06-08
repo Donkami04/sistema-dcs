@@ -706,6 +706,10 @@ module.exports = {
         type: Sequelize.STRING(100),
         allowNull: true,
       },
+      id_ups: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
     });
 
     await queryInterface.createTable('fechas_consultas_ups', {

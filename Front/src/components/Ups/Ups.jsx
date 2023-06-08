@@ -25,7 +25,7 @@ export function Ups({title}) {
   return (
     <>
       <Navbar title={title}/>
-      <UpsDashboard />
+      <UpsDashboard allUps={allUps} />
         <div className='ups-cards-container'>
           {allUps.map((ups) => (
             <UpsCard key={ups.id} ups={ups} />

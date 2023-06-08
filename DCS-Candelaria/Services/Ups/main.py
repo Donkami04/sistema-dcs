@@ -29,7 +29,6 @@ def ups():
             row_dict[column_names[i]] = row[i]
         upsList.append(row_dict)
 
-    # try:
     load_dotenv()
     try:
         for ups in upsList:
@@ -54,10 +53,20 @@ def ups():
                     if 'Output Status' in sensor['sensor']:
                         status_sensor = sensor['lastvalue_raw']
                         status_sensor = int(status_sensor)
-                        batery = 1 #! Pendiente definir parametro en url
-                        switch = '10.10.10.10' #! Pendiente definir parametro en url
-                        cursor.execute(f"INSERT INTO dcs.ups (ip, name, status_prtg, batery, switch) VALUES ('{ip}', '{name}', {status_sensor}, {batery}, '{switch}')")
-                        mydb.commit()
+                        print(sensor)
+                        switch = sensor['device']
+                        switch = switch.replace("-APC", "")
+                        
+                batery = 'Not Found'        
+                for sensor in sensors:
+                    if 'Cambio Bateria' in sensor['sensor']:
+                        batery = sensor['lastvalue_raw']
+                        batery = int(batery)
+                        
+                
+                        
+                cursor.execute(f"INSERT INTO dcs.ups (ip, name, status_prtg, batery, switch, id_ups) VALUES ('{ip}', '{name}', {status_sensor}, {batery}, '{switch}', '{id_ups}')")
+                mydb.commit()
                         
         now = datetime.datetime.now()
         fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
@@ -72,7 +81,7 @@ def ups():
         cursor.execute(f"INSERT INTO fechas_consultas_ups (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'ERROR')")
         mydb.commit()
         
-        with open("/home/donkami/Sona/APIS/DCS-Candelaria/Services/Ups/logs.txt", "a") as archivo:
+        with open("/home/donkami/Sona/Sistema-DCS/DCS-Candelaria/Services/Ups/logs.txt", "a") as archivo:
         # with open("/app/logs.txt", "a") as archivo:
             archivo.write('Fecha y hora del error: ' + str(fecha_y_hora) + ' Dispositivo del error ---> ' + str(ip) + '\n')
             archivo.write(traceback.format_exc())

@@ -5,7 +5,6 @@ import { Button } from "../Button/Button";
 import { Dashboard } from "../Dashboard/Dashboard";
 import { TableClients } from "../TableClients/TableClients";
 import { Hamburmenu } from "../Hamburmenu/Hamburmenu";
-// import { AsideMenu } from "../AsideMenu/AsideMenu";
 
 export function Dcs(props) {
   const buttonTag = "Switches";
