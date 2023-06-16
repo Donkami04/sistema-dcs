@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const ENVIRONMENT = process.env.ENVIRONMENT || "local";
+const ENVIRONMENT = import.meta.env.VITE_ENVIRONMENT;
 let envi;
 
 if (ENVIRONMENT === "local") {

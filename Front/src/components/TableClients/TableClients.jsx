@@ -98,7 +98,7 @@ export function TableClients() {
       </div>
     );
   };
-console.log(clients)
+  
   return (
     <div className="table-container">
       <input

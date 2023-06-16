@@ -78,5 +78,4 @@ services:
     ports:
       - '4000:80'
     restart: always
-    environment:
-      - ENVIRONMENT=development
+    # environment: Este se define en el archivo .env
