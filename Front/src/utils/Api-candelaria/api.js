@@ -1,9 +1,19 @@
 import axios from "axios";
 
-// const BASE_API_URL = "http://10.224.116.78:3000/api/v1/candelaria";
-const BASE_API_URL = "http://localhost:3000/api/v1/candelaria"; //! Local
+const ENVIRONMENT = process.env.REACT_APP_ENVIRONMENT || "local";
+let envi;
 
-// Url para redirigir a PRTG y CISCO
+if (ENVIRONMENT === "local") {
+  envi = "local";
+} else if (ENVIRONMENT === "development") {
+  envi = "10.224.116.78";
+} else if (ENVIRONMENT === "production") {
+  envi = "10.224.116.14";
+}
+
+const BASE_API_URL = `http://${envi}:3000/api/v1/candelaria`;
+
+// Url para redirigir a PRTG y CISCO desde la tabla
 export const PRTG_URL = 'https://10.224.241.25/device.htm?id='
 export const CISCO_URL = 'https://10.224.241.14/webacs/loginAction.do?action=login&product=wcs&selectedCategory=en#pageId=full_search_pageId&query='
 
