@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const ENVIRONMENT = process.env.REACT_APP_ENVIRONMENT || "local";
+const ENVIRONMENT = process.env.ENVIRONMENT || "local";
 let envi;
 
 if (ENVIRONMENT === "local") {
