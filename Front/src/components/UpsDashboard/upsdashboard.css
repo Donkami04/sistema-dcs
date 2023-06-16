@@ -6,18 +6,43 @@
 }
 
 .main-section {
-  margin: auto;
+  width: 25rem;
+  height: 10rem;
+  padding-top: 20px;
+  width: 30rem;
+  height: 10rem;
+  border: 3px solid black;
+  border-radius: 15px;
+  margin: 0.6rem;
   text-align: center;
   justify-content: center;
   align-items: center;
 }
 
-.section-dash-ups {
-  height: 11rem;
-}
-
 .ups-table td{
   font-size: 1rem;
+}
+
+.light-indicator {
+  border: black solid 1px;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  margin-bottom: 5px ;
+  margin-left: 0;
+  position: absolute;
+}
+
+.green-light {
+  background-color: rgb(148, 247, 0);
+}
+
+.yellow-light {
+  background-color: yellow;
+}
+
+.red-light {
+  background-color: red;
 }
 
 @media (max-width: 530px) {

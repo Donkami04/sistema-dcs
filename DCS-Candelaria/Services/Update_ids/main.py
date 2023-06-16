@@ -1,17 +1,32 @@
 import warnings, requests, os, time, traceback, datetime, sched
 import mysql.connector
 from dotenv import load_dotenv
+from config import database
 
 # Esto evita que las respuestas de las API tengan warnings.
 warnings.filterwarnings('ignore', message='Unverified HTTPS request')
 
 def update_clients():
-    mydb = mysql.connector.connect(
-    host="db", #! Cambiar a 'db' o logica para cambiar dependiendo
-    user="candelaria",
-    password="candelaria",
-    database="dcs"
-    )
+
+    load_dotenv()
+    env = os.getenv('ENVIRONMENT')
+    
+    if env == 'local':
+        mydb = mysql.connector.connect(
+        host=database['local']['DB_HOST'],
+        user=database['local']['DB_USER'],
+        password=database['local']['DB_PASSWORD'],
+        database=database['local']['DB_DATABASE']
+        )
+        
+    if env == 'production':
+        mydb = mysql.connector.connect(
+        host=database['production']['DB_HOST'],
+        user=database['production']['DB_USER'],
+        password=database['production']['DB_PASSWORD'],
+        database=database['production']['DB_DATABASE']
+        )
+        
     cursor = mydb.cursor()
 
     # Realizar una consulta para leer información de la base de datos
@@ -29,9 +44,7 @@ def update_clients():
             row_dict[column_names[i]] = row[i]
         clients.append(row_dict)
 
-    try:
-        load_dotenv()
-        
+    try:        
         for element in clients:
             ip = element['ip']
             print(ip)

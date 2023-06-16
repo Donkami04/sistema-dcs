@@ -677,6 +677,10 @@ module.exports = {
         type: Sequelize.STRING(100),
         allowNull: true,
       },
+      ubication: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      }
     });
 
     await queryInterface.createTable('ups', {
@@ -707,6 +711,14 @@ module.exports = {
         allowNull: true,
       },
       id_ups: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      uptime: {
+        type: Sequelize.DOUBLE,
+        allowNull: true,
+      },
+      ubication: {
         type: Sequelize.STRING(100),
         allowNull: true,
       },

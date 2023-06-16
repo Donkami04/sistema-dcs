@@ -7,7 +7,11 @@ const DataUps= sequelize.define(
     ip: {
       type: DataTypes.STRING(100),
       allowNull: true,
-    }
+    },
+    ubication: {
+      type: DataTypes.STRING(100),
+      allowNull: true,
+    },
   },
   {
     tableName: "data_ups",

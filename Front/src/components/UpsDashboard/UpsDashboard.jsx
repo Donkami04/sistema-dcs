@@ -34,25 +34,23 @@ export function UpsDashboard({ allUps }) {
       <Status_System tableToShow={tableToShow} />
       <div className="ups-section">
         <main className="main-section">
-          <SectionDash>
             <h2>Estados</h2>
             <table className="kpi-table ups-table">
               <tbody>
                 <tr>
-                  <td>En línea</td>
+                  <td><p className="light-indicator green-light"></p>En línea</td>
                   <td>{enLineaCount}</td>
                 </tr>
                 <tr>
-                  <td>Usando batería</td>
+                  <td><p className="light-indicator yellow-light"></p>Usando batería</td>
                   <td>{usandoBateriaCount}</td>
                 </tr>
                 <tr>
-                  <td>Otro</td>
+                  <td><p className="light-indicator red-light"></p>Otro</td>
                   <td>{otroCount}</td>
                 </tr>
               </tbody>
             </table>
-          </SectionDash>
         </main>
       </div>
     </>

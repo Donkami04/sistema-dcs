@@ -27,7 +27,15 @@ const Ups= sequelize.define(
     id_ups: {
       type: DataTypes.STRING(100),
       allowNull: true,
-    }
+    },
+    uptime: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    ubication: {
+      type: DataTypes.STRING(100),
+      allowNull: true,
+    },
   },
   {
     tableName: "ups",

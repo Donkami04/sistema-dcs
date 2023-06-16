@@ -24,8 +24,8 @@
   width: 17px;
   height: 17px;
   border-radius: 100%;
-  /* margin: auto; */
-  margin-bottom: 10px ;
+  margin-bottom: 5px ;
+  margin-left: 0;
 }
 
 p span {
@@ -37,7 +37,7 @@ a {
 }
 
 .green {
-  background-color: greenyellow;
+  background-color: rgb(148, 247, 0);
 }
 .red {
   background-color: red;

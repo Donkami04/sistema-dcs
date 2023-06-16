@@ -16,7 +16,7 @@ function App() {
         <Route path="concentradora/dcs/home" element={<Home />} />
         <Route path="concentradora/dcs/clients" element={<Dcs title={titleDCS}/>} />
         <Route path="concentradora/dcs/switches" element={<Switches title={titleDCS}/>} />
-        <Route path="concentradora/dcs/ups" element={<Ups title={titleUps} />} />
+        <Route path="concentradora/dcs/ups" element={<Ups title={titleDCS} />} />
       </Routes>
     </div>
   );

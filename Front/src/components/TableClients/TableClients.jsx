@@ -53,7 +53,7 @@ export function TableClients() {
     }
 
     return filteredSearchClients.map((client) => (
-      <tr key={client.ip}>
+      <tr key={client.ip+client.id}>
         <td>{client.name} {client.group}</td>
         <td>{client.description}</td>
         <td>{client.ip}</td>
@@ -98,7 +98,7 @@ export function TableClients() {
       </div>
     );
   };
-
+console.log(clients)
   return (
     <div className="table-container">
       <input

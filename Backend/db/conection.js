@@ -1,26 +1,26 @@
-  const { Sequelize } = require("sequelize");
-  const config = require("../config/config");
-  const env = "development";
-  const dbConfig = config[env];
+require('dotenv').config();
+const { Sequelize } = require("sequelize");
+const config = require("../config/config");
 
-  const sequelize = new Sequelize(
-    dbConfig.database,
-    dbConfig.username,
-    dbConfig.password,
-    {
-      host: dbConfig.host,
-      dialect: dbConfig.dialect,
-      logging: false,
-    },
-  );
+const environment = process.env.NODE_ENV || 'local';
+const dbConfig = config[environment];
+
+const sequelize = new Sequelize(
+  dbConfig.database,
+  dbConfig.username,
+  dbConfig.password,
+  {
+    host: dbConfig.host,
+    dialect: dbConfig.dialect,
+    logging: false,
+  }
+);
 
 // Función para verificar la conexión a la base de datos
 async function checkDatabaseConnection() {
   try {
     await sequelize.authenticate();
-    console.log(
-      "La conexión a la base de datos se ha establecido correctamente."
-    );
+    console.log("La conexión a la base de datos se ha establecido correctamente.");
   } catch (error) {
     console.error("No se pudo conectar a la base de datos:", error);
   }

@@ -24,13 +24,10 @@ export function UpsCard({ ups }) {
         <p className={statusClassName}></p>
         <p><span>IP UPS: </span><a href={`https://10.224.241.25/device.htm?id=${ups.id_ups}&tabid=1`} target='blank' >{ups.ip}</a></p>
         <p><span>Nombre: </span>{ups.name}</p>
-        <p>
-          <span>Estado PRTG: </span>
-          {statusText}
-        </p>
-        <p><span>Switch: </span>{ups.switch}</p>
+        <p><span>Estado: </span>{statusText}</p>
         <p><span>Ubicación: </span>Pendiente</p>
+        <p><span>Uptime: </span>{ups.uptime}%</p>
       </div>
     </div>
-  );
+  );  
 }

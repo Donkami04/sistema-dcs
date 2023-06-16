@@ -1,17 +1,32 @@
 import warnings, requests, os, time, traceback, re, sched, datetime
 import mysql.connector
 from dotenv import load_dotenv
+from config import database
 
 # Esto evita que las respuestas de las API tengan warnings.
 warnings.filterwarnings('ignore', message='Unverified HTTPS request')
 
 def switches():
-    mydb = mysql.connector.connect(
-    host="db", #! Cambiar a 'db' o logica para cambiar dependiendo
-    user="candelaria",
-    password="candelaria",
-    database="dcs"
-    )
+    
+    load_dotenv()
+    env = os.getenv('ENVIRONMENT')
+    
+    if env == 'local':
+        mydb = mysql.connector.connect(
+        host=database['local']['DB_HOST'],
+        user=database['local']['DB_USER'],
+        password=database['local']['DB_PASSWORD'],
+        database=database['local']['DB_DATABASE']
+        )
+        
+    if env == 'production':
+        mydb = mysql.connector.connect(
+        host=database['production']['DB_HOST'],
+        user=database['production']['DB_USER'],
+        password=database['production']['DB_PASSWORD'],
+        database=database['production']['DB_DATABASE']
+        )
+        
     cursor = mydb.cursor()
 
     # Realizar una consulta para leer información de la base de datos

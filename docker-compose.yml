@@ -32,32 +32,49 @@ services:
     restart: always
     depends_on:
       - db
-
-  # concentradora_update_ids:
-  #   build:
-  #     context: DCS-Candelaria/Services/Update_ids
-  #   restart: always
-  #   depends_on:
-  #     - db
-
+    environment:
+      - ENVIRONMENT=production
+      
+  concentradora_update_ids:
+    build:
+      context: DCS-Candelaria/Services/Update_ids
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - ENVIRONMENT=production
+      
   concentradora_clients:
     build:
       context: DCS-Candelaria/Services/Clientes
     restart: always
     depends_on:
       - db
-
-  # concentradora-api-rest:
-  #   build:
-  #     context: Backend
-  #   ports:
-  #     - '3000:3000'
-  #   restart: always
-  #   command: sh -c "npx sequelize-cli db:migrate && npm test && node index.js"
-
-  # concentradora-frontend:
-  #   build:
-  #     context: Front
-  #   ports:
-  #     - '4000:80'
-  #   restart: always
+    environment:
+      - ENVIRONMENT=production
+      
+  concentradora_ups:
+    build:
+      context: DCS-Candelaria/Services/Ups
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - ENVIRONMENT=production
+    
+  concentradora-api-rest:
+    build:
+      context: Backend
+    ports:
+      - '3000:3000'
+    restart: always
+    environment:
+      - NODE_ENV=production
+    command: sh -c "npx sequelize-cli db:migrate && node index.js"
+      
+  concentradora-frontend:
+    build:
+      context: Front
+    ports:
+      - '4000:80'
+    restart: always

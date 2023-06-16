@@ -1,17 +1,31 @@
 import warnings, requests, os, time, traceback, datetime, sched, re
 import mysql.connector
 from dotenv import load_dotenv
+from config import database
 
 # Esto evita que las respuestas de las API tengan warnings.
 warnings.filterwarnings('ignore', message='Unverified HTTPS request')
 
 def clients():
-    mydb = mysql.connector.connect(
-    host="db", #! Cambiar a 'db' o logica para cambiar dependiendo
-    user="candelaria",
-    password="candelaria",
-    database="dcs"
-    )
+    load_dotenv()
+    env = os.getenv('ENVIRONMENT')
+    
+    if env == 'local':
+        mydb = mysql.connector.connect(
+        host=database['local']['DB_HOST'],
+        user=database['local']['DB_USER'],
+        password=database['local']['DB_PASSWORD'],
+        database=database['local']['DB_DATABASE']
+        )
+        
+    if env == 'production':
+        mydb = mysql.connector.connect(
+        host=database['production']['DB_HOST'],
+        user=database['production']['DB_USER'],
+        password=database['production']['DB_PASSWORD'],
+        database=database['production']['DB_DATABASE']
+        )
+        
     cursor = mydb.cursor()
 
     # Realizar una consulta para leer información de la base de datos
@@ -41,7 +55,6 @@ def clients():
             importancia = element['importancia']
             id_device_prtg = element['id_prtg']
             cisco_id_client = element['id_cisco']
-            print(f'{ip} --> {name}')
             
             # Inicia bloque para consultar datos a la API PRTG
             # Si no hay ID se definen las variables como Not Found y no hace peticion GET
@@ -122,7 +135,6 @@ def clients():
         cursor.execute(f"INSERT INTO dcs.fechas_consultas_clientes (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'OK')")
         mydb.commit()
         
-        # with open("/home/donkami/Sona/APIS/DCS-Candelaria/Services/Clientes/logs.txt", "a") as archivo:
         with open("/app/logs.txt", "a") as archivo:
             archivo.write(str(fecha_y_hora) + '\n')
                 
@@ -135,7 +147,7 @@ def clients():
         fecha_y_hora = str(fecha_y_hora)
         cursor.execute(f"INSERT INTO dcs.fechas_consultas_clientes (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'ERROR')")
         mydb.commit()
-        # with open("/home/donkami/Sona/APIS/DCS-Candelaria/Services/Clientes/logs.txt", "a") as archivo:
+        
         with open("/app/logs.txt", "a") as archivo:
             archivo.write('Fecha y hora del error: ' + str(fecha_y_hora) + ' Dispositivo del error ---> ' + ip + '\n')
             archivo.write(traceback.format_exc())

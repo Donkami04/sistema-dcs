@@ -6,6 +6,9 @@ WORKDIR /app
 
 COPY . .
 
-RUN pip install -r requirements.services.txt
+RUN apk update && \
+    apk upgrade && \
+    pip install --upgrade pip && \
+    pip install -r requirements.services.txt
 
 CMD ["python", "main.py"]
