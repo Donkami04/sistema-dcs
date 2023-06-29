@@ -4,6 +4,7 @@ const switchesRoutes = require("./switches.routes");
 const statusRoutes = require("./status_system.routes");
 const indicatorsRoutes = require("./indicators.routes");
 const upsRoutes = require("./ups.routes");
+const vpnRoutes = require("./vpn.routes");
 const router = express.Router();
 
 const allRoutes = (app) => {
@@ -13,6 +14,7 @@ const allRoutes = (app) => {
   router.use("/status", statusRoutes);
   router.use("/indicators", indicatorsRoutes);
   router.use("/ups", upsRoutes);
+  router.use("/vpn", vpnRoutes);
 };
 
 module.exports = { allRoutes };

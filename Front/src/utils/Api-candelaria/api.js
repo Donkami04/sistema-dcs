@@ -4,7 +4,7 @@ const ENVIRONMENT = import.meta.env.VITE_ENVIRONMENT;
 let envi;
 
 if (ENVIRONMENT === "local") {
-  envi = "local";
+  envi = "localhost";
 } else if (ENVIRONMENT === "development") {
   envi = "10.224.116.78";
 } else if (ENVIRONMENT === "production") {
@@ -48,6 +48,13 @@ export const getSwitches = async () => {
 export const getUps = async () => {
   return axios
     .get(`${BASE_API_URL}/ups`)
+    .then((response) => response.data)
+    .catch((error) => console.error('Error del API REST Candealaria : ',error));
+};
+
+export const getVpn = async () => {
+  return axios
+    .get(`${BASE_API_URL}/vpn`)
     .then((response) => response.data)
     .catch((error) => console.error('Error del API REST Candealaria : ',error));
 };

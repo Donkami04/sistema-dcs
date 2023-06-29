@@ -3,11 +3,12 @@ import {Home} from "./components/Home/Home";
 import {Dcs} from "./components/Dcs/Dcs";
 import {Switches} from "./components/Dcs-switches/DcsSwitches";
 import {Ups} from "./components/Ups/Ups";
+import { Vpn } from "./components/Vpn/Vpn"
 import "./app.css";
 
 function App() {
   const titleDCS = 'Concentradora';
-  const titleUps = 'Monitoreo UPS';
+  const titleVpn = 'Monitoreo VPN';
   const titleHome = 'Sistema de monitoreo';
 
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="concentradora/dcs/clients" element={<Dcs title={titleDCS}/>} />
         <Route path="concentradora/dcs/switches" element={<Switches title={titleDCS}/>} />
         <Route path="concentradora/dcs/ups" element={<Ups title={titleDCS} />} />
+        <Route path="candelaria/vpn" element={<Vpn title={titleVpn}/>} />
       </Routes>
     </div>
   );

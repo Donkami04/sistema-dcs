@@ -7,9 +7,6 @@ export function Home() {
     <>
       <Navbar />
       <Planta />
-      <Planta />
-      <Planta />
-      <Planta />
     </>
   );
 }

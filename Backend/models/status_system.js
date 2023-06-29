@@ -27,4 +27,9 @@ const StatusUps = sequelize.define("StatusUps", columns, {
   timestamps: false,
 });
 
-module.exports = { StatusClients, StatusSwitches, StatusUps };
+const StatusVpn = sequelize.define("StatusVpn", columns, {
+  tableName: "fechas_consultas_vpn",
+  timestamps: false,
+});
+
+module.exports = { StatusClients, StatusSwitches, StatusUps, StatusVpn };

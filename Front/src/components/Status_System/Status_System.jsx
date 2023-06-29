@@ -25,6 +25,8 @@ export function Status_System({ tableToShow }) {
       return 'Switches'
     } else if(tableToShow === 'ups'){
       return "UPS"
+    } else if(tableToShow === 'vpn'){
+      return "VPN"
     }
   } 
 
