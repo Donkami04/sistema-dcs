@@ -6,7 +6,7 @@ import {Ups} from "./components/Ups/Ups";
 import "./app.css";
 
 function App() {
-  const titleDCS = 'Concentradora';
+  const titleDCS = 'Desaladora';
   const titleUps = 'Monitoreo UPS';
   const titleHome = 'Sistema de monitoreo';
 

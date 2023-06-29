@@ -6,7 +6,7 @@ database = {
         "DB_DATABASE": "dcs"
     },
     "production": {
-        "DB_HOST": "db",
+        "DB_HOST": "db-desaladora",
         "DB_USER": "candelaria",
         "DB_PASSWORD": "candelaria",
         "DB_DATABASE": "dcs"

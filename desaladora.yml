@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  db:
+  db-desaladora:
     image: mysql:latest
     restart: always
     environment:
@@ -10,37 +10,37 @@ services:
       MYSQL_USER: candelaria
       MYSQL_PASSWORD: candelaria
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
-      - ./database:/var/lib/mysql
+      - ./database-desaladora:/var/lib/mysql
 
-  phpmyadmin:
+  phpmyadmin-desaladora:
     image: phpmyadmin/phpmyadmin
     restart: always
     environment:
-      PMA_HOST: db
+      PMA_HOST: db-desaladora
       PMA_PORT: 3306
       MYSQL_ROOT_PASSWORD: candelaria
     ports:
-      - "8080:80"
+      - "8081:80"
     depends_on:
-      - db
+      - db-desaladora
 
-  concentradora_switches:
+  desaladora_switches:
     build:
       context: DCS-Candelaria/Services/Switches
     restart: always
     depends_on:
-      - db
+      - db-desaladora
     environment:
       - ENVIRONMENT=production
       
-  concentradora_update_ids:
+  desaladora-update_ids:
     build:
       context: DCS-Candelaria/Services/Update_ids
     restart: always
     depends_on:
-      - db
+      - db-desaladora
     environment:
       - ENVIRONMENT=production
       
@@ -49,7 +49,7 @@ services:
       context: DCS-Candelaria/Services/Clientes
     restart: always
     depends_on:
-      - db
+      - db-desaladora
     environment:
       - ENVIRONMENT=production
       
@@ -58,7 +58,7 @@ services:
       context: DCS-Candelaria/Services/Ups
     restart: always
     depends_on:
-      - db
+      - db-desaladora
     environment:
       - ENVIRONMENT=production
     
@@ -66,16 +66,16 @@ services:
     build:
       context: Backend
     ports:
-      - '3000:3000'
+      - '3001:3001'
     restart: always
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=development
     command: sh -c "npx sequelize-cli db:migrate && node index.js"
       
   concentradora-frontend:
     build:
       context: Front
     ports:
-      - '4000:80'
+      - '4001:80'
     restart: always
     # environment: Este se define en el archivo .env

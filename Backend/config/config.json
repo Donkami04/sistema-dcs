@@ -8,7 +8,14 @@
   },
   "production": {
     "dialect": "mysql",
-    "host": "db",
+    "host": "db-desaladora",
+    "username": "candelaria",
+    "password": "candelaria",
+    "database": "dcs"
+  },
+  "development": {
+    "dialect": "mysql",
+    "host": "db-desaladora",
     "username": "candelaria",
     "password": "candelaria",
     "database": "dcs"

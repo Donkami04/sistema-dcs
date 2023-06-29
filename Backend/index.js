@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 3001;
 const cors = require('cors');
 const {allRoutes} = require('./routes/index.routes');
 const { logErrors, errorHandler, ormErrorHandler } = require('./middlewares/error.handler');
@@ -12,6 +12,7 @@ app.use(cors({
   'http://localhost:4000',
   'http://10.224.116.78:4000',
   'http://10.224.116.14:4000',
+'http://10.224.116.78:4001'
 ],
   methods: ['GET'],
   allowedHeaders: ['Content-Type', 'Authorization']
