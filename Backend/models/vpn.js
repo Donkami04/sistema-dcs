@@ -17,6 +17,10 @@ const columns = {
   duration: {
     type: DataTypes.INTEGER,
     allowNull: true,
+  },
+  datetime: {
+    type: DataTypes.STRING(100),
+    allowNull: true,
   }
 };
 

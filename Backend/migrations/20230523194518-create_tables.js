@@ -666,6 +666,23 @@ module.exports = {
       },
     });
 
+    await queryInterface.createTable('fechas_consultas_vpn', {
+      id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      ultima_consulta: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      estado: {
+        type: Sequelize.STRING(20),
+        allowNull: true,
+      },
+    });
+
     await queryInterface.createTable('data_ups', {
       id: {
         type: Sequelize.INTEGER,
@@ -740,6 +757,111 @@ module.exports = {
         allowNull: true,
       },
     });
+
+    await queryInterface.createTable('vpn_1', {
+      id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      email: {
+        type: Sequelize.STRING(225),
+        allowNull: true,
+      },
+      ip_lan: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      ip_origin: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      duration: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+      },
+      datetime: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      }
+    });
+    
+    await queryInterface.createTable('vpn_2', {
+      id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      email: {
+        type: Sequelize.STRING(225),
+        allowNull: true,
+      },
+      ip_lan: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      ip_origin: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      duration: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+      },
+      datetime: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      }
+    });
+
+    await queryInterface.createTable('vpn_3', {
+      id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      email: {
+        type: Sequelize.STRING(225),
+        allowNull: true,
+      },
+      ip_lan: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      ip_origin: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      duration: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+      },
+      datetime: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      }
+    });
+
+    await queryInterface.createTable('vpn_number_users', {
+      id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      vpn: {
+        type: Sequelize.STRING(10),
+        allowNull: true,
+      },
+      num_users: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+      },
+    });
+
   },
 
   down: async (queryInterface, Sequelize) => {
@@ -755,8 +877,13 @@ module.exports = {
     await queryInterface.dropTable('data_clients');
     await queryInterface.dropTable('fechas_consultas_switches');
     await queryInterface.dropTable('fechas_consultas_clientes');
+    await queryInterface.dropTable('fechas_consultas_ups');
+    await queryInterface.dropTable('fechas_consultas_vpn');
     await queryInterface.dropTable('data_ups');
     await queryInterface.dropTable('ups');
-    await queryInterface.dropTable('fechas_consultas_ups');
+    await queryInterface.dropTable('vpn_1');
+    await queryInterface.dropTable('vpn_2');
+    await queryInterface.dropTable('vpn_3');
+    await queryInterface.dropTable('vpn_number_users');
   },
 };
