@@ -12,10 +12,6 @@ if (ENVIRONMENT === "local") {
   envi = "10.224.116.14";
 }
 
-
-const BASE_API_URL = `http://${envi}:3000/api/v1/candelaria`;
-console.log(BASE_API_URL)
-
 export function Navbar(props) {
   return (
     <nav className="navbar">
