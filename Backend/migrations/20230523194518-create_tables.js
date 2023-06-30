@@ -723,10 +723,6 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
-      switch: {
-        type: Sequelize.STRING(100),
-        allowNull: true,
-      },
       id_ups: {
         type: Sequelize.STRING(100),
         allowNull: true,

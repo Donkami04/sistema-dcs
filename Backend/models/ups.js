@@ -20,10 +20,6 @@ const Ups= sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: true,
     },
-    switch: {
-      type: DataTypes.STRING(100),
-      allowNull: true,
-    },
     id_ups: {
       type: DataTypes.STRING(100),
       allowNull: true,

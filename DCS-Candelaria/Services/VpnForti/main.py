@@ -113,7 +113,7 @@ def bucle(scheduler):
     get_users_list("10.224.126.89", "vpn_1")
     get_users_list("10.224.126.93", "vpn_2")
     get_users_list("10.224.126.97", "vpn_3")
-    scheduler.enter(10, 1, bucle, (scheduler,))
+    scheduler.enter(300, 1, bucle, (scheduler,))
 
 if __name__ == '__main__':
     s = sched.scheduler(time.time, time.sleep)
