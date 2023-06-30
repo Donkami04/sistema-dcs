@@ -31,13 +31,13 @@ else:
 
 cursor = mydb.cursor()
 
-now = datetime.datetime.now()
-fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
-fecha_y_hora = str(fecha_y_hora)
 
 def get_users_data(output):
     try:
-        logging.info('Procesando...')
+        now = datetime.datetime.now()
+        fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
+        fecha_y_hora = str(fecha_y_hora)
+        
         lines = output.splitlines()
         data = []
         for line in lines:
@@ -58,20 +58,24 @@ def get_users_data(output):
         return []
 
 def get_users_list(Hostname, table):
-    USER = os.getenv('NETMIKO_USER')
-    PASSWORD = os.getenv('NETMIKO_PASSWORD')
-    logging.info(f'Corriendo : {table}' )
-
-    network_device_list = {
-        "host": Hostname,
-        "username": USER,
-        "password": PASSWORD,
-        "device_type": "fortinet",
-        "port": 2221,
-        "timeout": 180,
-    }
-
     try:
+        now = datetime.datetime.now()
+        fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
+        fecha_y_hora = str(fecha_y_hora)
+        
+        USER = os.getenv('NETMIKO_USER')
+        PASSWORD = os.getenv('NETMIKO_PASSWORD')
+        logging.info(f'Corriendo : {table}' )
+
+        network_device_list = {
+            "host": Hostname,
+            "username": USER,
+            "password": PASSWORD,
+            "device_type": "fortinet",
+            "port": 2221,
+            "timeout": 180,
+        }
+
         net_connect = ConnectHandler(**network_device_list)
         output = net_connect.send_command("execute vpn sslvpn list tunnel")
         net_connect.disconnect()
