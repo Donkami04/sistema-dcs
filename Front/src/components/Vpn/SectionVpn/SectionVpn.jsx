@@ -3,7 +3,6 @@ import "./sectionVpn.css";
 export function SectionVpn(props) {
   const usersNumber = props && props.usersNumber;
   const usersList = props && props.users;
-  console.log(usersList)
 
   return (
     <section className="section-connected">

@@ -60,7 +60,7 @@ def get_users_data(output):
 def get_users_list(Hostname, table):
     USER = os.getenv('NETMIKO_USER')
     PASSWORD = os.getenv('NETMIKO_PASSWORD')
-    PORT = os.getenv('NETMIKO_PORT')
+    logging.info(f'Corriendo : {table}' )
 
     network_device_list = {
         "host": Hostname,
@@ -94,6 +94,7 @@ def get_users_list(Hostname, table):
         mydb.commit()
 
         if table == 'vpn_3':
+            logging.info("entro al if para guarda fecha")
             cursor.execute(f"INSERT INTO fechas_consultas_vpn (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'OK')")
             mydb.commit()
             
@@ -108,7 +109,7 @@ def bucle(scheduler):
     get_users_list("10.224.126.89", "vpn_1")
     get_users_list("10.224.126.93", "vpn_2")
     get_users_list("10.224.126.97", "vpn_3")
-    scheduler.enter(600, 1, bucle, (scheduler,))
+    scheduler.enter(10, 1, bucle, (scheduler,))
 
 if __name__ == '__main__':
     s = sched.scheduler(time.time, time.sleep)
