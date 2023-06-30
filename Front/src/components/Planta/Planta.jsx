@@ -36,9 +36,9 @@ export function Planta() {
           </ul>
         </div>
         <div className="link-system-container">
-          <p className="link-system button-clients button-link"> <a href="http://localhost:4000/concentradora/dcs/clients" style={{ color: 'white' }}> Clientes</a></p>
-          <p className="link-system button-switches button-link"><a href="http://localhost:4000/concentradora/dcs/switches" style={{ color: 'white' }}> Switches</a></p>
-          <p className="link-system button-ups button-link"><a href="http://localhost:4000/concentradora/dcs/ups" style={{ color: 'white' }}> Ups</a></p>
+          <p className="link-system button-clients button-link"> <a href="http://10.224.116.78:4000/concentradora/dcs/clients" style={{ color: 'white' }}> Clientes</a></p>
+          <p className="link-system button-switches button-link"><a href="http://10.224.116.78:4000/concentradora/dcs/switches" style={{ color: 'white' }}> Switches</a></p>
+          <p className="link-system button-ups button-link"><a href="http://10.224.116.78:4000/concentradora/dcs/ups" style={{ color: 'white' }}> Ups</a></p>
         </div>
       </section>
     </div>
