@@ -865,28 +865,109 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
-      email: {
-        type: Sequelize.STRING(225),
-        allowNull: true,
-      },
-      ip_lan: {
+      ip: {
         type: Sequelize.STRING(100),
         allowNull: true,
       },
-      ip_origin: {
+      device: {
         type: Sequelize.STRING(100),
         allowNull: true,
       },
-      duration: {
+      eqmt: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+    });
+
+    await queryInterface.createTable('fechas_consultas_mesh', {
+      id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      ultima_consulta: {
+        type: Sequelize.STRING(100),
         allowNull: true,
       },
-      datetime: {
+      estado: {
+        type: Sequelize.STRING(20),
+        allowNull: true,
+      },
+    });
+
+    await queryInterface.createTable('mesh', {
+      id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      ip: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      device: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      ping_avg: {
+        type: Sequelize.STRING(32),
+        allowNull: true,
+      },
+      minimo: {
+        type: Sequelize.STRING(32),
+        allowNull: true,
+      },
+      maximo: {
+        type: Sequelize.STRING(32),
+        allowNull: true,
+      },
+      packet_loss: {
+        type: Sequelize.STRING(32),
+        allowNull: true,
+      },
+      lastvalue: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      lastup: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      lastdown: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      nivel_senal: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      ruido_senal: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      tiempo_conexion: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      conectado_a: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      status_dispatch: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      operador: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      snr: {
         type: Sequelize.STRING(100),
         allowNull: true,
       }
     });
-
   },
 
   down: async (queryInterface, Sequelize) => {
@@ -904,11 +985,14 @@ module.exports = {
     await queryInterface.dropTable('fechas_consultas_clientes');
     await queryInterface.dropTable('fechas_consultas_ups');
     await queryInterface.dropTable('fechas_consultas_vpn');
+    await queryInterface.dropTable('fechas_consultas_mesh');
     await queryInterface.dropTable('data_ups');
     await queryInterface.dropTable('ups');
     await queryInterface.dropTable('vpn_1');
     await queryInterface.dropTable('vpn_2');
     await queryInterface.dropTable('vpn_3');
     await queryInterface.dropTable('vpn_number_users');
+    await queryInterface.dropTable('data_mesh');
+    await queryInterface.dropTable('mesh');
   },
 };

@@ -14,71 +14,71 @@ services:
     volumes:
       - ./database:/var/lib/mysql
 
-  vpn-forti:
-    build:
-      context: DCS-Candelaria/Services/VpnForti
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # vpn-forti:
+  #   build:
+  #     context: DCS-Candelaria/Services/VpnForti
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
 
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    restart: always
-    environment:
-      PMA_HOST: db
-      PMA_PORT: 3306
-      MYSQL_ROOT_PASSWORD: candelaria
-    ports:
-      - "8080:80"
-    depends_on:
-      - db
+  # phpmyadmin:
+  #   image: phpmyadmin/phpmyadmin
+  #   restart: always
+  #   environment:
+  #     PMA_HOST: db
+  #     PMA_PORT: 3306
+  #     MYSQL_ROOT_PASSWORD: candelaria
+  #   ports:
+  #     - "8080:80"
+  #   depends_on:
+  #     - db
 
-  concentradora_switches:
-    build:
-      context: DCS-Candelaria/Services/Switches
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # concentradora_switches:
+  #   build:
+  #     context: DCS-Candelaria/Services/Switches
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
       
-  candelaria_update_ids:
-    build:
-      context: DCS-Candelaria/Services/Update_ids
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # candelaria_update_ids:
+  #   build:
+  #     context: DCS-Candelaria/Services/Update_ids
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
       
-  concentradora_clients:
-    build:
-      context: DCS-Candelaria/Services/Clientes
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # concentradora_clients:
+  #   build:
+  #     context: DCS-Candelaria/Services/Clientes
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
       
-  candelaria_ups:
-    build:
-      context: DCS-Candelaria/Services/Ups
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # candelaria_ups:
+  #   build:
+  #     context: DCS-Candelaria/Services/Ups
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
       
-  candelaria_mesh:
-    build:
-      context: DCS-Candelaria/Services/Mesh
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # candelaria_mesh:
+  #   build:
+  #     context: DCS-Candelaria/Services/Mesh
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
     
   candelaria-api-rest:
     build:
@@ -90,10 +90,10 @@ services:
       - NODE_ENV=production
     command: sh -c "npx sequelize-cli db:migrate && node index.js"
       
-  candelaria-frontend:
-    build:
-      context: Front
-    ports:
-      - '4000:80'
-    restart: always
+  # candelaria-frontend:
+  #   build:
+  #     context: Front
+  #   ports:
+  #     - '4000:80'
+  #   restart: always
     # environment: Este se define en el archivo .env
