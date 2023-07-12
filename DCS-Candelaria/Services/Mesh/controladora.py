@@ -1,5 +1,6 @@
-import re, logging,traceback
+import re, logging,traceback, os
 from netmiko import ConnectHandler
+from dotenv import load_dotenv
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s: %(message)s')
 
@@ -10,9 +11,15 @@ logging.getLogger().addHandler(file_handler)
 
 
 def get_data_controladora(device_ip):
-    UserName = "roadmin"
-    Password = "C4nd3*2023"
-    host = '10.224.125.137' #! Ip controladora
+    
+    load_dotenv()
+    USERNAME = os.getenv('NETMIKO_USERNAME')
+    PASSWORD = os.getenv('NETMIKO_PASSWORD')
+    IP_CONTROLADORA = os.getenv('IP_CONTROLADORA')
+    
+    UserName = USERNAME
+    Password = PASSWORD
+    host = IP_CONTROLADORA #! Ip controladora
 
     network_device_list = {
         "host": host,

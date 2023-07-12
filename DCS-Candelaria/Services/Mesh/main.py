@@ -29,7 +29,7 @@ def prtg_data():
         database=database['local']['DB_DATABASE']
         )
         
-    if env == 'production':
+    else:
         mydb = mysql.connector.connect(
         host=database['production']['DB_HOST'],
         user=database['production']['DB_USER'],
@@ -132,7 +132,7 @@ def prtg_data():
 
 def bucle(scheduler):
     prtg_data()
-    scheduler.enter(15, 1, bucle, (scheduler,))
+    scheduler.enter(300, 1, bucle, (scheduler,))
 
 if __name__ == '__main__':
     s = sched.scheduler(time.time, time.sleep)
