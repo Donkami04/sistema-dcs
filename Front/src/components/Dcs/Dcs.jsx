@@ -5,6 +5,7 @@ import { Button } from "../Button/Button";
 import { Dashboard } from "../Dashboard/Dashboard";
 import { TableClients } from "../TableClients/TableClients";
 import { Hamburmenu } from "../Hamburmenu/Hamburmenu";
+import { Helmet } from 'react-helmet';
 
 export function Dcs(props) {
   const buttonTag = "Switches";
@@ -13,6 +14,9 @@ export function Dcs(props) {
 
   return (
     <>
+      <Helmet>
+        <title>Clientes</title>
+      </Helmet>
       <Navbar title={props.title} />
       <Status_System tableToShow={clientsTable} />
       <Button buttonTag={buttonTag} urlRedirect={urlRedirect} />

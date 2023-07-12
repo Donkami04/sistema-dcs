@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import "./navbar.css";
 
 const ENVIRONMENT = import.meta.env.VITE_ENVIRONMENT;
@@ -12,16 +13,31 @@ if (ENVIRONMENT === "local") {
   envi = "10.224.116.14";
 }
 
+// export function Navbar(props) {
+//   return (
+//     <nav className="navbar">
+//       <div className="logo">
+//         <a href="http://10.224.116.78:4000/concentradora/dcs/home">
+//           <img src="/candelaria.png" alt="Logo" />
+//         </a>
+//       </div>
+//         <p className="home-link" ><a href="http://10.224.116.78:4000/concentradora/dcs/home" style={{color:"white"}}>Home</a></p>
+//       <h1 className="main-title">{props.title}</h1>
+//     </nav>
+//   );
+// }
+
 export function Navbar(props) {
   return (
     <nav className="navbar">
       <div className="logo">
-        <a href="http://10.224.116.78:4000/concentradora/dcs/home">
+        <Link to="/concentradora/dcs/home">
           <img src="/candelaria.png" alt="Logo" />
-        </a>
+        </Link>
       </div>
-        <p className="home-link" ><a href="http://10.224.116.78:4000/concentradora/dcs/home" style={{color:"white"}}>Home</a></p>
+        <Link to="/concentradora/dcs/home" className="home-link" style={{color:"white"}}>Home</Link>
       <h1 className="main-title">{props.title}</h1>
     </nav>
   );
 }
+

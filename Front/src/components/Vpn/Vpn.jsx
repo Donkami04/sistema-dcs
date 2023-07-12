@@ -3,6 +3,7 @@ import { Navbar } from '../Navbar/Navbar'
 import { SectionVpn } from './SectionVpn/SectionVpn'
 import { getVpn } from "../../utils/Api-candelaria/api"
 import { Status_System } from "../Status_System/Status_System"
+import { Helmet } from 'react-helmet';
 import "./vpn.css"
 
 export function Vpn({title}) {
@@ -18,9 +19,9 @@ export function Vpn({title}) {
         setVpn1Users(vpnData.vpn_1);
         setVpn2Users(vpnData.vpn_2);
         setVpn3Users(vpnData.vpn_3);
-
+        console.log(vpn1Users)
       } catch (error) {
-        console.error("Error al obtener el listado de Ups:", error);
+        console.error("Error al obtener el listado de Usuarios VPN:", error);
         return error;
       }
     };
@@ -29,6 +30,9 @@ export function Vpn({title}) {
   
   return (
     <div>
+      <Helmet>
+        <title>VPN</title>
+      </Helmet>
       <Navbar title={title} />
       <Status_System tableToShow={tableToShow} />
       <main className='sections-container'>

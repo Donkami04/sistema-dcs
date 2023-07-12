@@ -52,7 +52,8 @@
 
   .main-title {
     position: absolute;
-    left: 11rem;
+    /* left:; */
+    font-size: 2rem;
   }
   .logo{
     display: none;
@@ -64,7 +65,7 @@
     display: none;
   }
   .main-title {
-    font-size: 1.8rem;
-    left: 9rem;
+    font-size: 1.2rem;
+    /* left: 9rem; */
   }
 }

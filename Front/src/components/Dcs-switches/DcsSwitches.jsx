@@ -4,7 +4,7 @@ import { Button } from '../Button/Button';
 import { Dashboard } from '../Dashboard/Dashboard';
 import { TableSwitches } from '../TableSwitches/TableSwitches';
 import { Hamburmenu } from "../Hamburmenu/Hamburmenu";
-
+import { Helmet } from 'react-helmet';
 
 export function Switches(props) {
   const buttonTag = 'Clientes';
@@ -13,6 +13,9 @@ export function Switches(props) {
   
   return (
     <>
+      <Helmet>
+        <title>Switches</title>
+      </Helmet>
       <Navbar title={props.title} />
       <Status_System tableToShow={switchesTable}/>
       <Button buttonTag={buttonTag} urlRedirect={urlRedirect} />

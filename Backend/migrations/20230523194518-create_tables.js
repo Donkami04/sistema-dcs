@@ -858,6 +858,35 @@ module.exports = {
       },
     });
 
+    await queryInterface.createTable('data_mesh', {
+      id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      email: {
+        type: Sequelize.STRING(225),
+        allowNull: true,
+      },
+      ip_lan: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      ip_origin: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
+      duration: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+      },
+      datetime: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      }
+    });
+
   },
 
   down: async (queryInterface, Sequelize) => {

@@ -60,3 +60,10 @@ export const getVpn = async () => {
     .then((response) => response.data)
     .catch((error) => console.error('Error del API REST Candealaria : ',error));
 };
+
+export const getMesh = async () => {
+  return axios
+    .get(`${BASE_API_URL}/mesh`)
+    .then((response) => response.data)
+    .catch((error) => console.error('Error del API REST Candealaria : ',error));
+};

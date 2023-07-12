@@ -139,6 +139,7 @@ def clients():
             archivo.write(str(fecha_y_hora) + '\n')
                 
         print('Terminado')       
+        cursor.close()
                 
     except Exception:
         print(traceback.format_exc())
@@ -147,6 +148,7 @@ def clients():
         fecha_y_hora = str(fecha_y_hora)
         cursor.execute(f"INSERT INTO dcs.fechas_consultas_clientes (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'ERROR')")
         mydb.commit()
+        cursor.close()
         
         with open("/app/logs.txt", "a") as archivo:
             archivo.write('Fecha y hora del error: ' + str(fecha_y_hora) + ' Dispositivo del error ---> ' + ip + '\n')

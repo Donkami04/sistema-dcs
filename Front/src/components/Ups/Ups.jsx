@@ -4,6 +4,7 @@ import {Navbar} from "../Navbar/Navbar"
 import { UpsCard } from '../UpsCard/UpsCard';
 import './ups.css'
 import { UpsDashboard } from '../UpsDashboard/UpsDashboard';
+import { Helmet } from 'react-helmet';
 
 export function Ups({title}) {
   const [allUps, setUps] = useState([])
@@ -24,6 +25,9 @@ export function Ups({title}) {
 
   return (
     <>
+      <Helmet>
+        <title>UPS</title>
+      </Helmet>
       <Navbar title={title}/>
       <UpsDashboard allUps={allUps} />
         <div className='ups-cards-container'>
