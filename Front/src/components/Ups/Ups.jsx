@@ -6,7 +6,7 @@ import './ups.css'
 import { UpsDashboard } from '../UpsDashboard/UpsDashboard';
 import { Helmet } from 'react-helmet';
 
-export function Ups({title}) {
+export function Ups() {
   const [allUps, setUps] = useState([])
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export function Ups({title}) {
       <Helmet>
         <title>UPS</title>
       </Helmet>
-      <Navbar title={title}/>
+      <Navbar title={'Dashboard UPS'}/>
       <UpsDashboard allUps={allUps} />
         <div className='ups-cards-container'>
           {allUps.map((ups) => (
