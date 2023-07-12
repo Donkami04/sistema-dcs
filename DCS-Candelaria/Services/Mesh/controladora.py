@@ -71,7 +71,7 @@ def get_data_controladora(device_ip):
         }
 
         net_connect.disconnect()
-        
+
         return netmiko_data
 
     except Exception as e:
@@ -87,5 +87,3 @@ def get_data_controladora(device_ip):
         }
 
         return netmiko_data
-
-get_data_controladora('10.117.115.122')
