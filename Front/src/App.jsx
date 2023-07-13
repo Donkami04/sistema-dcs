@@ -15,12 +15,12 @@ function App() {
   return (
     <div className="MainContainer">
       <Routes >
-        <Route path="concentradora/dcs/home" element={<Home />} />
-        <Route path="concentradora/dcs/clients" element={<Dcs title={titleDCS}/>} />
-        <Route path="concentradora/dcs/switches" element={<Switches title={titleDCS}/>} />
-        <Route path="concentradora/dcs/ups" element={<Ups />} />
-        <Route path="concentradora/dcs/mesh" element={<Mesh />} />
-        <Route path="candelaria/vpn" element={<Vpn title={titleVpn}/>} />
+        <Route path="monitoreo/home" element={<Home />} />
+        <Route path="monitoreo/candelaria/clients" element={<Dcs title={titleDCS}/>} />
+        <Route path="monitoreo/candelaria/switches" element={<Switches title={titleDCS}/>} />
+        <Route path="monitoreo/ups" element={<Ups />} />
+        <Route path="monitoreo/candelaria/mesh" element={<Mesh />} />
+        <Route path="monitoreo/vpn" element={<Vpn title={titleVpn}/>} />
       </Routes>
     </div>
   );
