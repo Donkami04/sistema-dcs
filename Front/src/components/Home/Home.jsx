@@ -90,8 +90,8 @@ export function Home() {
         </div>
 
         <div className="link-system-container">
-          <Link to="/concentradora/dcs/clients" className="link-system button-clients button-link" style={{ color: 'white' }}>Clientes</Link>
-          <Link to="/concentradora/dcs/switches" className="link-system button-switches button-link" style={{ color: 'white' }}>Switches</Link>
+          <Link to="/monitoreo/candelaria/clients" className="link-system button-clients button-link" style={{ color: 'white' }}>Clientes</Link>
+          <Link to="/monitoreo/candelaria/switches" className="link-system button-switches button-link" style={{ color: 'white' }}>Switches</Link>
         </div>
       </section>
 
@@ -120,7 +120,7 @@ export function Home() {
           </div>
 
           <div className="link-system-container">
-            <Link to="/concentradora/dcs/ups" className="link-system button-ups button-link" style={{ color: 'white' }}>Ver detalles</Link>
+            <Link to="/monitoreo/ups" className="link-system button-ups button-link" style={{ color: 'white' }}>Ver detalles</Link>
           </div>
       </section>
 
@@ -149,7 +149,7 @@ export function Home() {
         </div>
 
           <div className="link-system-container">
-            <Link to="/candelaria/vpn" className="link-system button-vpn button-link" style={{ color: 'white' }}>Ver detalles</Link>
+            <Link to="/monitoreo/vpn" className="link-system button-vpn button-link" style={{ color: 'white' }}>Ver detalles</Link>
           </div>
           
       </section>
@@ -163,7 +163,7 @@ export function Home() {
 
         </div>
         <div className="link-system-container">
-            <Link to="/concentradora/dcs/mesh" className="link-system button-mesh button-link" style={{ color: 'white' }}>Ver detalles</Link>
+            <Link to="/monitoreo/candelaria/mesh" className="link-system button-mesh button-link" style={{ color: 'white' }}>Ver detalles</Link>
         </div>
       </section>
 
