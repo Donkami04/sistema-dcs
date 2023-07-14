@@ -20,7 +20,6 @@ export function Mesh() {
       }
     };
     fetchData();
-    console.log(dataMesh);
   }, []);
 
   return (

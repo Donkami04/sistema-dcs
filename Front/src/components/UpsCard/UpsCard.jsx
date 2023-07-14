@@ -4,13 +4,13 @@ export function UpsCard({ ups }) {
   let statusText = "";
   let statusClassName = "";
 
-  if (ups.status_prtg === 3) {
+  if (ups.status_ups === 3) {
     statusText = "Usando Bateria";
     statusClassName = "status-light yellow";
-  } else if (ups.status_prtg === 2) {
+  } else if (ups.status_ups === 2) {
     statusText = "En linea";
     statusClassName = "status-light green";
-  } else if (ups.status_prtg !== 2 && ups.status_prtg !==  3) {
+  } else if (ups.status_ups !== 2 && ups.status_ups !==  3) {
     statusText = "Otro";
     statusClassName = "status-light red";
   }

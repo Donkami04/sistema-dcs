@@ -20,6 +20,9 @@ def prtg_data():
 
     load_dotenv()
     env = os.getenv('ENVIRONMENT')
+    now = datetime.datetime.now()
+    fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
+    fecha_y_hora = str(fecha_y_hora)
 
     if env == 'local':
         mydb = mysql.connector.connect(
@@ -51,6 +54,8 @@ def prtg_data():
             for i in range(len(column_names)):
                 row_dict[column_names[i]] = row[i]
             devices.append(row_dict)
+        
+        # devices = [{'ip':'10.117.115.181', 'device': 'Pala 19', 'eqmt': 'P19'}]
 
         for device in devices:
             ip_device = device['ip']
@@ -79,7 +84,7 @@ def prtg_data():
             last_down_ping =  re.sub(patron, '', last_down_ping)
 
             edate = datetime.datetime.today()
-            sdate = datetime.datetime.today() - timedelta(days=1)
+            sdate = datetime.datetime.today() - timedelta(minutes=30)
             edate = edate.strftime("%Y-%m-%d-%H-%M-%S")
             sdate = sdate.strftime("%Y-%m-%d-%H-%M-%S")
                     
@@ -87,13 +92,15 @@ def prtg_data():
             try:
                 data_ping = requests.get(URL_GET_DATA_PING, verify=False)
                 data_ping = xmltodict.parse(data_ping.text)
-                data_ping = data_ping["histdata"]['item'][0]['value']
+                print('Esto es la respuesta a la api: ', data_ping)
+                data_ping = data_ping["histdata"]['item']['value']
+                print(f"Toda la info {data_ping}")
                 avg_ping = data_ping[0]['#text']
                 min_ping = data_ping[1]['#text']
                 max_ping = data_ping[2]['#text']
                 packet_loss = data_ping[3]['#text']
                 
-            except Exception:
+            except KeyError:
                 avg_ping = 'Not Found'
                 min_ping = 'Not Found'
                 max_ping = 'Not Found'

@@ -719,6 +719,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
+      status_ups: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+      },
       batery: {
         type: Sequelize.INTEGER,
         allowNull: true,

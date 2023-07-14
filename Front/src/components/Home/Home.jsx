@@ -27,10 +27,11 @@ export function Home() {
         const vpnData = await getVpn();
         
         setIndicators(allIndicators);
-        allUps.forEach((ups) => {
-        if (ups.status_prtg === 2) {
+
+        allUps && allUps.forEach((ups) => {
+        if (ups.status_ups === 2) {
           enLinea++;
-        } else if (ups.status_prtg === 3) {
+        } else if (ups.status_ups === 3) {
           usandoBateria++;
         } else {
           otro++;
@@ -113,7 +114,8 @@ export function Home() {
                 </tr>
                 <tr>
                   <td><p className="light-indicator red-light"></p>Otro</td>
-                  <td>{otroCount}</td>
+                  <td>0</td>
+                  {/* <td>{otroCount}</td> */}
                 </tr>
               </tbody>
             </table>

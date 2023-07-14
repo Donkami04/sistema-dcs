@@ -1,0 +1,1771 @@
+2023-07-14 12:55:17,288 - ERROR: Error Controladora Device 10.117.115.122
+2023-07-14 12:55:17,288 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 12:55:57,405 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 12:55:57,405 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 12:55:57,405 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 12:55:57,405 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 12:58:30,769 - ERROR: Error Controladora Device 10.117.115.184
+2023-07-14 12:58:30,769 - ERROR: Error Controladora Device 10.117.115.184
+2023-07-14 12:58:30,769 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 12:58:30,769 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:02:00,372 - ERROR: Error Controladora Device 10.117.115.110
+2023-07-14 13:02:00,372 - ERROR: Error Controladora Device 10.117.115.110
+2023-07-14 13:02:00,373 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:02:00,373 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:03:36,409 - ERROR: Error Controladora Device 10.117.115.122
+2023-07-14 13:03:36,410 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:05:31,983 - ERROR: Error Controladora Device 10.117.115.122
+2023-07-14 13:05:31,984 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:06:27,712 - ERROR: Error Controladora Device 10.117.115.122
+2023-07-14 13:06:27,712 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:06:42,964 - ERROR: Error Controladora Device 10.117.115.110
+2023-07-14 13:06:42,964 - ERROR: Error Controladora Device 10.117.115.110
+2023-07-14 13:06:42,965 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:06:42,965 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:07:01,651 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 13:07:01,651 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 13:07:01,651 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:07:01,651 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:08:08,615 - ERROR: Error Controladora Device 10.117.115.121
+2023-07-14 13:08:08,615 - ERROR: Error Controladora Device 10.117.115.121
+2023-07-14 13:08:08,615 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:08:08,615 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:08:13,704 - ERROR: Error en la consulta Pala 22
+2023-07-14 13:08:13,704 - ERROR: Error en la consulta Pala 22
+2023-07-14 13:08:13,721 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/paramiko/client.py", line 409, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 10.224.125.137
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/main.py", line 118, in prtg_data
+    netmiko_data = get_data_controladora(ip_device)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 32, in get_data_controladora
+    net_connect = ConnectHandler(**network_device_list)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 439, in __init__
+    self._open()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1068, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_wlc_ssh 10.224.125.137:22
+
+
+
+2023-07-14 13:08:13,721 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/paramiko/client.py", line 409, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 10.224.125.137
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/main.py", line 118, in prtg_data
+    netmiko_data = get_data_controladora(ip_device)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 32, in get_data_controladora
+    net_connect = ConnectHandler(**network_device_list)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 439, in __init__
+    self._open()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1068, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_wlc_ssh 10.224.125.137:22
+
+
+
+2023-07-14 13:10:06,646 - ERROR: Error Controladora Device 10.117.115.122
+2023-07-14 13:10:06,647 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:10:22,164 - ERROR: Error Controladora Device 10.117.115.110
+2023-07-14 13:10:22,164 - ERROR: Error Controladora Device 10.117.115.110
+2023-07-14 13:10:22,164 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:10:22,164 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:10:40,711 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 13:10:40,711 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 13:10:40,712 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:10:40,712 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:10:46,254 - ERROR: Error en la consulta Pala 12
+2023-07-14 13:10:46,254 - ERROR: Error en la consulta Pala 12
+2023-07-14 13:10:46,273 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/paramiko/client.py", line 409, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 10.224.125.137
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/main.py", line 118, in prtg_data
+    netmiko_data = get_data_controladora(ip_device)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 32, in get_data_controladora
+    net_connect = ConnectHandler(**network_device_list)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 439, in __init__
+    self._open()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1068, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_wlc_ssh 10.224.125.137:22
+
+
+
+2023-07-14 13:10:46,273 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/paramiko/client.py", line 409, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 10.224.125.137
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/main.py", line 118, in prtg_data
+    netmiko_data = get_data_controladora(ip_device)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 32, in get_data_controladora
+    net_connect = ConnectHandler(**network_device_list)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 439, in __init__
+    self._open()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1068, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_wlc_ssh 10.224.125.137:22
+
+
+
+2023-07-14 13:14:21,395 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 13:14:21,395 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 13:14:21,395 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:14:21,395 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:14:39,459 - ERROR: Error Controladora Device 10.117.115.112
+2023-07-14 13:14:39,459 - ERROR: Error Controladora Device 10.117.115.112
+2023-07-14 13:14:39,460 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:14:39,460 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:14:44,380 - ERROR: Error en la consulta Pala 19
+2023-07-14 13:14:44,380 - ERROR: Error en la consulta Pala 19
+2023-07-14 13:14:44,397 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/paramiko/client.py", line 409, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 10.224.125.137
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/main.py", line 118, in prtg_data
+    netmiko_data = get_data_controladora(ip_device)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 32, in get_data_controladora
+    net_connect = ConnectHandler(**network_device_list)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 439, in __init__
+    self._open()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1068, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_wlc_ssh 10.224.125.137:22
+
+
+
+2023-07-14 13:14:44,397 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/paramiko/client.py", line 409, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 10.224.125.137
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/main.py", line 118, in prtg_data
+    netmiko_data = get_data_controladora(ip_device)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 32, in get_data_controladora
+    net_connect = ConnectHandler(**network_device_list)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 439, in __init__
+    self._open()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1068, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_wlc_ssh 10.224.125.137:22
+
+
+
+2023-07-14 13:17:41,066 - ERROR: Error Controladora Device 10.117.115.122
+2023-07-14 13:17:41,067 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:18:07,768 - ERROR: Error Controladora Device 10.117.115.122
+2023-07-14 13:18:07,768 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:18:50,783 - ERROR: Error Controladora Device 10.117.115.110
+2023-07-14 13:18:50,783 - ERROR: Error Controladora Device 10.117.115.110
+2023-07-14 13:18:50,784 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:18:50,784 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:19:07,245 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 13:19:07,245 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 13:19:07,245 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-07-14 13:19:07,245 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-07-14 13:28:48,227 - ERROR: Error Controladora Device 10.117.115.110
+2023-07-14 13:28:48,227 - ERROR: Error Controladora Device 10.117.115.110
+2023-07-14 13:28:48,228 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:28:48,228 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:29:06,763 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 13:29:06,763 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 13:29:06,764 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:29:06,764 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:29:24,859 - ERROR: Error Controladora Device 10.117.115.112
+2023-07-14 13:29:24,859 - ERROR: Error Controladora Device 10.117.115.112
+2023-07-14 13:29:24,859 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:29:24,859 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:29:42,967 - ERROR: Error Controladora Device 10.117.115.181
+2023-07-14 13:29:42,967 - ERROR: Error Controladora Device 10.117.115.181
+2023-07-14 13:29:42,968 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:29:42,968 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:30:01,899 - ERROR: Error Controladora Device 10.117.115.121
+2023-07-14 13:30:01,899 - ERROR: Error Controladora Device 10.117.115.121
+2023-07-14 13:30:01,899 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:30:01,899 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:30:21,023 - ERROR: Error Controladora Device 10.117.115.122
+2023-07-14 13:30:21,023 - ERROR: Error Controladora Device 10.117.115.122
+2023-07-14 13:30:21,023 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:30:21,023 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:30:42,233 - ERROR: Error Controladora Device 10.117.115.182
+2023-07-14 13:30:42,233 - ERROR: Error Controladora Device 10.117.115.182
+2023-07-14 13:30:42,233 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:30:42,233 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:31:00,297 - ERROR: Error Controladora Device 10.117.115.183
+2023-07-14 13:31:00,297 - ERROR: Error Controladora Device 10.117.115.183
+2023-07-14 13:31:00,297 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:31:00,297 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:31:18,382 - ERROR: Error Controladora Device 10.117.115.184
+2023-07-14 13:31:18,382 - ERROR: Error Controladora Device 10.117.115.184
+2023-07-14 13:31:18,383 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:31:18,383 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:32:14,465 - ERROR: Error Controladora Device 10.117.115.110
+2023-07-14 13:32:14,465 - ERROR: Error Controladora Device 10.117.115.110
+2023-07-14 13:32:14,465 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:32:14,465 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:32:32,750 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 13:32:32,750 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 13:32:32,751 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:32:32,751 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:32:41,754 - ERROR: Error Controladora Device 10.117.115.112
+2023-07-14 13:32:41,754 - ERROR: Error Controladora Device 10.117.115.112
+2023-07-14 13:32:41,754 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-07-14 13:32:41,754 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-07-14 13:32:46,674 - ERROR: Error en la consulta Pala 19
+2023-07-14 13:32:46,674 - ERROR: Error en la consulta Pala 19
+2023-07-14 13:32:46,693 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/paramiko/client.py", line 409, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 10.224.125.137
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/main.py", line 118, in prtg_data
+    netmiko_data = get_data_controladora(ip_device)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 32, in get_data_controladora
+    net_connect = ConnectHandler(**network_device_list)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 439, in __init__
+    self._open()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1068, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_wlc_ssh 10.224.125.137:22
+
+
+
+2023-07-14 13:32:46,693 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/paramiko/client.py", line 409, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 10.224.125.137
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/main.py", line 118, in prtg_data
+    netmiko_data = get_data_controladora(ip_device)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 32, in get_data_controladora
+    net_connect = ConnectHandler(**network_device_list)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 439, in __init__
+    self._open()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1068, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_wlc_ssh 10.224.125.137:22
+
+
+
+2023-07-14 13:35:40,188 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 13:35:40,188 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 13:35:40,189 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:35:40,189 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 13:35:45,085 - ERROR: Error en la consulta Pala 12
+2023-07-14 13:35:45,085 - ERROR: Error en la consulta Pala 12
+2023-07-14 13:35:45,094 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/paramiko/client.py", line 409, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 10.224.125.137
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/main.py", line 118, in prtg_data
+    netmiko_data = get_data_controladora(ip_device)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 32, in get_data_controladora
+    net_connect = ConnectHandler(**network_device_list)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 439, in __init__
+    self._open()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1068, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_wlc_ssh 10.224.125.137:22
+
+
+
+2023-07-14 13:35:45,094 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/paramiko/client.py", line 409, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 10.224.125.137
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/main.py", line 118, in prtg_data
+    netmiko_data = get_data_controladora(ip_device)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 32, in get_data_controladora
+    net_connect = ConnectHandler(**network_device_list)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 439, in __init__
+    self._open()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1068, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_wlc_ssh 10.224.125.137:22
+
+
+
+2023-07-14 13:37:29,650 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 13:37:29,650 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 13:37:29,650 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-07-14 13:37:29,650 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-07-14 13:38:08,748 - ERROR: Error Controladora Device 10.117.115.181
+2023-07-14 13:38:08,748 - ERROR: Error Controladora Device 10.117.115.181
+2023-07-14 13:38:08,749 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-07-14 13:38:08,749 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-07-14 13:38:13,708 - ERROR: Error en la consulta Pala 21
+2023-07-14 13:38:13,708 - ERROR: Error en la consulta Pala 21
+2023-07-14 13:38:13,717 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/paramiko/client.py", line 409, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 10.224.125.137
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/main.py", line 118, in prtg_data
+    netmiko_data = get_data_controladora(ip_device)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 32, in get_data_controladora
+    net_connect = ConnectHandler(**network_device_list)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 439, in __init__
+    self._open()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1068, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_wlc_ssh 10.224.125.137:22
+
+
+
+2023-07-14 13:38:13,717 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/paramiko/client.py", line 409, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 10.224.125.137
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/main.py", line 118, in prtg_data
+    netmiko_data = get_data_controladora(ip_device)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 32, in get_data_controladora
+    net_connect = ConnectHandler(**network_device_list)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 439, in __init__
+    self._open()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1068, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_wlc_ssh 10.224.125.137:22
+
+
+
+2023-07-14 13:43:49,152 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 13:43:49,152 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 13:43:49,153 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-07-14 13:43:49,153 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-07-14 13:43:54,511 - ERROR: Error en la consulta Pala 12
+2023-07-14 13:43:54,511 - ERROR: Error en la consulta Pala 12
+2023-07-14 13:43:54,521 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/paramiko/client.py", line 409, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 10.224.125.137
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/main.py", line 118, in prtg_data
+    netmiko_data = get_data_controladora(ip_device)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 32, in get_data_controladora
+    net_connect = ConnectHandler(**network_device_list)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 439, in __init__
+    self._open()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1068, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_wlc_ssh 10.224.125.137:22
+
+
+
+2023-07-14 13:43:54,521 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/paramiko/client.py", line 409, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 10.224.125.137
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/main.py", line 118, in prtg_data
+    netmiko_data = get_data_controladora(ip_device)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 32, in get_data_controladora
+    net_connect = ConnectHandler(**network_device_list)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 439, in __init__
+    self._open()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1068, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_wlc_ssh 10.224.125.137:22
+
+
+
+2023-07-14 13:49:33,953 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 13:49:33,953 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 13:49:33,954 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-07-14 13:49:33,954 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-07-14 13:50:10,740 - ERROR: Error Controladora Device 10.117.115.181
+2023-07-14 13:50:10,740 - ERROR: Error Controladora Device 10.117.115.181
+2023-07-14 13:50:10,740 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-07-14 13:50:10,740 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-07-14 15:27:34,940 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 15:27:34,940 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 15:27:34,941 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-07-14 15:27:34,941 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-07-14 15:28:14,367 - ERROR: Error Controladora Device 10.117.115.181
+2023-07-14 15:28:14,367 - ERROR: Error Controladora Device 10.117.115.181
+2023-07-14 15:28:14,368 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-07-14 15:28:14,368 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-07-14 15:28:54,894 - ERROR: Error Controladora Device 10.117.115.122
+2023-07-14 15:28:54,894 - ERROR: Error Controladora Device 10.117.115.122
+2023-07-14 15:28:54,894 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 15:28:54,894 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 15:29:13,083 - ERROR: Error Controladora Device 10.117.115.182
+2023-07-14 15:29:13,083 - ERROR: Error Controladora Device 10.117.115.182
+2023-07-14 15:29:13,084 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 15:29:13,084 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-07-14 15:29:33,815 - ERROR: Error Controladora Device 10.117.115.183
+2023-07-14 15:29:33,815 - ERROR: Error Controladora Device 10.117.115.183
+2023-07-14 15:29:33,816 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 55, in get_data_controladora
+    connected_for = connected_for_match.group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+
+2023-07-14 15:29:33,816 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 55, in get_data_controladora
+    connected_for = connected_for_match.group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+
+2023-07-14 15:29:38,967 - ERROR: Error en la consulta Pala 61
+2023-07-14 15:29:38,967 - ERROR: Error en la consulta Pala 61
+2023-07-14 15:29:38,984 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/paramiko/client.py", line 409, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 10.224.125.137
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/main.py", line 118, in prtg_data
+    netmiko_data = get_data_controladora(ip_device)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 32, in get_data_controladora
+    net_connect = ConnectHandler(**network_device_list)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 439, in __init__
+    self._open()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1068, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_wlc_ssh 10.224.125.137:22
+
+
+
+2023-07-14 15:29:38,984 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/paramiko/client.py", line 409, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 10.224.125.137
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/main.py", line 118, in prtg_data
+    netmiko_data = get_data_controladora(ip_device)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 32, in get_data_controladora
+    net_connect = ConnectHandler(**network_device_list)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 439, in __init__
+    self._open()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1068, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_wlc_ssh 10.224.125.137:22
+
+
+
+2023-07-14 15:33:40,171 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 15:33:40,171 - ERROR: Error Controladora Device 10.117.115.111
+2023-07-14 15:33:40,171 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-07-14 15:33:40,171 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-07-14 15:34:17,716 - ERROR: Error Controladora Device 10.117.115.181
+2023-07-14 15:34:17,716 - ERROR: Error Controladora Device 10.117.115.181
+2023-07-14 15:34:17,716 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-07-14 15:34:17,716 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+

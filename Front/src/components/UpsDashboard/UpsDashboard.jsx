@@ -14,12 +14,13 @@ export function UpsDashboard({ allUps }) {
     let usandoBateria = 0;
     let otro = 0;
 
+    
     allUps.forEach((ups) => {
-      if (ups.status_prtg === 2) {
+      if (ups.status_ups === 2 && ups.status_prtg && !ups.status_prtg.includes('Paused')) {
         enLinea++;
-      } else if (ups.status_prtg === 3) {
+      } else if (ups.status_ups === 3 && ups.status_prtg && !ups.status_prtg.includes('Paused')) {
         usandoBateria++;
-      } else {
+      } else if (ups.status_ups !== 3 && ups.status_ups !== 2 && ups.status_prtg && !ups.status_prtg.includes('Paused')){
         otro++;
       }
     });
@@ -27,6 +28,7 @@ export function UpsDashboard({ allUps }) {
     setEnLineaCount(enLinea);
     setUsandoBateriaCount(usandoBateria);
     setOtroCount(otro);
+
   }, [allUps]);
 
   return (

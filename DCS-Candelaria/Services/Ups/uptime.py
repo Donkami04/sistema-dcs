@@ -41,22 +41,13 @@ def get_uptime(id_ping):
     xml_dict = xml_to_dict(root)
     uptime_percent = xml_dict['uptimepercent']
     clean_percent = re.sub(r'[^\d.]', '', uptime_percent)
-    print('Porcentaje sin formatear: ', clean_percent)
-    print(type(clean_percent))
     if clean_percent == '100':
         # clean_percent = float(clean_percent)
-        # print("#1")
-        # print('porcentaje formateado :', clean_percent)
         return clean_percent
     if clean_percent == '':
         clean_percent = round(float(0), 2)
-        print("#2")
-        print('porcentaje formateado :', clean_percent)
     if clean_percent != '100':
-        # print('Porcentaje sin formatear: ', clean_percent)
-        print("#3")
         clean_percent = round((float(clean_percent) / 1000), 2)
-        print('porcentaje formateado :', clean_percent)
 
     return clean_percent
 

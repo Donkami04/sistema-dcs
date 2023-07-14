@@ -5,7 +5,7 @@ import "./button.css";
 export function Button(props) {
 
   return (
-    <Link to={`/concentradora/dcs/${props.urlRedirect}`} className="button-interfaz">
+    <Link to={`/monitoreo/candelaria/${props.urlRedirect}`} className="button-interfaz">
       {props.buttonTag}
     </Link>
   );

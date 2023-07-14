@@ -16,6 +16,10 @@ const Ups= sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: true,
     },
+    status_ups: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
     batery: {
       type: DataTypes.INTEGER,
       allowNull: true,

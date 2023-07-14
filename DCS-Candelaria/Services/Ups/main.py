@@ -52,33 +52,40 @@ def ups():
             url_prtg_ip = os.getenv('URL_PRTG_IP_UPS').format(ip=ip)
             prtg_response_ip = requests.get(url_prtg_ip, verify=False).json()
             if len(prtg_response_ip['devices']) == 0:
-                cursor.execute(f"INSERT INTO dcs.ups (ip, name, status_prtg, batery, id_ups, uptime, ubication) VALUES ('{ip}', 'Not Found', 0, 0, 'Not Found', 0, '{ubication}')")
+                cursor.execute(f"INSERT INTO dcs.ups (ip, name, status_ups, batery, id_ups, uptime, ubication) VALUES ('{ip}', 'Not Found', 0, 0, 'Not Found', 0, '{ubication}')")
                 mydb.commit()
                 
             else:
                 prtg_response_ip = prtg_response_ip['devices'][0]
                 name = prtg_response_ip['device']
                 id_ups = prtg_response_ip['objid']
+                print(f"id_ups: {id_ups}")
                 
                 url_prtg_id = os.getenv('URL_PRTG_ID_UPS').format(id=id_ups)
                 prtg_response_id = requests.get(url_prtg_id, verify=False).json()
-                # print("Respuesta con ID SNMP :", prtg_response_id)
                 sensors = prtg_response_id['sensors']
                 if len(sensors) == 0:
-                    cursor.execute(f"INSERT INTO dcs.ups (ip, name, status_prtg, batery, id_ups, uptime, ubication) VALUES ('{ip}', 'Not Found', 0, 0, 'Not Found', 0, '{ubication}')")
+                    cursor.execute(f"INSERT INTO dcs.ups (ip, name, status_prtg, status_ups, batery, id_ups, uptime, ubication) VALUES ('{ip}', 'Not Found', 'Not Found', 0, 0, 'Not Found', 0, '{ubication}')")
                     mydb.commit()
                     
                 else:
+                    status_prtg = os.getenv('URL_PRTG_GET_DATA_PING_WITH_ID').format(id_ups_ping=id_ups)
+                    status_prtg = requests.get(status_prtg, verify=False).json()
+                    try:
+                        print(status_prtg['sensors'][0]['status'])
+                        status_prtg = status_prtg['sensors'][0]['status']
+                    except KeyError:
+                        print('Not Found')
+                        status_prtg = 'Not Found'
+                        
                     get_id_ping = os.getenv('URL_PRTG_UPS_PING').format(id_snmp=id_ups)
                     ping_response = requests.get(get_id_ping, verify=False).json()
                     id_ping = ping_response['sensors'][0]['objid']
-                    # print('ID PING: ', id_ping)
                     uptime = get_uptime(id_ping)
                     
                     for sensor in sensors:
                         if 'Output Status' in sensor['sensor']:
                             status_sensor = sensor['lastvalue_raw']
-                            # print("Estado del sensor :" , status_sensor)
                             if status_sensor == '':
                                 status_sensor = 0
                             else:
@@ -88,13 +95,12 @@ def ups():
                     for sensor in sensors:
                         if 'Cambio Bateria' in sensor['sensor']:
                             batery = sensor['lastvalue_raw']
-                            # print('bateria :', batery)
                             if batery == '':
                                 batery = 0
                             else:
                                 batery = int(batery)
                             
-                    cursor.execute(f"INSERT INTO dcs.ups (ip, name, status_prtg, batery, id_ups, uptime, ubication) VALUES ('{ip}', '{name}', {status_sensor}, {batery}, '{id_ups}', '{uptime}', '{ubication}')")
+                    cursor.execute(f"INSERT INTO dcs.ups (ip, name, status_prtg, status_ups, batery, id_ups, uptime, ubication) VALUES ('{ip}', '{name}', '{status_prtg}', {status_sensor}, {batery}, '{id_ups}', '{uptime}', '{ubication}')")
                     mydb.commit()
                         
         now = datetime.datetime.now()
