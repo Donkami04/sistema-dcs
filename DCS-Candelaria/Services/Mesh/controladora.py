@@ -76,7 +76,7 @@ def get_data_controladora(device_ip):
     except Exception as e:
         logging.error(f"Error Controladora Device {device_ip}")
         logging.error(traceback.format_exc())
-        
+        net_connect.disconnect()
         netmiko_data = {
             'signal_strength': 'Not Found',
             'signal_noise': 'Not Found',

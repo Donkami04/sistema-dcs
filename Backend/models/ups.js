@@ -13,7 +13,7 @@ const Ups= sequelize.define(
       allowNull: true,
     },
     status_prtg: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING(100),
       allowNull: true,
     },
     status_ups: {

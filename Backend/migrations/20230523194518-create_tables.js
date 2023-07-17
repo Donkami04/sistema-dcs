@@ -716,7 +716,7 @@ module.exports = {
         allowNull: true,
       },
       status_prtg: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING(100),
         allowNull: true,
       },
       status_ups: {

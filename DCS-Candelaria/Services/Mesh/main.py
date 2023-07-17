@@ -139,7 +139,7 @@ def prtg_data():
 
 def bucle(scheduler):
     prtg_data()
-    scheduler.enter(300, 1, bucle, (scheduler,))
+    scheduler.enter(5, 1, bucle, (scheduler,))
 
 if __name__ == '__main__':
     s = sched.scheduler(time.time, time.sleep)
