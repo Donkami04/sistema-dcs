@@ -73,7 +73,7 @@ export function Devices() {
     setFilterDownPaused(e.target.checked);
   };
 
-
+  
 
 
   return (
