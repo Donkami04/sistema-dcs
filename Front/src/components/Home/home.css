@@ -3,7 +3,8 @@
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
     margin-top: 2rem;
-    padding: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .system-container {
@@ -104,4 +105,7 @@
 }
 .button-mesh {
     background-color: #40a800;
+}
+.button-devices {
+    background-color: #750071;
 }

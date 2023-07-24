@@ -6,19 +6,43 @@ import { Switches } from './components/Dcs-switches/DcsSwitches';
 import { Ups } from './components/Ups/Ups';
 import { Vpn } from './components/Vpn/Vpn';
 import { Mesh } from './components/Mesh/Mesh';
+import { Devices } from './components/Devices/Devices';
+import { Helmet } from 'react-helmet';
 import './app.css';
 
-function App() {
-  const titleDCS = 'Concentradora';
-  const titleVpn = 'Monitoreo VPN';
-  const titleHome = 'Sistema de monitoreo';
+function getPageTitle(pathname) {
+  switch (pathname) {
+    case '/monitoreo/candelaria/clients':
+      return 'Clientes Candelaria';
+    case '/monitoreo/candelaria/switches':
+      return 'Switches Candelaria';
+    case '/monitoreo/vpn':
+      return 'VPN';
+    case '/monitoreo/home':
+      return 'Home';
+    case '/monitoreo/ups':
+      return 'UPS';
+    case '/monitoreo/candelaria/mesh':
+      return 'Mesh Candelaria';
+    case '/monitoreo/devices':
+      return 'Dispositivos';
+    default:
+      return 'Sistema de Monitoreo';
+  }
+}
 
+function App() {
   const location = useLocation();
+
+  useEffect(() => {
+    const pageTitle = getPageTitle(location.pathname);
+    document.title = pageTitle;
+  }, [location.pathname]);
 
   useEffect(() => {
     const refreshInterval = setInterval(() => {
       window.location.reload();
-    }, 5 * 60 * 1000); // 5 minutos en milisegundos
+    }, 5 * 60 * 1000);
 
     return () => {
       clearInterval(refreshInterval); // Limpiar el intervalo al desmontar el componente
@@ -27,13 +51,17 @@ function App() {
 
   return (
     <div className="MainContainer">
+      <Helmet>
+        <title>{getPageTitle(location.pathname)}</title>
+      </Helmet>
       <Routes location={location}>
         <Route path="/monitoreo/home" element={<Home />} />
-        <Route path="/monitoreo/candelaria/clients" element={<Dcs title={titleDCS} />} />
-        <Route path="/monitoreo/candelaria/switches" element={<Switches title={titleDCS} />} />
+        <Route path="/monitoreo/candelaria/clients" element={<Dcs />} />
+        <Route path="/monitoreo/candelaria/switches" element={<Switches />} />
         <Route path="/monitoreo/ups" element={<Ups />} />
         <Route path="/monitoreo/candelaria/mesh" element={<Mesh />} />
-        <Route path="/monitoreo/vpn" element={<Vpn title={titleVpn} />} />
+        <Route path="/monitoreo/vpn" element={<Vpn />} />
+        <Route path="/monitoreo/devices" element={<Devices />} />
       </Routes>
     </div>
   );

@@ -2,7 +2,6 @@ import { getIndicators, getUps, getVpn } from "../../utils/Api-candelaria/api"
 import { Navbar } from "../../components/Navbar/Navbar"
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import "./home.css";
 
 export function Home() {
@@ -59,10 +58,6 @@ export function Home() {
   
   return (
     <>
-    <Helmet>
-      <title>Home</title>
-    </Helmet>
-
     <Navbar title={'Home'}/>
     <div className="home-container">
       <section className="system-container">
@@ -166,6 +161,19 @@ export function Home() {
         </div>
         <div className="link-system-container">
             <Link to="/monitoreo/candelaria/mesh" className="link-system button-mesh button-link" style={{ color: 'white' }}>Ver detalles</Link>
+        </div>
+      </section>
+
+      <section className="system-container">
+        <div className="name-system-container">
+          <h1>Devices Candelaria</h1>
+        </div>
+
+        <div className="home-kpi-container">
+
+        </div>
+        <div className="link-system-container">
+            <Link to="/monitoreo/devices" className="link-system button-devices button-link" style={{ color: 'white' }}>Ver detalles</Link>
         </div>
       </section>
 

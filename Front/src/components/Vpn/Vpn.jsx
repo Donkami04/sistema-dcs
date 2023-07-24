@@ -30,10 +30,10 @@ export function Vpn({title}) {
   
   return (
     <div>
-      <Helmet>
+      {/* <Helmet>
         <title>VPN</title>
-      </Helmet>
-      <Navbar title={title} />
+      </Helmet> */}
+      <Navbar title={'Monitoreo VPN'} />
       <Status_System tableToShow={tableToShow} />
       <main className='sections-container'>
       <SectionVpn vpnNum={1} usersNumber={vpn1Users.number} users={vpn1Users.users} />

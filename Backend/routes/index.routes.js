@@ -6,6 +6,7 @@ const indicatorsRoutes = require("./indicators.routes");
 const upsRoutes = require("./ups.routes");
 const vpnRoutes = require("./vpn.routes");
 const meshRoutes = require("./mesh.routes");
+const devicesRoutes = require("./devices.routes");
 const router = express.Router();
 
 const allRoutes = (app) => {
@@ -17,6 +18,7 @@ const allRoutes = (app) => {
   router.use("/ups", upsRoutes);
   router.use("/vpn", vpnRoutes);
   router.use("/mesh", meshRoutes);
+  router.use("/devices", devicesRoutes);
 };
 
 module.exports = { allRoutes };

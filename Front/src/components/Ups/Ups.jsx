@@ -25,9 +25,9 @@ export function Ups() {
 
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <title>UPS</title>
-      </Helmet>
+      </Helmet> */}
       <Navbar title={'Dashboard UPS'}/>
       <UpsDashboard allUps={allUps} />
         <div className='ups-cards-container'>

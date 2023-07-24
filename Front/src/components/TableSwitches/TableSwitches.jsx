@@ -63,7 +63,6 @@ export function TableSwitches() {
         <td>{switch_.ups2}</td>
         <td>{switch_.status_ups1}</td>
         <td>{switch_.status_ups2}</td>
-
       </tr>
     ));
   };

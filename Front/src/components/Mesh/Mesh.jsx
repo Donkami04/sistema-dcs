@@ -24,9 +24,9 @@ export function Mesh() {
 
   return (
     <div>
-      <Helmet>
+      {/* <Helmet>
         <title>Mesh</title>
-      </Helmet>
+      </Helmet> */}
       <Navbar title={"Equipos Mesh Criticos"} />
       <Status_System tableToShow={tableToShow} />
       <main className="mesh-table-container">

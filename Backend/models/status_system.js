@@ -37,4 +37,9 @@ const StatusMesh = sequelize.define("StatusMesh", columns, {
   timestamps: false,
 });
 
-module.exports = { StatusClients, StatusSwitches, StatusUps, StatusVpn, StatusMesh };
+const StatusDevices = sequelize.define("StatusDevices", columns, {
+  tableName: "fechas_consultas_devices",
+  timestamps: false,
+});
+
+module.exports = { StatusClients, StatusSwitches, StatusUps, StatusVpn, StatusMesh, StatusDevices };

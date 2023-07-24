@@ -29,6 +29,8 @@ export function Status_System({ tableToShow }) {
       return "VPN"
     } else if(tableToShow === 'mesh'){
       return 'Mesh'
+    } else if(tableToShow === 'devices') {
+      return 'Dispositivos'
     }
   } 
 
