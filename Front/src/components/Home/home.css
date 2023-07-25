@@ -11,7 +11,7 @@
     border: 2px solid black;
     width: 100%;
     position: relative;
-    height: 20rem;    
+    height: 20rem;
 }
 
 .name-system-container {
@@ -29,8 +29,7 @@
 .home-kpi-table {
     border-collapse: collapse;
     width: 75%;
-
-  }
+}
   
   .home-kpi-table th,
   .home-kpi-table td {

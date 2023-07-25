@@ -57,7 +57,6 @@ def get_devices_data():
             URL_PRTG_GET_ID = os.getenv('URL_PRTG_IP').format(ip=ip_device)
             response_prtg_get_id = requests.get(URL_PRTG_GET_ID, verify=False).json()
             if len(response_prtg_get_id['devices']) == 0:
-                # logging.info(f"Id PRTG, Not Found All data PRTG Not Found")
                 prtg_name_device = 'Not Found'
                 prtg_id_device = 'Not Found'
                 prtg_name_sensor = 'Not Found'
@@ -112,7 +111,6 @@ def get_devices_data():
                     prtg_device_status = 'Not Found'
                     cisco_client_mac_address = 'Not Found'
                     is_databackup = 'false'
-                    # logging.info("Id CISCO, Not Found All data CISCO Not Found")
 
             else:
                 is_databackup = 'false'
@@ -122,41 +120,31 @@ def get_devices_data():
                 cisco_client_port = cisco_client_data['clientInterface']
                 cisco_client_status = cisco_client_data['status']
                 cisco_client_mac_address = cisco_client_data['macAddress']['octets']
-                # logging.info(f"cisco_client_port: {cisco_client_port}")
-                # logging.info(f"cisco_client_status: {cisco_client_status}")
-                # logging.info(f"cisco_client_mac_address: {cisco_client_mac_address}")
                 
                 cisco_device_name = cisco_client_data['deviceName']
-                # logging.info(f"cisco_device_name: {cisco_device_name}")
                 cisco_device_ip_adrress = cisco_client_data['deviceIpAddress']['address']
-                # logging.info(f"cisco_device_ip_adrress: {cisco_device_ip_adrress}")
 
                 prtg_device_ip_url = os.getenv('URL_PRTG_IP').format(ip=cisco_device_ip_adrress)
                 prtg_device_ip_response = requests.get(prtg_device_ip_url, verify=False).json()
                 
                 if prtg_device_ip_response['treesize'] == 0:
                     prtg_device_status = 'Not Found'
-                    # logging.info(f"prtg_device_status: {prtg_device_status}")
                 
                 else:
                     prtg_device_id = prtg_device_ip_response['devices'][0]['objid']
                     prtg_device_id_url = os.getenv('URL_PRTG_ID').format(id_device=prtg_device_id)
                     prtg_device_status_response = requests.get(prtg_device_id_url, verify=False).json()
                     prtg_device_status = prtg_device_status_response['sensors'][0]['status']
-                    # logging.info(f"prtg_device_status: {prtg_device_status}")
                     
                 cisco_device_ip_url = os.getenv('URL_CISCO_IP_DEVICE').format(ip=cisco_device_ip_adrress)
                 cisco_device_ip_response = requests.get(cisco_device_ip_url, verify=False).json()
                 if cisco_device_ip_response['queryResponse']['@count'] == 0:
                     cisco_device_reachability = 'Not Found'
-                    # logging.info(f"cisco_device_reachability: {cisco_device_reachability}")
                 else:
                     cisco_device_id = cisco_device_ip_response['queryResponse']['entityId'][0]['$']
                     cisco_device_id_url = os.getenv('URL_CISCO_ID_DEVICE').format(id_device=cisco_device_id)
                     cisco_device_id_response = requests.get(cisco_device_id_url, verify=False).json()
                     cisco_device_reachability = cisco_device_id_response['queryResponse']['entity'][0]['devicesDTO']['reachability']
-                    # logging.info(f"cisco_device_id {cisco_device_id}")
-                    # logging.info(f"cisco_device_reachability {cisco_device_reachability}")
                     
 
             query = (f"INSERT INTO dcs.devices (host, type, site, dpto, prtg_name_device, prtg_id, prtg_sensorname, prtg_status, prtg_lastup, prtg_lastdown, cisco_device_ip, cisco_device_name, cisco_port, cisco_status, cisco_reachability, cisco_status_device, cisco_mac_address, data_backup)"

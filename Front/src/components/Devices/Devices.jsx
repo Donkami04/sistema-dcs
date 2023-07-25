@@ -6,58 +6,45 @@ import { PRTG_URL, CISCO_URL_IT } from "../../utils/Api-candelaria/api";
 import "./devices.css";
 
 export function Devices() {
-  const tableToShow = "devices";
-  const title = "Dispositivos";
   const [devices, setDevices] = useState([]);
-  const [allDevices, setAllDevices] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const [filterDownPaused, setFilterDownPaused] = useState(true);
-
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const devicesList = await getDevices();
         setDevices(devicesList);
-        setAllDevices(devicesList);
-    
       } catch (error) {
-        console.error(
-          "DEVICES: Error al obtener el listado de Dispositivos: ",
-          error
-        );
+        console.error("Error al obtener el listado de Devices:", error);
         return error;
       }
     };
     fetchData();
-
   }, []);
 
-  const [inputValue, setInputValue] = useState("");
-
-  const filterDevices = (event) => {
-    const keyword = event.target.value;
-    const filteredData = allDevices.filter((obj) =>
-      Object.values(obj).some(
-        (value) =>
-          typeof value === "string" &&
-          value.toLowerCase().includes(keyword.toLowerCase())
-      )
-    );
-    setInputValue(keyword);
-    setDevices(filteredData);
+  const handleCheckboxChange = (e) => {
+    setFilterDownPaused(e.target.checked);
   };
 
-  const renderRowCount = () => {
-    const rowCount = devices.length;
-    return (
-      <div className="row-count" style={{ fontSize: "0.8rem" }}>
-        Total de elementos: {rowCount}
-      </div>
-    );
-  };
+  const filteredDevices = devices.filter((device) => {
+    const searchValues = Object.values(device)
+      .map((value) => value.toString().toLowerCase())
+      .join(" ");
+    const hasDownPaused =
+      searchValues.includes("down") || searchValues.includes("paused");
+    return !filterDownPaused || (filterDownPaused && hasDownPaused);
+  });
 
-  const noElements = () => {
-    if (devices.length === 0) {
+  const filteredSearchDevices = filteredDevices.filter((device) =>
+    Object.values(device)
+      .join(" ")
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
+  );
+
+  const renderTableBody = () => {
+    if (filteredSearchDevices.length === 0) {
       return (
         <tr>
           <td className="no-match" colSpan="14" style={{ fontSize: "13px" }}>
@@ -66,26 +53,85 @@ export function Devices() {
         </tr>
       );
     }
-    return null;
+
+    return filteredSearchDevices.map((device) => (
+      <tr key={device.id}>
+        <td>{device.host}</td>
+        <td>{device.type}</td>
+        <td>{device.site}</td>
+        <td>{device.dpto}</td>
+        <td>{device.prtg_name_device}</td>
+        <td>{device.prtg_sensorname}</td>
+        <td>
+          <a href={`${PRTG_URL}${device.prtg_id}`} target="_blank">
+            {device.prtg_status}
+          </a>
+        </td>
+        <td>{device.prtg_lastup}</td>
+        <td>{device.prtg_lastdown}</td>
+        <td>
+          {device.data_backup === "true"
+            ? `⚠️ ${device.cisco_device_ip}`
+            : device.cisco_device_ip}
+        </td>
+        <td
+          className={
+            device.cisco_status_device.includes("Up")
+              ? "kpi-green"
+              : device.cisco_status_device.includes("Down")
+              ? "kpi-red"
+              : device.cisco_status_device.includes("Paused")
+              ? "kpi-yellow"
+              : ""
+          }
+        >
+          {device.data_backup === "true"
+            ? `⚠️ ${device.cisco_device_name}`
+            : device.cisco_device_name}
+        </td>
+        <td>
+          <a
+            href={`${CISCO_URL_IT}${device.host}&forceLoad=true`}
+            target="_blank"
+          >
+            {device.data_backup === "true"
+              ? `⚠️ ${device.cisco_port}`
+              : device.cisco_port}
+          </a>
+        </td>
+        <td>
+          {device.data_backup === "true"
+            ? `⚠️ ${device.cisco_status}`
+            : device.cisco_status}
+        </td>
+        <td>
+          {device.data_backup === "true"
+            ? `⚠️ ${device.cisco_reachability}`
+            : device.cisco_reachability}
+        </td>
+      </tr>
+    ));
   };
 
-  const handleCheckboxChange = (e) => {
-    setFilterDownPaused(e.target.checked);
+  const renderRowCount = () => {
+    const rowCount = filteredSearchDevices.length;
+    return (
+      <div className="row-count" style={{ fontSize: "0.8rem" }}>
+        Total de elementos: {rowCount}
+      </div>
+    );
   };
-
-  
-
 
   return (
     <>
-      <Navbar title={title} />
-      <Status_System tableToShow={tableToShow} />
+      <Navbar title={"Dispositivos"} />
+      <Status_System tableToShow={"devices"} />
       <input
         className="filtro filtro-devices"
-        placeholder="Buscar..."
         type="text"
-        value={inputValue}
-        onChange={filterDevices}
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        placeholder="Buscar..."
       />
 
       <label>
@@ -118,68 +164,7 @@ export function Devices() {
               <th>CISCO REACHABILITY</th>
             </tr>
           </thead>
-          <tbody>
-            {devices.map((device) => {
-              return (
-                <tr key={device.id}>
-                  <td>{device.host}</td>
-                  <td>{device.type}</td>
-                  <td>{device.site}</td>
-                  <td>{device.dpto}</td>
-                  <td>{device.prtg_name_device}</td>
-                  <td>{device.prtg_sensorname}</td>
-                  <td>
-                    <a href={`${PRTG_URL}${device.prtg_id}`} target="_blank">
-                      {device.prtg_status}
-                    </a>
-                  </td>
-                  <td>{device.prtg_lastup}</td>
-                  <td>{device.prtg_lastdown}</td>
-                  <td>
-                    {device.data_backup === "true"
-                      ? `⚠️ ${device.cisco_device_ip}`
-                      : device.cisco_device_ip}
-                  </td>
-                  <td
-                    className={
-                      device.cisco_status_device.includes("Up")
-                        ? "kpi-green"
-                        : device.cisco_status_device.includes("Down")
-                        ? "kpi-red"
-                        : device.cisco_status_device.includes("Paused")
-                        ? "kpi-yellow"
-                        : ""
-                    }
-                  >
-                    {device.data_backup === "true"
-                      ? `⚠️ ${device.cisco_device_name}`
-                      : device.cisco_device_name}
-                  </td>
-                  <td>
-                    <a
-                      href={`${CISCO_URL_IT}${device.host}&forceLoad=true`}
-                      target="_blank"
-                    >
-                      {device.data_backup === "true"
-                        ? `⚠️ ${device.cisco_port}`
-                        : device.cisco_port}
-                    </a>
-                  </td>
-                  <td>
-                    {device.data_backup === "true"
-                      ? `⚠️ ${device.cisco_status}`
-                      : device.cisco_status}
-                  </td>
-                  <td>
-                    {device.data_backup === "true"
-                        ? `⚠️ ${device.cisco_reachability}`
-                        : device.cisco_reachability}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-          <tbody>{noElements()}</tbody>
+          <tbody>{renderTableBody()}</tbody>
         </table>
         {renderRowCount()}
       </div>
