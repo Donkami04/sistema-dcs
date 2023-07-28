@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Navbar } from "../Navbar/Navbar";
 import { Status_System } from "../Status_System/Status_System";
 import { getDevices } from "../../utils/Api-candelaria/api";
-import { PRTG_URL, CISCO_URL_IT } from "../../utils/Api-candelaria/api";
+import { PRTG_URL, CISCO_URL_IT, CISCO_URL } from "../../utils/Api-candelaria/api";
 import "./devices.css";
 
 export function Devices() {
@@ -90,10 +90,7 @@ export function Devices() {
             : device.cisco_device_name}
         </td>
         <td>
-          <a
-            href={`${CISCO_URL_IT}${device.host}&forceLoad=true`}
-            target="_blank"
-          >
+        <a href={`${device.red === 'OT' ? CISCO_URL : CISCO_URL_IT}${device.host}&forceLoad=true`} target="_blank">
             {device.data_backup === "true"
               ? `⚠️ ${device.cisco_port}`
               : device.cisco_port}
