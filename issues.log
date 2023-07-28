@@ -1,0 +1,78 @@
+2023-07-28 10:25:27,997 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 82, in get_devices_data
+    if device['red'] == 'IT':
+KeyError: 'red'
+
+2023-07-28 10:30:22,405 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 122, in get_devices_data
+    cisco_client_data = cisco_client_response['queryResponse']['entity'][0]['clientsDTO']
+KeyError: 'queryResponse'
+
+2023-07-28 10:32:50,763 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 123, in get_devices_data
+    cisco_client_data = cisco_client_response['queryResponse']['entity'][0]['clientsDTO']
+KeyError: 'queryResponse'
+
+2023-07-28 10:39:09,585 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 86, in get_devices_data
+    URL_CISCO_GET_ID = os.getenv('URL_CISCO_IP_OT').format(red=red, ip_device=ip_device)
+AttributeError: 'NoneType' object has no attribute 'format'
+
+2023-07-28 10:39:40,868 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 86, in get_devices_data
+    URL_CISCO_GET_ID = os.getenv('URL_CISCO_IP_OT').format(red=red, ip_device=ip_device)
+AttributeError: 'NoneType' object has no attribute 'format'
+
+2023-07-28 10:39:58,519 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 144, in get_devices_data
+    cisco_device_ip_url = os.getenv('URL_CISCO_IP_DEVICE').format(ip=cisco_device_ip_adrress)
+KeyError: 'red'
+
+2023-07-28 10:41:23,285 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 150, in get_devices_data
+    cisco_device_id_url = os.getenv('URL_CISCO_ID_DEVICE').format(id_device=cisco_device_id)
+KeyError: 'red'
+
+2023-07-28 10:43:14,149 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 150, in get_devices_data
+    cisco_device_id_url = os.getenv('URL_CISCO_ID_DEVICE').format(id_device=cisco_device_id)
+KeyError: 'red'
+
+2023-07-28 11:05:57,427 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 71, in get_devices_data
+    sensor = response_prtg_data['sensors'][0]
+IndexError: list index out of range
+
+2023-07-28 11:10:42,578 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 79, in get_devices_data
+    sensor = response_prtg_data['sensors'][0]
+IndexError: list index out of range
+
+2023-07-28 11:11:19,927 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 80, in get_devices_data
+    sensor = response_prtg_data['sensors'][0]
+IndexError: list index out of range
+
+2023-07-28 11:12:19,102 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 81, in get_devices_data
+    sensor = response_prtg_data['sensors'][0]
+IndexError: list index out of range
+
+2023-07-28 11:13:49,762 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 173, in get_devices_data
+    cursor.execute(query)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 303, in execute
+    self._cnx.handle_unread_result()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 932, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+2023-07-28 11:17:45,053 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 172, in get_devices_data
+    cursor.execute(query)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 303, in execute
+    self._cnx.handle_unread_result()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 932, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+

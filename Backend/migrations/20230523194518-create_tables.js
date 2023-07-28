@@ -1052,6 +1052,10 @@ module.exports = {
         type: Sequelize.STRING(100),
         allowNull: true,
       },
+      data_backup: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
     });
 
     await queryInterface.createTable('data_devices', {
@@ -1074,9 +1078,13 @@ module.exports = {
         allowNull: true,
       },
       dpto: {
-        type: Sequelize.STRING(100),
+        type: Sequelize.STRING(10),
         allowNull: true,
       },
+      red: {
+        type: Sequelize.STRING(10),
+        allowNull: true,
+      }
     });
 
     await queryInterface.createTable('fechas_consultas_devices', {

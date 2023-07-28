@@ -26,59 +26,59 @@ services:
     depends_on:
       - db
 
-  vpn-forticlient:
-    build:
-      context: DCS-Candelaria/Services/VpnForti
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # vpn-forticlient:
+  #   build:
+  #     context: DCS-Candelaria/Services/VpnForti
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
 
-  candelaria_switches:
-    build:
-      context: DCS-Candelaria/Services/Switches
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # candelaria_switches:
+  #   build:
+  #     context: DCS-Candelaria/Services/Switches
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
       
-  candelaria_update_ids:
-    build:
-      context: DCS-Candelaria/Services/Update_ids
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # candelaria_update_ids:
+  #   build:
+  #     context: DCS-Candelaria/Services/Update_ids
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
       
-  candelaria_clients:
-    build:
-      context: DCS-Candelaria/Services/Clientes
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # candelaria_clients:
+  #   build:
+  #     context: DCS-Candelaria/Services/Clientes
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
       
-  ups:
-    build:
-      context: DCS-Candelaria/Services/Ups
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # ups:
+  #   build:
+  #     context: DCS-Candelaria/Services/Ups
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
       
-  candelaria_mesh:
-    build:
-      context: DCS-Candelaria/Services/Mesh
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # candelaria_mesh:
+  #   build:
+  #     context: DCS-Candelaria/Services/Mesh
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
       
   candelaria_devices:
     build:

@@ -45,6 +45,14 @@ def get_devices_data():
         for i in range(len(column_names)):
             row_dict[column_names[i]] = row[i]
         devices.append(row_dict)
+    
+    # devices = [{
+    #     'ip_device': '10.231.0.101',
+    #     'type_device': 'Switch',
+    #     'site': 'IT',
+    #     'dpto': 'IT',
+    #     'red': 'IT',
+    # }]
 
     try:   
         for device in devices:
@@ -68,18 +76,31 @@ def get_devices_data():
                 prtg_id_device = response_prtg_get_id['devices'][0]['objid']
                 URL_PRTG_GET_DATA = os.getenv('URL_PRTG_ID').format(id_device=prtg_id_device)
                 response_prtg_data = requests.get(URL_PRTG_GET_DATA, verify=False).json()
-                sensor = response_prtg_data['sensors'][0]
-                prtg_name_sensor = sensor['name']
-                prtg_name_device = sensor['device']
-                prtg_status = sensor['status']
-                prtg_lastup = sensor['lastup']
-                prtg_lastdown = sensor['lastdown']
+ 
+                try:
+                    sensor = response_prtg_data['sensors'][0]
+                    prtg_name_sensor = sensor['name']
+                    prtg_name_device = sensor['device']
+                    prtg_status = sensor['status']
+                    prtg_lastup = sensor['lastup']
+                    prtg_lastdown = sensor['lastdown']
+                    
+                    patron = re.compile(r'<.*?>') # Se usa para formatear el last_up y last_down
+                    prtg_lastup =  re.sub(patron, '', prtg_lastup)
+                    prtg_lastdown =  re.sub(patron, '', prtg_lastdown)
+                except:
+                    prtg_name_sensor = 'Not Found'
+                    prtg_name_device = 'Not Found'
+                    prtg_status = 'Not Found'
+                    prtg_lastup = 'Not Found'
+                    prtg_lastdown = 'Not Found'
+
+            if device['red'] == 'IT':
+                red = '10.224.116.90'
+            else:
+                red = '10.224.241.14'
                 
-                patron = re.compile(r'<.*?>') # Se usa para formatear el last_up y last_down
-                prtg_lastup =  re.sub(patron, '', prtg_lastup)
-                prtg_lastdown =  re.sub(patron, '', prtg_lastdown)
-                
-            URL_CISCO_GET_ID = os.getenv('URL_CISCO_IP').format(ip_device=ip_device)
+            URL_CISCO_GET_ID = os.getenv('URL_CISCO_IP').format(red=red, ip_device=ip_device)
             response_cisco_get_id = requests.get(URL_CISCO_GET_ID, verify=False).json()
             response_cisco_get_id = json.dumps(response_cisco_get_id)
             response_cisco_get_id = json.loads(response_cisco_get_id)
@@ -114,7 +135,7 @@ def get_devices_data():
 
             else:
                 is_databackup = 'false'
-                URL_CISCO_ID = os.getenv('URL_CISCO_ID').format(cisco_id_device=cisco_id_device)
+                URL_CISCO_ID = os.getenv('URL_CISCO_ID').format(red=red, cisco_id_device=cisco_id_device)
                 cisco_client_response = requests.get(URL_CISCO_ID, verify=False).json()
                 cisco_client_data = cisco_client_response['queryResponse']['entity'][0]['clientsDTO']
                 cisco_client_port = cisco_client_data['clientInterface']
@@ -136,14 +157,14 @@ def get_devices_data():
                     prtg_device_status_response = requests.get(prtg_device_id_url, verify=False).json()
                     prtg_device_status = prtg_device_status_response['sensors'][0]['status']
                     
-                cisco_device_ip_url = os.getenv('URL_CISCO_IP_DEVICE').format(ip=cisco_device_ip_adrress)
-                cisco_device_ip_response = requests.get(cisco_device_ip_url, verify=False).json()
+                CISCO_DEVICE_IP_URL = os.getenv('URL_CISCO_IP_DEVICE').format(red=red, ip=cisco_device_ip_adrress)
+                cisco_device_ip_response = requests.get(CISCO_DEVICE_IP_URL, verify=False).json()
                 if cisco_device_ip_response['queryResponse']['@count'] == 0:
                     cisco_device_reachability = 'Not Found'
                 else:
                     cisco_device_id = cisco_device_ip_response['queryResponse']['entityId'][0]['$']
-                    cisco_device_id_url = os.getenv('URL_CISCO_ID_DEVICE').format(id_device=cisco_device_id)
-                    cisco_device_id_response = requests.get(cisco_device_id_url, verify=False).json()
+                    CISCO_DEVICE_ID_URL = os.getenv('URL_CISCO_ID_DEVICE').format(red=red, id_device=cisco_device_id)
+                    cisco_device_id_response = requests.get(CISCO_DEVICE_ID_URL, verify=False).json()
                     cisco_device_reachability = cisco_device_id_response['queryResponse']['entity'][0]['devicesDTO']['reachability']
                     
 
