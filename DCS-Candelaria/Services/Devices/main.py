@@ -61,6 +61,7 @@ def get_devices_data():
             device_type = device['type_device']
             site = device['site']
             dpto = device['dpto']
+            red_type = device['red']
             
             URL_PRTG_GET_ID = os.getenv('URL_PRTG_IP').format(ip=ip_device)
             response_prtg_get_id = requests.get(URL_PRTG_GET_ID, verify=False).json()
@@ -167,9 +168,9 @@ def get_devices_data():
                     cisco_device_id_response = requests.get(CISCO_DEVICE_ID_URL, verify=False).json()
                     cisco_device_reachability = cisco_device_id_response['queryResponse']['entity'][0]['devicesDTO']['reachability']
                     
-
-            query = (f"INSERT INTO dcs.devices (host, type, site, dpto, prtg_name_device, prtg_id, prtg_sensorname, prtg_status, prtg_lastup, prtg_lastdown, cisco_device_ip, cisco_device_name, cisco_port, cisco_status, cisco_reachability, cisco_status_device, cisco_mac_address, data_backup)"
-                f"VALUES ('{ip_device}', '{device_type}', '{site}', '{dpto}', '{prtg_name_device}', '{prtg_id_device}', '{prtg_name_sensor}', '{prtg_status}', '{prtg_lastup}', '{prtg_lastdown}', '{cisco_device_ip_adrress}', '{cisco_device_name}', '{cisco_client_port}', '{cisco_client_status}', '{cisco_device_reachability}', '{prtg_device_status}', '{cisco_client_mac_address}', '{is_databackup}')")
+            # print(f"Esta es la red: {red}")
+            query = (f"INSERT INTO dcs.devices (host, type, site, dpto, prtg_name_device, prtg_id, prtg_sensorname, prtg_status, prtg_lastup, prtg_lastdown, cisco_device_ip, cisco_device_name, cisco_port, cisco_status, cisco_reachability, cisco_status_device, cisco_mac_address, data_backup, red)"
+                f"VALUES ('{ip_device}', '{device_type}', '{site}', '{dpto}', '{prtg_name_device}', '{prtg_id_device}', '{prtg_name_sensor}', '{prtg_status}', '{prtg_lastup}', '{prtg_lastdown}', '{cisco_device_ip_adrress}', '{cisco_device_name}', '{cisco_client_port}', '{cisco_client_status}', '{cisco_device_reachability}', '{prtg_device_status}', '{cisco_client_mac_address}', '{is_databackup}', '{red_type}')")
             cursor.execute(query)
             mydb.commit()
             

@@ -75,6 +75,10 @@ const Devices = sequelize.define(
     data_backup: {
       type: DataTypes.STRING(10),
       allowNull: true,
+    },
+    red: {
+      type: DataTypes.STRING(10),
+      allowNull: true,
     }
   },
   {

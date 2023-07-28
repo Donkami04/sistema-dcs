@@ -4,16 +4,24 @@ const { Sequelize, DataTypes } = require("sequelize");
 const DataDevices= sequelize.define(
   "DataDevices",
   {
-    ip: {
+    ip_device: {
       type: DataTypes.STRING(100),
       allowNull: true,
     },
-    device: {
+    type_device: {
       type: DataTypes.STRING(100),
       allowNull: true,
     },
-    eqmt: {
+    site: {
       type: DataTypes.STRING(100),
+      allowNull: true,
+    },
+    dpto: {
+      type: DataTypes.STRING(100),
+      allowNull: true,
+    },
+    red: {
+      type: DataTypes.STRING(10),
       allowNull: true,
     },
   },

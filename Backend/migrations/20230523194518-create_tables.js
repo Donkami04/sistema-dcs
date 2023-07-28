@@ -1053,9 +1053,13 @@ module.exports = {
         allowNull: true,
       },
       data_backup: {
-        type: Sequelize.STRING(100),
+        type: Sequelize.STRING(10),
         allowNull: true,
       },
+      red: {
+        type: Sequelize.STRING(10),
+        allowNull: true,
+      }
     });
 
     await queryInterface.createTable('data_devices', {
