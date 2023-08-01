@@ -10,6 +10,4 @@ COPY . .
 
 EXPOSE 3000
 
-# ENV ENVIRONMENT="prod"
-
 CMD [ "node", "index.js" ]

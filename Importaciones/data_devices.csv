@@ -93,15 +93,15 @@
 93,10.225.6.25,Camara,Candelaria,Operaciones Concentradora,IT
 94,10.225.1.126,Camara,Candelaria,Operaciones Concentradora,IT
 95,10.225.1.44,Camara,Candelaria,Operaciones Concentradora,IT
-96,10.225.6.19,Camara,Candelaria,Medio Ambiente,IT
+96,10.225.6.19,Camara,Candelaria,Medio Ambiente,OT
 97,10.225.1.53,Camara,Candelaria,Operaciones Concentradora,IT
 98,10.225.1.42,Camara,Candelaria,Operaciones Concentradora,IT
-99,10.117.112.204,Camara,Candelaria,Medio Ambiente,IT
+99,10.117.112.204,Camara,Candelaria,Medio Ambiente,OT
 100,10.225.1.54,Camara,Candelaria,Operaciones Concentradora,IT
-101,10.117.112.205,Camara,Candelaria,Medio Ambiente,IT
+101,10.117.112.205,Camara,Candelaria,Medio Ambiente,OT
 102,10.225.6.18,Camara,Candelaria,Open Pit,OT
-103,10.117.112.206,Camara,Candelaria,Medio Ambiente,IT
-104,10.117.112.207,Camara,Candelaria,Medio Ambiente,IT
+103,10.117.112.206,Camara,Candelaria,Medio Ambiente,OT
+104,10.117.112.207,Camara,Candelaria,Medio Ambiente,OT
 105,10.225.6.16,Camara,Candelaria,Open Pit,OT
 106,10.225.6.15,Camara,Candelaria,Open Pit,OT
 107,10.225.6.17,Camara,Candelaria,Open Pit,OT
@@ -290,7 +290,7 @@
 290,10.225.6.35,Camara,Candelaria,DPI,IT
 291,10.225.7.19,Camara,Candelaria,Operaciones Mina UG,IT
 292,10.117.112.212,Camara,Candelaria,Operaciones Mina,IT
-293,10.225.6.5,Camara,Candelaria,Medio Ambiente,IT
+293,10.225.6.5,Camara,Candelaria,Medio Ambiente,OT
 294,10.225.4.23,Camara,Candelaria,DPI,IT
 295,10.225.7.9,Camara,Candelaria,Operaciones Mina UG,IT
 296,10.225.7.18,Camara,Candelaria Norte,Operaciones Mina UG,IT

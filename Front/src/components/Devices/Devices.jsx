@@ -32,7 +32,7 @@ export function Devices() {
       .map((value) => value.toString().toLowerCase())
       .join(" ");
     const hasDownPaused =
-      searchValues.includes("down") || searchValues.includes("paused");
+      searchValues.includes("down");
     return !filterDownPaused || (filterDownPaused && hasDownPaused);
   });
 
@@ -138,7 +138,7 @@ export function Devices() {
           checked={filterDownPaused}
           onChange={handleCheckboxChange}
         />
-        Down / Paused
+        Down
       </label>
 
       <div className="devices-container">
