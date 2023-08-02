@@ -64,7 +64,10 @@ export function TableClients() {
         </td>
         <td>{client.lastup_prtg}</td>
         <td>{client.lastdown_prtg}</td>
-        <td>{client.device_ip_cisco}</td>
+        <td>{client.data_backup === "true"
+            ? `⚠️ ${client.device_ip_cisco}`
+            : client.device_ip_cisco}
+        </td>
         <td
           className={
             client.status_device_cisco.includes("Up")
@@ -76,16 +79,29 @@ export function TableClients() {
               : ""
           }
         >
-          {client.device_cisco}
+          {client.data_backup === "true"
+            ? `⚠️ ${client.device_cisco}`
+            : client.device_cisco}
+
         </td>
 
         <td>
           <a href={`${CISCO_URL}${client.ip}&forceLoad=true`} target="_blank">
-            {client.port_cisco}
+            {client.data_backup === "true"
+            ? `⚠️ ${client.port_cisco}`
+            : client.port_cisco}
           </a>
         </td>
-        <td>{client.status_cisco}</td>
-        <td>{client.reachability_cisco}</td>
+        <td>
+          {client.data_backup === "true"
+            ? `⚠️ ${client.status_cisco}`
+            : client.status_cisco}
+          </td>
+        <td>
+          {client.data_backup === "true"
+            ? `⚠️ ${client.reachability_cisco}`
+            : client.reachability_cisco}
+          </td>
       </tr>
     ));
   };

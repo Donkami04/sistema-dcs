@@ -3,7 +3,7 @@ const { Ups } = require('../models/ups');
 async function getUps() {
   const ups = await Ups.findAll({
     order: [["id", "DESC"]],
-    limit: 63,
+    limit: 62,
   });
   return ups;
 };

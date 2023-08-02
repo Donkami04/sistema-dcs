@@ -150,6 +150,11 @@ module.exports = {
         type: Sequelize.STRING(50),
         allowNull: true,
       },
+      data_backup: {
+        type: Sequelize.STRING(10),
+        allowNull: true,
+      }
+      
     });
 
     await queryInterface.createTable('cnp', {
@@ -223,6 +228,11 @@ module.exports = {
         type: Sequelize.STRING(50),
         allowNull: true,
       },
+      data_backup: {
+        type: Sequelize.STRING(10),
+        allowNull: true,
+      }
+      
     });
 
     await queryInterface.createTable('cns', {
@@ -296,6 +306,11 @@ module.exports = {
         type: Sequelize.STRING(50),
         allowNull: true,
       },
+      data_backup: {
+        type: Sequelize.STRING(10),
+        allowNull: true,
+      }
+      
     });
 
     await queryInterface.createTable('hse', {
@@ -369,6 +384,11 @@ module.exports = {
         type: Sequelize.STRING(50),
         allowNull: true,
       },
+      data_backup: {
+        type: Sequelize.STRING(10),
+        allowNull: true,
+      }
+      
     });
 
     await queryInterface.createTable('cnpb', {
@@ -442,6 +462,11 @@ module.exports = {
         type: Sequelize.STRING(50),
         allowNull: true,
       },
+      data_backup: {
+        type: Sequelize.STRING(10),
+        allowNull: true,
+      }
+      
     });
 
     await queryInterface.createTable('cnsb', {
@@ -515,6 +540,11 @@ module.exports = {
         type: Sequelize.STRING(50),
         allowNull: true,
       },
+      data_backup: {
+        type: Sequelize.STRING(10),
+        allowNull: true,
+      }
+      
     });
 
     await queryInterface.createTable('switches', {

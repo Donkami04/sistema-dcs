@@ -10,7 +10,7 @@ export function UpsCard({ ups }) {
   } else if (ups.status_ups === 2) {
     statusText = "En linea";
     statusClassName = "status-light green";
-  } else if (ups.status_ups !== 2 && ups.status_ups !==  3) {
+  } else if (ups.status_prtg !== 2 && ups.status_prtg !==  3) {
     statusText = "Otro";
     statusClassName = "status-light red";
   }

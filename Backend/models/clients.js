@@ -66,6 +66,10 @@ const columns = {
     type: DataTypes.STRING(50),
     allowNull: true,
   },
+  data_backup: {
+    type: DataTypes.STRING(10),
+    allowNull: true,
+  }
 };
 
 const CSP = sequelize.define("CSP", columns, {
