@@ -74,3 +74,10 @@ export const getDevices = async () => {
     .then((response) => response.data)
     .catch((error) => console.error('DEVICES: Error del API REST Candealaria : ',error));
 };
+
+export const getFirewalls = async () => {
+  return axios
+    .get(`${BASE_API_URL}/firewalls`)
+    .then((response) => response.data)
+    .catch((error) => console.error('FIREWALLS: Error del API REST Candealaria : ',error));
+};

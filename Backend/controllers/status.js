@@ -1,4 +1,4 @@
-const { StatusClients, StatusSwitches, StatusUps, StatusVpn, StatusMesh, StatusDevices } = require("../models/status_system");
+const { StatusClients, StatusSwitches, StatusUps, StatusVpn, StatusMesh, StatusDevices, StatusFirewalls } = require("../models/status_system");
 
 async function date_status_system() {
     const dcs_status = await StatusClients.findAll({
@@ -31,6 +31,11 @@ async function date_status_system() {
       limit: 1,
     });
 
+    const firewalls_status = await StatusFirewalls.findAll({
+      order: [["id", "DESC"]],
+      limit: 1,
+    });
+
     const data = {
       dcs: dcs_status,
       sw: sw_status,
@@ -38,6 +43,7 @@ async function date_status_system() {
       vpn: vpn_status,
       mesh: mesh_status,
       devices: devices_status,
+      fw: firewalls_status,
     };
 
     return data;

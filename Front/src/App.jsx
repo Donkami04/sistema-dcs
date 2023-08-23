@@ -8,6 +8,7 @@ import { Vpn } from './components/Vpn/Vpn';
 import { Mesh } from './components/Mesh/Mesh';
 import { Devices } from './components/Devices/Devices';
 import { Helmet } from 'react-helmet';
+import { Firewalls } from './components/Firewalls/Firewalls'
 import './app.css';
 
 function getPageTitle(pathname) {
@@ -26,6 +27,8 @@ function getPageTitle(pathname) {
       return 'Mesh Candelaria';
     case '/monitoreo/devices':
       return 'Dispositivos';
+    case '/monitoreo/firewalls':
+      return 'Firewalls';
     default:
       return 'Sistema de Monitoreo';
   }
@@ -62,6 +65,7 @@ function App() {
         <Route path="/monitoreo/candelaria/mesh" element={<Mesh />} />
         <Route path="/monitoreo/vpn" element={<Vpn />} />
         <Route path="/monitoreo/devices" element={<Devices />} />
+        <Route path="/monitoreo/firewalls" element={<Firewalls />} />
       </Routes>
     </div>
   );

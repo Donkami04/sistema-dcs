@@ -31,6 +31,8 @@ export function Status_System({ tableToShow }) {
       return 'Mesh'
     } else if(tableToShow === 'devices') {
       return 'Dispositivos'
+    } else if(tableToShow === 'fw') {
+      return 'Firewalls'
     }
   } 
 

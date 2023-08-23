@@ -1,158 +1,228 @@
-2023-07-28 10:25:27,997 - ERROR - Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 82, in get_devices_data
-    if device['red'] == 'IT':
-KeyError: 'red'
+2023-08-18 16:10:12,330 - ERROR - TCP connection to device failed.
 
-2023-07-28 10:30:22,405 - ERROR - Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 122, in get_devices_data
-    cisco_client_data = cisco_client_response['queryResponse']['entity'][0]['clientsDTO']
-KeyError: 'queryResponse'
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
 
-2023-07-28 10:32:50,763 - ERROR - Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 123, in get_devices_data
-    cisco_client_data = cisco_client_response['queryResponse']['entity'][0]['clientsDTO']
-KeyError: 'queryResponse'
+Device settings: fortinet 10.224.28.1:2221
 
-2023-07-28 10:39:09,585 - ERROR - Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 86, in get_devices_data
-    URL_CISCO_GET_ID = os.getenv('URL_CISCO_IP_OT').format(red=red, ip_device=ip_device)
-AttributeError: 'NoneType' object has no attribute 'format'
 
-2023-07-28 10:39:40,868 - ERROR - Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 86, in get_devices_data
-    URL_CISCO_GET_ID = os.getenv('URL_CISCO_IP_OT').format(red=red, ip_device=ip_device)
-AttributeError: 'NoneType' object has no attribute 'format'
+2023-08-18 16:10:12,330 - ERROR - Error en el FW 10.224.28.1
+2023-08-18 16:10:22,362 - ERROR - TCP connection to device failed.
 
-2023-07-28 10:39:58,519 - ERROR - Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 144, in get_devices_data
-    cisco_device_ip_url = os.getenv('URL_CISCO_IP_DEVICE').format(ip=cisco_device_ip_adrress)
-KeyError: 'red'
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
 
-2023-07-28 10:41:23,285 - ERROR - Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 150, in get_devices_data
-    cisco_device_id_url = os.getenv('URL_CISCO_ID_DEVICE').format(id_device=cisco_device_id)
-KeyError: 'red'
+Device settings: fortinet 10.224.113.97:2221
 
-2023-07-28 10:43:14,149 - ERROR - Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 150, in get_devices_data
-    cisco_device_id_url = os.getenv('URL_CISCO_ID_DEVICE').format(id_device=cisco_device_id)
-KeyError: 'red'
 
-2023-07-28 11:05:57,427 - ERROR - Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 71, in get_devices_data
-    sensor = response_prtg_data['sensors'][0]
-IndexError: list index out of range
+2023-08-18 16:10:22,362 - ERROR - Error en el FW 10.224.113.97
+2023-08-18 16:10:32,393 - ERROR - TCP connection to device failed.
 
-2023-07-28 11:10:42,578 - ERROR - Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 79, in get_devices_data
-    sensor = response_prtg_data['sensors'][0]
-IndexError: list index out of range
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
 
-2023-07-28 11:11:19,927 - ERROR - Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 80, in get_devices_data
-    sensor = response_prtg_data['sensors'][0]
-IndexError: list index out of range
+Device settings: fortinet 10.224.113.129:2221
 
-2023-07-28 11:12:19,102 - ERROR - Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 81, in get_devices_data
-    sensor = response_prtg_data['sensors'][0]
-IndexError: list index out of range
 
-2023-07-28 11:13:49,762 - ERROR - Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 173, in get_devices_data
-    cursor.execute(query)
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 303, in execute
-    self._cnx.handle_unread_result()
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 932, in handle_unread_result
-    raise InternalError("Unread result found")
-mysql.connector.errors.InternalError: Unread result found
+2023-08-18 16:10:32,393 - ERROR - Error en el FW 10.224.113.129
+2023-08-18 16:10:42,435 - ERROR - TCP connection to device failed.
 
-2023-07-28 11:17:45,053 - ERROR - Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 172, in get_devices_data
-    cursor.execute(query)
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 303, in execute
-    self._cnx.handle_unread_result()
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 932, in handle_unread_result
-    raise InternalError("Unread result found")
-mysql.connector.errors.InternalError: Unread result found
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
 
-2023-07-28 12:27:32,222 - ERROR - Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
-    self._cmysql.query(
-_mysql_connector.MySQLInterfaceError: Unknown column 'red' in 'field list'
+Device settings: fortinet 10.224.113.161:2221
 
-The above exception was the direct cause of the following exception:
 
-Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 173, in get_devices_data
-    cursor.execute(query)
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
-    result = self._cnx.cmd_query(
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
-    raise get_mysql_exception(
-mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'red' in 'field list'
+2023-08-18 16:10:42,436 - ERROR - Error en el FW 10.224.113.161
+2023-08-18 16:10:52,467 - ERROR - TCP connection to device failed.
 
-2023-07-28 12:27:57,179 - ERROR - Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
-    self._cmysql.query(
-_mysql_connector.MySQLInterfaceError: Data too long for column 'red' at row 1
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
 
-The above exception was the direct cause of the following exception:
+Device settings: fortinet 10.224.21.1:2221
 
-Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 173, in get_devices_data
-    cursor.execute(query)
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
-    result = self._cnx.cmd_query(
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
-    raise get_mysql_exception(
-mysql.connector.errors.DataError: 1406 (22001): Data too long for column 'red' at row 1
 
-2023-07-28 12:28:32,865 - ERROR - Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
-    self._cmysql.query(
-_mysql_connector.MySQLInterfaceError: Data too long for column 'red' at row 1
+2023-08-18 16:10:52,467 - ERROR - Error en el FW 10.224.21.1
+2023-08-22 11:22:48,737 - ERROR - local variable 'e' referenced before assignment
+2023-08-22 11:22:48,746 - ERROR - Error en el FW 10.224.126.89
+2023-08-22 11:22:48,746 - ERROR - local variable 'fecha_y_hora' referenced before assignment
+2023-08-22 11:22:48,747 - ERROR - Error en el FW 10.224.126.89
+2023-08-22 11:25:18,107 - ERROR - TCP connection to device failed.
 
-The above exception was the direct cause of the following exception:
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
 
-Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 173, in get_devices_data
-    cursor.execute(query)
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
-    result = self._cnx.cmd_query(
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
-    raise get_mysql_exception(
-mysql.connector.errors.DataError: 1406 (22001): Data too long for column 'red' at row 1
+Device settings: fortinet 10.224.28.1:2221
 
-2023-07-28 12:30:20,410 - ERROR - Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
-    self._cmysql.query(
-_mysql_connector.MySQLInterfaceError: Data too long for column 'red' at row 1
 
-The above exception was the direct cause of the following exception:
+2023-08-22 11:25:18,107 - ERROR - Error en el FW 10.224.28.1
+2023-08-22 11:25:28,136 - ERROR - TCP connection to device failed.
 
-Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 173, in get_devices_data
-    cursor.execute(query)
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
-    result = self._cnx.cmd_query(
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
-    raise get_mysql_exception(
-mysql.connector.errors.DataError: 1406 (22001): Data too long for column 'red' at row 1
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
 
-2023-07-28 12:30:51,938 - ERROR - Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
-    self._cmysql.query(
-_mysql_connector.MySQLInterfaceError: Data too long for column 'red' at row 1
+Device settings: fortinet 10.224.113.97:2221
 
-The above exception was the direct cause of the following exception:
 
-Traceback (most recent call last):
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Devices/main.py", line 173, in get_devices_data
-    cursor.execute(query)
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
-    result = self._cnx.cmd_query(
-  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
-    raise get_mysql_exception(
-mysql.connector.errors.DataError: 1406 (22001): Data too long for column 'red' at row 1
+2023-08-22 11:25:28,137 - ERROR - Error en el FW 10.224.113.97
+2023-08-22 11:25:38,177 - ERROR - TCP connection to device failed.
 
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.129:2221
+
+
+2023-08-22 11:25:38,177 - ERROR - Error en el FW 10.224.113.129
+2023-08-22 11:25:48,214 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.161:2221
+
+
+2023-08-22 11:25:48,214 - ERROR - Error en el FW 10.224.113.161
+2023-08-22 11:25:58,254 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.21.1:2221
+
+
+2023-08-22 11:25:58,254 - ERROR - Error en el FW 10.224.21.1
+2023-08-22 11:25:58,288 - ERROR - 1146 (42S02): Table 'dcs.fechas_consultas_firewalls' doesn't exist
+2023-08-22 11:25:58,288 - ERROR - Error en el FW 10.224.21.1
+2023-08-22 11:28:09,936 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.28.1:2221
+
+
+2023-08-22 11:28:09,936 - ERROR - Error en el FW 10.224.28.1
+2023-08-22 11:28:19,978 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.97:2221
+
+
+2023-08-22 11:28:19,978 - ERROR - Error en el FW 10.224.113.97
+2023-08-22 11:28:30,016 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.129:2221
+
+
+2023-08-22 11:28:30,016 - ERROR - Error en el FW 10.224.113.129
+2023-08-22 11:28:40,043 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.161:2221
+
+
+2023-08-22 11:28:40,043 - ERROR - Error en el FW 10.224.113.161
+2023-08-22 11:28:50,064 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.21.1:2221
+
+
+2023-08-22 11:28:50,064 - ERROR - Error en el FW 10.224.21.1
+2023-08-22 11:28:50,091 - ERROR - 1146 (42S02): Table 'dcs.fechas_consultas_fw' doesn't exist
+2023-08-22 11:28:50,091 - ERROR - Error en el FW 10.224.21.1
+2023-08-22 11:32:26,260 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.28.1:2221
+
+
+2023-08-22 11:32:26,260 - ERROR - Error en el FW 10.224.28.1
+2023-08-22 11:32:36,289 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.97:2221
+
+
+2023-08-22 11:32:36,289 - ERROR - Error en el FW 10.224.113.97
+2023-08-22 11:32:46,322 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.129:2221
+
+
+2023-08-22 11:32:46,323 - ERROR - Error en el FW 10.224.113.129
+2023-08-22 11:32:56,358 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.161:2221
+
+
+2023-08-22 11:32:56,358 - ERROR - Error en el FW 10.224.113.161
+2023-08-22 11:33:06,395 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.21.1:2221
+
+
+2023-08-22 11:33:06,395 - ERROR - Error en el FW 10.224.21.1

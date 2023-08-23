@@ -59,7 +59,6 @@ def ups():
                 prtg_response_ip = prtg_response_ip['devices'][0]
                 name = prtg_response_ip['device']
                 id_ups = prtg_response_ip['objid']
-                print(f"id_ups: {id_ups}")
                 
                 url_prtg_id = os.getenv('URL_PRTG_ID_UPS').format(id=id_ups)
                 prtg_response_id = requests.get(url_prtg_id, verify=False).json()

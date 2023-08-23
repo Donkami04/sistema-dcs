@@ -4,7 +4,6 @@ import {Navbar} from "../Navbar/Navbar"
 import { UpsCard } from '../UpsCard/UpsCard';
 import './ups.css'
 import { UpsDashboard } from '../UpsDashboard/UpsDashboard';
-import { Helmet } from 'react-helmet';
 
 export function Ups() {
   const [allUps, setUps] = useState([])
