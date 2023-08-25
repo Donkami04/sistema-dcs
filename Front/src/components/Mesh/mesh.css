@@ -32,3 +32,15 @@
 .mesh-valor {
     font-weight: 100;
 }
+
+.container-input-mesh {
+    margin-left: 10px;
+    width: 30rem;
+}
+.text-input-mesh {
+    width: 5%;
+}
+
+.box-mesh {
+    margin-left: 10px;
+}

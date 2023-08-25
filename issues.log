@@ -226,3 +226,495 @@ Device settings: fortinet 10.224.21.1:2221
 
 
 2023-08-22 11:33:06,395 - ERROR - Error en el FW 10.224.21.1
+2023-08-24 08:31:57,391 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.28.1:2221
+
+
+2023-08-24 08:31:57,393 - ERROR - Error en el FW 10.224.28.1
+2023-08-24 08:32:07,413 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.97:2221
+
+
+2023-08-24 08:32:07,413 - ERROR - Error en el FW 10.224.113.97
+2023-08-24 08:32:17,454 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.129:2221
+
+
+2023-08-24 08:32:17,454 - ERROR - Error en el FW 10.224.113.129
+2023-08-24 08:32:27,483 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.161:2221
+
+
+2023-08-24 08:32:27,483 - ERROR - Error en el FW 10.224.113.161
+2023-08-24 08:32:37,511 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.21.1:2221
+
+
+2023-08-24 08:32:37,511 - ERROR - Error en el FW 10.224.21.1
+2023-08-24 09:01:20,571 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.28.1:2221
+
+
+2023-08-24 09:01:20,571 - ERROR - Error en el FW 10.224.28.1
+2023-08-24 09:01:30,612 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.97:2221
+
+
+2023-08-24 09:01:30,612 - ERROR - Error en el FW 10.224.113.97
+2023-08-24 09:01:40,637 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.129:2221
+
+
+2023-08-24 09:01:40,637 - ERROR - Error en el FW 10.224.113.129
+2023-08-24 09:01:50,672 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.161:2221
+
+
+2023-08-24 09:01:50,672 - ERROR - Error en el FW 10.224.113.161
+2023-08-24 09:02:00,708 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.21.1:2221
+
+
+2023-08-24 09:02:00,708 - ERROR - Error en el FW 10.224.21.1
+2023-08-24 09:05:27,708 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.28.1:2221
+
+
+2023-08-24 09:05:27,708 - ERROR - Error en el FW 10.224.28.1
+2023-08-24 09:05:37,745 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.97:2221
+
+
+2023-08-24 09:05:37,745 - ERROR - Error en el FW 10.224.113.97
+2023-08-24 09:05:47,778 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.129:2221
+
+
+2023-08-24 09:05:47,778 - ERROR - Error en el FW 10.224.113.129
+2023-08-24 09:05:57,808 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.161:2221
+
+
+2023-08-24 09:05:57,808 - ERROR - Error en el FW 10.224.113.161
+2023-08-24 09:06:07,848 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.21.1:2221
+
+
+2023-08-24 09:06:07,848 - ERROR - Error en el FW 10.224.21.1
+2023-08-24 09:08:21,622 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.28.1:2221
+
+
+2023-08-24 09:08:21,622 - ERROR - Error en el FW 10.224.28.1
+2023-08-24 09:08:31,660 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.97:2221
+
+
+2023-08-24 09:08:31,660 - ERROR - Error en el FW 10.224.113.97
+2023-08-24 09:08:41,698 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.129:2221
+
+
+2023-08-24 09:08:41,698 - ERROR - Error en el FW 10.224.113.129
+2023-08-24 09:08:51,725 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.161:2221
+
+
+2023-08-24 09:08:51,725 - ERROR - Error en el FW 10.224.113.161
+2023-08-24 09:09:01,765 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.21.1:2221
+
+
+2023-08-24 09:09:01,765 - ERROR - Error en el FW 10.224.21.1
+2023-08-24 09:38:48,422 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.28.1:2221
+
+
+2023-08-24 09:38:48,422 - ERROR - Error en el FW 10.224.28.1
+2023-08-24 09:38:58,465 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.97:2221
+
+
+2023-08-24 09:38:58,465 - ERROR - Error en el FW 10.224.113.97
+2023-08-24 09:39:08,502 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.129:2221
+
+
+2023-08-24 09:39:08,503 - ERROR - Error en el FW 10.224.113.129
+2023-08-24 09:39:18,539 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.161:2221
+
+
+2023-08-24 09:39:18,539 - ERROR - Error en el FW 10.224.113.161
+2023-08-24 09:39:28,569 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.21.1:2221
+
+
+2023-08-24 09:39:28,569 - ERROR - Error en el FW 10.224.21.1
+2023-08-24 10:18:32,898 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.129:2221
+
+
+2023-08-24 10:18:32,898 - ERROR - Error en el FW 10.224.113.129
+2023-08-24 10:19:18,376 - ERROR - local variable 'e' referenced before assignment
+2023-08-24 10:19:18,376 - ERROR - Error en el FW 10.224.113.161
+2023-08-24 10:20:05,045 - ERROR - local variable 'e' referenced before assignment
+2023-08-24 10:20:05,045 - ERROR - Error en el FW 10.224.21.1
+2023-08-24 10:25:48,407 - ERROR - Error en el FW 10.224.113.129
+2023-08-24 10:25:48,407 - ERROR - TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: fortinet 10.224.113.129:2221
+
+
+2023-08-24 10:26:25,411 - ERROR - No se encontro las palabras 'Health Check - FW 10.224.113.161
+2023-08-24 10:27:14,235 - ERROR - No se encontro las palabras 'Health Check - FW 10.224.21.1
+2023-08-24 10:57:49,104 - ERROR - No se encontro las palabras 'Health Check - FW 10.224.113.129
+2023-08-24 10:58:23,009 - ERROR - No se encontro las palabras 'Health Check - FW 10.224.113.161
+2023-08-24 10:59:12,882 - ERROR - No se encontro las palabras 'Health Check - FW 10.224.21.1
+2023-08-25 14:32:39,031 - ERROR: Error Controladora Device 10.117.115.110
+2023-08-25 14:32:39,031 - ERROR: Error Controladora Device 10.117.115.110
+2023-08-25 14:32:39,032 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-08-25 14:32:39,032 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-08-25 14:33:41,589 - ERROR: Error Controladora Device 10.117.115.181
+2023-08-25 14:33:41,589 - ERROR: Error Controladora Device 10.117.115.181
+2023-08-25 14:33:41,589 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-08-25 14:33:41,589 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-08-25 14:35:26,107 - ERROR: Error Controladora Device 10.117.115.184
+2023-08-25 14:35:26,107 - ERROR: Error Controladora Device 10.117.115.184
+2023-08-25 14:35:26,108 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-08-25 14:35:26,108 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-08-25 14:35:50,403 - ERROR: Error Controladora Device 10.117.115.110
+2023-08-25 14:35:50,403 - ERROR: Error Controladora Device 10.117.115.110
+2023-08-25 14:35:50,404 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-08-25 14:35:50,404 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-08-25 14:42:10,554 - ERROR: Error Controladora Device 10.117.115.110
+2023-08-25 14:42:10,554 - ERROR: Error Controladora Device 10.117.115.110
+2023-08-25 14:42:10,555 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-08-25 14:42:10,555 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-08-25 14:43:15,929 - ERROR: Error Controladora Device 10.117.115.181
+2023-08-25 14:43:15,929 - ERROR: Error Controladora Device 10.117.115.181
+2023-08-25 14:43:15,930 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-08-25 14:43:15,930 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-08-25 14:44:29,226 - ERROR: Error Controladora Device 10.117.115.182
+2023-08-25 14:44:29,226 - ERROR: Error Controladora Device 10.117.115.182
+2023-08-25 14:44:29,226 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-08-25 14:44:29,226 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-08-25 14:44:50,416 - ERROR: Error Controladora Device 10.117.115.183
+2023-08-25 14:44:50,416 - ERROR: Error Controladora Device 10.117.115.183
+2023-08-25 14:44:50,417 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-08-25 14:44:50,417 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 35, in get_data_controladora
+    data_pala = net_connect.send_command(f"sh wireless client summary detail ipv4 | inc {device_ip}") #! Ip Pala
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/utilities.py", line 592, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 1721, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'WLC\\-9800\\-MESH\\-CD>' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2023-08-25 14:45:13,384 - ERROR: Error Controladora Device 10.117.115.184
+2023-08-25 14:45:13,384 - ERROR: Error Controladora Device 10.117.115.184
+2023-08-25 14:45:13,385 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+
+2023-08-25 14:45:13,385 - ERROR: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/controladora.py", line 38, in get_data_controladora
+    output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
+IndexError: list index out of range
+

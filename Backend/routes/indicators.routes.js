@@ -5,6 +5,7 @@ const { getClients } = require("../controllers/clients");
 const { getSwitches } = require('../controllers/switches')
 const { getDisponibilidad } = require("../controllers/indicators/disponibilidad");
 const { getInfraSolucion } = require("../controllers/indicators/infra_solucion");
+const { dashboardMesh } = require("../controllers/indicators/mesh");
 
 const allClients = async () => {
   try {
@@ -30,6 +31,7 @@ router.get("/", async (req, res, next) => {
   try {
     const listAllClients = await allClients();
     const listAllSwitches = await allSwitches();
+    const dataMesh = await dashboardMesh();
 
     const overallKpi = overall(listAllClients);
     const disponibilidad = getDisponibilidad(listAllClients);
@@ -39,6 +41,18 @@ router.get("/", async (req, res, next) => {
       overallKpi: overallKpi,
       disponibilidad: disponibilidad,
       infra_solucion: infraSolucion,
+      mesh: {
+        palasTotales: dataMesh.totalPalas,
+        palasStatus2: dataMesh.palasStatus2,
+        palasFailed: dataMesh.palasFailed,
+        palasWarnings: dataMesh.palasWarnings,
+        palasOk: dataMesh.palasOk,
+        caexTotales: dataMesh.totalCaex,
+        caexStatus2: dataMesh.caexStatus2,
+        caexFailed: dataMesh.caexFailed,
+        caexWarnings: dataMesh.caexWarnings,
+        caexOk: dataMesh.caexOk,
+      },
     };
     
     res.json(allIndicators);

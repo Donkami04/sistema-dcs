@@ -52,10 +52,9 @@
     font-weight: bold;
 }
 .kpi-yellow {
-    background-color: rgb(204, 201, 4);
-    color: white;
-    font-weight: bold;
-    
+  background-color: yellow;
+  font-weight: bold;
+  
 }
 
 @media (max-width: 530px) {

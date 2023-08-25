@@ -71,6 +71,7 @@ def fw_status():
 
                 net_connect = ConnectHandler(**network_device_list)
                 output = net_connect.send_command("diagnose sys sdwan health-check Check_Internet")
+                logging.info(output)
                 net_connect.disconnect()
                 
                 if 'Health Check' in output:
@@ -98,7 +99,6 @@ def fw_status():
                                 save_bd_error(name, fecha_y_hora)
                             
                 else:
-                    logging.error(e)
                     logging.error(f"No se encontro las palabras 'Health Check - FW {host}")
                     for _ in range(num_connections):
                         save_bd_error(name, fecha_y_hora)
@@ -106,8 +106,8 @@ def fw_status():
             except Exception as e:
                 if net_connect:
                     net_connect.disconnect()
-                logging.error(e)
                 logging.error(f"Error en el FW {host}")
+                logging.error(e)
                 
                 for _ in range(num_connections):
                     save_bd_error(name, fecha_y_hora)
@@ -140,6 +140,8 @@ def save_bd_error(name, fecha_y_hora):
     latency = 'Not Found'
     jitter = 'Not Found'
     failed_before = check_failed_before(name)
+
+    
     
     query = "INSERT INTO dcs.firewalls (`fw`, `canal`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`)"
     value = f"VALUES ('{name}', '{canal}', '{state}', '{packet_loss}', '{latency}', '{jitter}', '{failed_before}','{fecha_y_hora}')"
@@ -166,10 +168,10 @@ def check_failed_before(name):
 fw_status()
 
 
-# def bucle(scheduler):holaaaa
+# def bucle(scheduler):
 #     scheduler.enter(300, 1, bucle, (scheduler,))
 
 # if __name__ == '__main__':
 #     s = sched.scheduler(time.time, time.sleep)
 #     s.enter(0, 1, bucle, (s,))
-#     s.run()
+    # s.run()

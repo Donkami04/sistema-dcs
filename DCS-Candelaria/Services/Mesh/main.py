@@ -92,9 +92,9 @@ def prtg_data():
             try:
                 data_ping = requests.get(URL_GET_DATA_PING, verify=False)
                 data_ping = xmltodict.parse(data_ping.text)
-                print('Esto es la respuesta a la api: ', data_ping)
+                # print('Esto es la respuesta a la api: ', data_ping)
                 data_ping = data_ping["histdata"]['item']['value']
-                print(f"Toda la info {data_ping}")
+                # print(f"Toda la info {data_ping}")
                 avg_ping = data_ping[0]['#text']
                 min_ping = data_ping[1]['#text']
                 max_ping = data_ping[2]['#text']
@@ -116,7 +116,7 @@ def prtg_data():
             
             status_dispatch, operador = get_data_dispatch(eqmt_device)
             
-            logging.info(f"Terminada consulta a la {name_device}")
+            # logging.info(f"Terminada consulta a la {name_device}")
 
             query = "INSERT INTO dcs.mesh (`ip`, `device`, `ping_avg`, `minimo`, `maximo`, `packet_loss`, `lastvalue`, `lastup`, `lastdown`, `nivel_senal`, `ruido_senal`, `tiempo_conexion`, `conectado_a`, `status_dispatch`, `operador`, `SNR`) "
             value = f"VALUES ('{ip_device}', '{name_device}', '{avg_ping}', '{min_ping}', '{max_ping}', '{packet_loss}', '{last_value_ping}', '{last_up_ping}', '{last_down_ping}', '{signal_strength}', '{signal_noise}', '{connected_for}', '{ap_name}', '{status_dispatch}', '{operador}', '{snr_level}')"
@@ -129,6 +129,7 @@ def prtg_data():
         cursor.execute(f"INSERT INTO dcs.fechas_consultas_mesh (`ultima_consulta`, `estado`) VALUES ('{fecha_y_hora}', 'OK')")
         mydb.commit()
         cursor.close()
+        logging.info("Terminado Ciclo")
         
     except Exception as e:
         logging.error(f"Error en la consulta {name_device}")
@@ -139,7 +140,7 @@ def prtg_data():
 
 def bucle(scheduler):
     prtg_data()
-    scheduler.enter(5, 1, bucle, (scheduler,))
+    scheduler.enter(300, 1, bucle, (scheduler,))
 
 if __name__ == '__main__':
     s = sched.scheduler(time.time, time.sleep)

@@ -76,7 +76,7 @@ export function Firewalls() {
             : ""
         }
       >
-        {fw.jitter === "Not Found" ? "Not Found" : fw.jitter + ""}
+        {fw.jitter === "Not Found" ? "Not Found" : fw.jitter + " ms"}
       </td>
         <td>{fw.failed_before}</td>
       </tr>
