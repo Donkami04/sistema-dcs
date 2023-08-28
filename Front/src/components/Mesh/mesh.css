@@ -38,9 +38,16 @@
     width: 30rem;
 }
 .text-input-mesh {
-    width: 5%;
+    width: 20px;
+    text-align: center;
 }
 
 .box-mesh {
     margin-left: 10px;
+}
+
+.filter-mesh-container {
+    margin-left: 10px;
+    /* position: relative;
+    top: 10px; */
 }

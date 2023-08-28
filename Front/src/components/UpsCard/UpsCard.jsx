@@ -1,7 +1,7 @@
 import "./upscard.css";
 
 export function UpsCard({ ups }) {
-  console.log(ups.batery)
+
   let statusText = "";
   let statusClassName = "";
   let statusClassNameBatery = "";

@@ -8,27 +8,47 @@ export function UpsDashboard({ allUps }) {
   const [enLineaCount, setEnLineaCount] = useState(0);
   const [usandoBateriaCount, setUsandoBateriaCount] = useState(0);
   const [otroCount, setOtroCount] = useState(0);
+  const [bateryChange, setBateryChange] = useState(0);
 
   useEffect(() => {
     let enLinea = 0;
     let usandoBateria = 0;
     let otro = 0;
+    let changeBateria = 0;
 
     
+    // allUps.forEach((ups) => {
+    //   if (ups.status_ups === 2 && ups.status_prtg && !ups.status_prtg.includes('Paused')) {
+    //     enLinea++;
+    //   } if (ups.status_ups === 3 && ups.status_prtg && !ups.status_prtg.includes('Paused')) {
+    //     usandoBateria++;
+    //   } if (ups.status_ups !== 3 && ups.status_ups !== 2 && ups.status_prtg && !ups.status_prtg.includes('Paused')){
+    //     otro++;
+    //   } if (ups.batery === 2) {
+    //     changeBateria++;
+    //   }
+    // }
+    // );
     allUps.forEach((ups) => {
-      if (ups.status_ups === 2 && ups.status_prtg && !ups.status_prtg.includes('Paused')) {
+      if (ups.status_ups === 2) {
         enLinea++;
-      } else if (ups.status_ups === 3 && ups.status_prtg && !ups.status_prtg.includes('Paused')) {
+      } if (ups.status_ups === 3) {
         usandoBateria++;
-      } else if (ups.status_ups !== 3 && ups.status_ups !== 2 && ups.status_prtg && !ups.status_prtg.includes('Paused')){
+      } if (ups.status_ups !== 3 && ups.status_ups !== 2 && ups.status_prtg && !ups.status_prtg.includes('Paused')){
         otro++;
+      } if (ups.batery === 2) {
+        changeBateria++;
       }
-    });
+    }
+    );
+  
 
     setEnLineaCount(enLinea);
     setUsandoBateriaCount(usandoBateria);
     setOtroCount(otro);
+    setBateryChange(changeBateria);
 
+    
   }, [allUps]);
 
   return (
@@ -50,6 +70,10 @@ export function UpsDashboard({ allUps }) {
                 <tr>
                   <td><p className="light-indicator red-light"></p>Otro</td>
                   <td>{otroCount}</td>
+                </tr>
+                <tr>
+                  <td><p className="warning-light">🪫</p>Cambio Bateria</td>
+                  <td>{bateryChange}</td>
                 </tr>
               </tbody>
             </table>

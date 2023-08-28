@@ -23,6 +23,11 @@
   font-size: 1rem;
 }
 
+.ups-table {
+  position: relative;
+  top: 10px;
+}
+
 .light-indicator {
   border: black solid 1px;
   width: 15px;
@@ -43,6 +48,15 @@
 
 .red-light {
   background-color: red;
+}
+
+.warning-light {
+  width: 15px;
+  height: 15px;
+  margin-bottom: 5px ;
+  margin-left: -2px;
+  position: absolute;
+  bottom: 3px;
 }
 
 @media (max-width: 530px) {

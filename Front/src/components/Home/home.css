@@ -12,6 +12,7 @@
     width: 100%;
     position: relative;
     height: 20rem;
+    overflow: hidden; /* Para recortar el contenido si es demasiado grande */
 }
 
 .name-system-container {
@@ -19,7 +20,6 @@
     align-items: center;
     justify-content: center;
     height: 3rem;
-    
 }
 
 .system-container h1 {
@@ -107,4 +107,27 @@
 }
 .button-devices {
     background-color: #750071;
+}
+
+.dash-mesh-home {
+    width: 95%;
+    text-align: center;
+    
+}
+
+.dash-mesh-home th {
+    font-size: 1rem;
+    
+}
+
+.dash-mesh-home table {
+    table-layout: fixed; /* Fijar el ancho de las celdas */
+    border-collapse: collapse; 
+    height: 8rem;
+}
+
+.dash-mesh-home table td,
+.dash-mesh-home table th {
+    border: 1px solid black;
+   height: 10px;
 }

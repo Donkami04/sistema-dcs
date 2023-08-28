@@ -1,0 +1,47 @@
+/* dashmesh.css */
+
+.dash-mesh-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .dash-mesh {
+    /* border: solid; */
+    border-radius: 15px;
+    width: 45rem;
+    padding: 5px;
+    display: flex;
+    text-align: center;
+    margin: auto;
+    justify-content: center;
+  }
+
+
+  
+  .dash-mesh table {
+    width: 95%;
+    table-layout: fixed; /* Fijar el ancho de las celdas */
+    border-collapse: collapse; 
+
+  }
+
+  
+  .dash-mesh table th,
+  .dash-mesh table td {
+    font-size: 0.9rem;
+    padding: 8px;
+    border: 2px solid black;
+
+  }
+
+.kpi-mesh-green {
+    background-color: rgb(3, 186, 31);
+    color: white;
+}
+.kpi-mesh-yellow {
+    background-color: yellow;
+}
+.kpi-mesh-red {
+    background-color: red;
+    color: white;
+}
