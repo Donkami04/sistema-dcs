@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Navbar } from "../Navbar/Navbar";
 import { Status_System } from "../Status_System/Status_System";
+import { DevicesDash } from "./DevicesDash/DevicesDash";
 import { getDevices } from "../../utils/Api-candelaria/api";
 import { PRTG_URL, CISCO_URL_IT, CISCO_URL } from "../../utils/Api-candelaria/api";
 import "./devices.css";
@@ -123,6 +124,7 @@ export function Devices() {
     <>
       <Navbar title={"Dispositivos"} />
       <Status_System tableToShow={"devices"} />
+      <DevicesDash />
       <input
         className="filtro filtro-devices"
         type="text"

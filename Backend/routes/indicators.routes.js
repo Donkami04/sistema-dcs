@@ -6,8 +6,9 @@ const { getSwitches } = require('../controllers/switches')
 const { getDisponibilidad } = require("../controllers/indicators/disponibilidad");
 const { getInfraSolucion } = require("../controllers/indicators/infra_solucion");
 const { dashboardMesh } = require("../controllers/indicators/mesh");
+const { dashboardDevices } = require("../controllers/indicators/devices");
 
-const allClients = async () => {
+const allClients = async (req, res, next) => {
   try {
     const clients = await getClients();
     const allClientsJSON = clients.map((client) => client.toJSON());
@@ -17,7 +18,7 @@ const allClients = async () => {
   };
 };
 
-const allSwitches = async () => {
+const allSwitches = async (req, res, next) => {
   try {
     const switches = await getSwitches();
     const allSwitchesJSON = switches.map((switch_) => switch_.toJSON());
@@ -32,6 +33,7 @@ router.get("/", async (req, res, next) => {
     const listAllClients = await allClients();
     const listAllSwitches = await allSwitches();
     const dataMesh = await dashboardMesh();
+    const dataDevices = await dashboardDevices();
 
     const overallKpi = overall(listAllClients);
     const disponibilidad = getDisponibilidad(listAllClients);
@@ -53,10 +55,25 @@ router.get("/", async (req, res, next) => {
         caexWarnings: dataMesh.caexWarnings,
         caexOk: dataMesh.caexOk,
       },
+      devices: {
+        numTotalDevices: dataDevices.numTotalDevices,
+        numTotalCameras: dataDevices.numTotalCameras,
+        numTotalAp: dataDevices.numTotalAp,
+        numTotalOthers: dataDevices.numTotalOthers,
+        numCamerasUp: dataDevices.numCamerasUp,
+        numCamerasDown: dataDevices.numCamerasDown,
+        numApUp: dataDevices.numApUp,
+        numApDown: dataDevices.numApDown,
+        numApDown: dataDevices.numApDown,
+        numOthersUp: dataDevices.numOthersUp,
+        numOthersDown: dataDevices.numOthersDown
+      }
     };
     
     res.json(allIndicators);
+
   } catch (error) {
+    console.error(error);
     next(error);
   };
 });

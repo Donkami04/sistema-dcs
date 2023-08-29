@@ -17,17 +17,20 @@ export function DashMesh() {
     fetchData();
   }, []);
 
+    const currentTab = document.title; 
+    const tableClassName = currentTab === "Home" ? "mesh-dash-table-home" : "mesh-dash-table";
+  
+
   return (
     <>
-      <div className="dash-mesh">
-        <table>
+        <table className={tableClassName}>
           <thead>
             <tr>
               <th>DISPOSITIVO</th>
               <th>OPERANDO</th>
-              <th className="kpi-mesh-green">OK</th>
-              <th className="kpi-mesh-yellow">WARNING</th>
-              <th className="kpi-mesh-red">FALLAS</th>
+              <th className="kpi-green">OK</th>
+              <th className="kpi-yellow">WARNING</th>
+              <th className="kpi-red">FALLAS</th>
             </tr>
           </thead>
           <tbody>
@@ -66,7 +69,6 @@ export function DashMesh() {
             )}
           </tbody>
         </table>
-      </div>
     </>
   );
 }

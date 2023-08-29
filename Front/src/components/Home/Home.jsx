@@ -1,5 +1,7 @@
 import { getIndicators, getUps, getVpn } from "../../utils/Api-candelaria/api"
 import { Navbar } from "../../components/Navbar/Navbar"
+import { DevicesDash } from "../../components/Devices/DevicesDash/DevicesDash";
+import { DashMesh } from "../Mesh/DashMesh/DashMesh"
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import "./home.css";
@@ -173,54 +175,7 @@ export function Home() {
         </div>
 
         <div className="home-kpi-container">
-        <div className="dash-mesh-home">
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-              <th>OPERANDO</th>
-              <th className="kpi-mesh-green">OK</th>
-              <th className="kpi-mesh-yellow">WARNING</th>
-              <th className="kpi-mesh-red">FALLAS</th>
-            </tr>
-          </thead>
-          <tbody>
-            {meshIndicators ? (
-              <>
-                <tr>
-                  <td>PALAS</td>
-                  <td>{meshIndicators.palasStatus2}/{meshIndicators.palasTotales}</td>
-                  <td>{meshIndicators.palasOk}</td>
-                  <td>{meshIndicators.palasWarnings}</td>
-                  <td>{meshIndicators.palasFailed}</td>
-                </tr>
-                <tr>
-                  <td>CAEX</td>
-                  <td>{meshIndicators.caexStatus2}/{meshIndicators.caexTotales}</td>
-                  <td>{meshIndicators.caexOk}</td>
-                  <td>{meshIndicators.caexWarnings}</td>
-                  <td>{meshIndicators.caexFailed}</td>
-                </tr>
-                <tr>
-                  <td>TOTAL</td>
-                  <td>{meshIndicators.palasStatus2 + meshIndicators.caexStatus2}/{meshIndicators.caexTotales + meshIndicators.palasTotales}</td>
-                  <td>{meshIndicators.palasOk + meshIndicators.caexOk}</td>
-                  <td>{meshIndicators.palasWarnings + meshIndicators.caexWarnings}</td>
-                  <td>{meshIndicators.palasFailed + meshIndicators.caexFailed}</td>
-                </tr>
-              </>
-            ) : (
-              <tr>
-                <td>Cargando...</td>
-                <td>Cargando...</td>
-                <td>Cargando...</td>
-                <td>Cargando...</td>
-                <td>Cargando...</td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-        </div>
+          <DashMesh />
         </div>
         <div className="link-system-container">
             <Link to="/monitoreo/candelaria/mesh" className="link-system button-mesh button-link" style={{ color: 'white' }}>Ver detalles</Link>
@@ -229,11 +184,11 @@ export function Home() {
 
       <section className="system-container">
         <div className="name-system-container">
-          <h1>Devices Candelaria</h1>
+          <h1>Dispositivos Candelaria</h1>
         </div>
 
         <div className="home-kpi-container">
-
+          <DevicesDash />
         </div>
         <div className="link-system-container">
             <Link to="/monitoreo/devices" className="link-system button-devices button-link" style={{ color: 'white' }}>Ver detalles</Link>

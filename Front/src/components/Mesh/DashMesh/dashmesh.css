@@ -1,47 +1,39 @@
-/* dashmesh.css */
-
-.dash-mesh-container {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .dash-mesh {
-    /* border: solid; */
-    border-radius: 15px;
-    width: 45rem;
-    padding: 5px;
-    display: flex;
-    text-align: center;
-    margin: auto;
-    justify-content: center;
-  }
-
-
-  
-  .dash-mesh table {
-    width: 95%;
-    table-layout: fixed; /* Fijar el ancho de las celdas */
-    border-collapse: collapse; 
-
-  }
-
-  
-  .dash-mesh table th,
-  .dash-mesh table td {
-    font-size: 0.9rem;
-    padding: 8px;
-    border: 2px solid black;
-
-  }
-
-.kpi-mesh-green {
-    background-color: rgb(3, 186, 31);
-    color: white;
+.mesh-dash-table,
+.mesh-dash-table-home {
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  text-align: center;
 }
-.kpi-mesh-yellow {
-    background-color: yellow;
+
+.mesh-dash-table th,
+.mesh-dash-table td,
+.mesh-dash-table-home th,
+.mesh-dash-table-home td {
+  border: 1px solid black;
+  padding: 8px;
 }
-.kpi-mesh-red {
-    background-color: red;
-    color: white;
+
+.mesh-dash-table {
+  width: 45rem;
+  margin: auto;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.mesh-dash-table th {
+  font-size: 1rem;
+}
+.mesh-dash-table td {
+  font-size: 0.9rem;
+}
+
+.mesh-dash-table-home {
+  width: 90%;
+}
+
+.mesh-dash-table-home th,
+.mesh-dash-table-home td {
+  font-size: 0.9rem;
 }

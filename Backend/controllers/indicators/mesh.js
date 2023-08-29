@@ -9,13 +9,11 @@ const dashboardMesh = async () => {
     const palasStatus2 = [];
     const palasWarnings = [];
     const palasFailed = [];
-    const palasOk = [];
     
     let totalCaex = 0;
     const caexStatus2 = [];
     const caexWarnings = [];
     const caexFailed = [];
-    const caexOk = [];
 
     allMeshJSON.forEach((device) => {
       // Contador para totales
@@ -52,7 +50,7 @@ const dashboardMesh = async () => {
             parseInt(device.snr) > 11 && parseInt(device.snr) <= 19)
         )
       ) 
-      // Si el device pasa los filtrosy es warning, ya existe en Failed no pushearemos a palas o caex Warnings!
+      // Si el device pasa los filtros de warning pero ya existe en Failed no pushearemos a palas o caex Warnings!
       {
         if (device.device.includes("Pala") && !palasFailed.some(d => d.device === device.device)) {
           palasWarnings.push(device);

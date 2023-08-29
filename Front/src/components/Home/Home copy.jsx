@@ -1,5 +1,6 @@
 import { getIndicators, getUps, getVpn } from "../../utils/Api-candelaria/api"
 import { Navbar } from "../../components/Navbar/Navbar"
+import { DevicesDash } from "../../components/Devices/DevicesDash/DevicesDash";
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import "./home.css";
@@ -10,6 +11,8 @@ export function Home() {
   const [enLineaCount, setEnLineaCount] = useState(0);
   const [usandoBateriaCount, setUsandoBateriaCount] = useState(0);
   const [otroCount, setOtroCount] = useState(0);
+  const [changeBatery, setChangeBatery] = useState(0);
+  const [numberUps, setNumberUps] = useState(0);
 
   const [vpn1Users, setVpn1Users] = useState([]);
   const [vpn2Users, setVpn2Users] = useState([]);
@@ -20,6 +23,9 @@ export function Home() {
     let enLinea = 0;
     let usandoBateria = 0;
     let otro = 0;
+    let countUps = 0;
+    let changeBateryCounter = 0;
+
     const dataIndicators = async () => {
       try {
         const allIndicators = await getIndicators();
@@ -32,20 +38,26 @@ export function Home() {
         allUps && allUps.forEach((ups) => {
         if (ups.status_ups === 2) {
           enLinea++;
-        } else if (ups.status_ups === 3) {
+        } if (ups.status_ups === 3) {
           usandoBateria++;
         } else {
           otro++;
-        }
+        } if (ups.batery === 2) {
+          changeBateryCounter++;
+        };
+
+        countUps++;
+        setNumberUps(countUps);
         setEnLineaCount(enLinea);
         setUsandoBateriaCount(usandoBateria);
         setOtroCount(otro);
+        setChangeBatery(changeBateryCounter);
+      });
 
-        setVpn1Users(vpnData.vpn_1);
-        setVpn2Users(vpnData.vpn_2);
-        setVpn3Users(vpnData.vpn_3);
-    });
-        // console.log(allIndicators)
+      setVpn1Users(vpnData.vpn_1);
+      setVpn2Users(vpnData.vpn_2);
+      setVpn3Users(vpnData.vpn_3);
+        
       } catch (error) {
         console.error("Error al obtener datos de la API", error);
         return error;
@@ -103,7 +115,7 @@ export function Home() {
               <tbody>
                 <tr>
                   <td><p className="light-indicator green-light"></p>En línea</td>
-                  <td>{enLineaCount}</td>
+                  <td>{numberUps}</td>
                 </tr>
                 <tr>
                   <td><p className="light-indicator yellow-light"></p>Usando batería</td>
@@ -111,8 +123,11 @@ export function Home() {
                 </tr>
                 <tr>
                   <td><p className="light-indicator red-light"></p>Otro</td>
-                  <td>0</td>
-                  {/* <td>{otroCount}</td> */}
+                  <td>1</td> 
+                </tr>
+                <tr>
+                  <td><p className="warning-light" style={{bottom: "10px"}}>🪫</p>Cambio batería</td>
+                  <td>{changeBatery}</td>
                 </tr>
               </tbody>
             </table>
@@ -219,7 +234,7 @@ export function Home() {
         </div>
 
         <div className="home-kpi-container">
-
+          <DevicesDash />
         </div>
         <div className="link-system-container">
             <Link to="/monitoreo/devices" className="link-system button-devices button-link" style={{ color: 'white' }}>Ver detalles</Link>
