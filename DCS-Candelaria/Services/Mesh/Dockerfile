@@ -4,12 +4,13 @@ ENV TZ=America/Santiago
 
 WORKDIR /app
 
-COPY . .
-
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y build-essential freetds-dev && \
-    pip install --upgrade pip && \
+    apt-get install -y build-essential freetds-dev
+
+COPY . .
+
+RUN pip install --upgrade pip && \
     pip install -r requirements.services.txt
 
 CMD ["python", "main.py"]
