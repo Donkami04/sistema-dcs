@@ -10,6 +10,7 @@ function errorHandler(err, req, res, next) {
     message: err.message,
     stack: err.stack,
   });
+  next(err);
 }
 
 function ormErrorHandler(err, req, res, next) {

@@ -8,7 +8,7 @@ const { getInfraSolucion } = require("../controllers/indicators/infra_solucion")
 const { dashboardMesh } = require("../controllers/indicators/mesh");
 const { dashboardDevices } = require("../controllers/indicators/devices");
 
-const allClients = async (req, res, next) => {
+const allClients = async () => {
   try {
     const clients = await getClients();
     const allClientsJSON = clients.map((client) => client.toJSON());
@@ -18,7 +18,7 @@ const allClients = async (req, res, next) => {
   };
 };
 
-const allSwitches = async (req, res, next) => {
+const allSwitches = async () => {
   try {
     const switches = await getSwitches();
     const allSwitchesJSON = switches.map((switch_) => switch_.toJSON());
