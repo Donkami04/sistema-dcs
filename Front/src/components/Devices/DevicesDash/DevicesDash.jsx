@@ -56,6 +56,12 @@ export function DevicesDash() {
                 <td>{indicatorsDevices && indicatorsDevices.numOthersDown}</td>
                 <td>{indicatorsDevices && indicatorsDevices.numTotalOthers}</td>
             </tr>
+            <tr>
+                <td>TOTAL</td>
+                <td>{indicatorsDevices && indicatorsDevices.numCamerasUp + indicatorsDevices.numApUp+ indicatorsDevices.numOthersUp}</td>
+                <td>{indicatorsDevices && indicatorsDevices.numCamerasDown + indicatorsDevices.numApDown+ indicatorsDevices.numOthersDown}</td>
+                <td>{indicatorsDevices && indicatorsDevices.numTotalDevices}</td>
+            </tr>
         </tbody>
       </table>
     </>

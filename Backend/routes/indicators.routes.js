@@ -14,7 +14,6 @@ const allClients = async () => {
     const allClientsJSON = clients.map((client) => client.toJSON());
     return allClientsJSON;
   } catch (error) {
-    next(error);
   };
 };
 
@@ -24,7 +23,6 @@ const allSwitches = async () => {
     const allSwitchesJSON = switches.map((switch_) => switch_.toJSON());
     return allSwitchesJSON;
   } catch (error) {
-    next(error);
   };
 };
 
