@@ -25,6 +25,14 @@ export function DevicesDash() {
 
     // Determina el nombre de la clase de la tabla basado en la pestaña actual
     const tableClassName = currentTab === "Home" ? "devices-dash-table-home" : "devices-dash-table";
+
+    const totalDevicesFake = indicatorsDevices && 
+      indicatorsDevices.numCamerasUp +
+      indicatorsDevices.numApUp + 
+      indicatorsDevices.numOthersUp + 
+      indicatorsDevices.numCamerasDown +
+      indicatorsDevices.numApDown + 
+      indicatorsDevices.numOthersDown;
   
   return (
     <>
@@ -60,7 +68,7 @@ export function DevicesDash() {
                 <td>TOTAL</td>
                 <td>{indicatorsDevices && indicatorsDevices.numCamerasUp + indicatorsDevices.numApUp+ indicatorsDevices.numOthersUp}</td>
                 <td>{indicatorsDevices && indicatorsDevices.numCamerasDown + indicatorsDevices.numApDown+ indicatorsDevices.numOthersDown}</td>
-                <td>{indicatorsDevices && indicatorsDevices.numTotalDevices}</td>
+                <td>{totalDevicesFake}</td>
             </tr>
         </tbody>
       </table>
