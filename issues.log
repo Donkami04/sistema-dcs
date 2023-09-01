@@ -718,3 +718,116 @@ IndexError: list index out of range
     output = net_connect.send_command("sh wireless client mac-address " + data_pala.split()[0] + " detail")
 IndexError: list index out of range
 
+2023-08-31 09:57:31,600 - ERROR - No se encontro las palabras 'Health Check - FW 10.224.113.129
+2023-08-31 09:58:05,487 - ERROR - No se encontro las palabras 'Health Check - FW 10.224.113.161
+2023-08-31 09:58:43,761 - ERROR - No se encontro las palabras 'Health Check - FW 10.224.21.1
+2023-09-01 15:18:41,723 - ERROR - Error desconocido con la ip 10.230.127.1
+2023-09-01 15:19:16,531 - ERROR - Error desconocido con la ip 10.230.127.1
+2023-09-01 15:19:43,988 - ERROR - Error desconocido con la ip 10.230.127.1
+2023-09-01 15:20:24,397 - ERROR - Error desconocido con la ip 10.230.127.1
+2023-09-01 15:20:56,888 - ERROR - Error desconocido con la ip 10.230.127.1
+2023-09-01 15:20:56,888 - ERROR - Error: local variable 'sensor_name' referenced before assignment
+2023-09-01 15:21:31,281 - ERROR - Error desconocido con la ip 10.230.127.1
+2023-09-01 15:21:31,281 - ERROR - Error: 'last_uptime_days'
+2023-09-01 15:22:32,087 - ERROR - Error desconocido con la ip 10.230.127.1
+2023-09-01 15:22:32,087 - ERROR - Error: 'last_uptime_days'
+2023-09-01 15:22:32,097 - ERROR - TRAZABILIDAD: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 108, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 213, in save_bd
+    last_uptimedays = data_wan['last_uptime_days']
+KeyError: 'last_uptime_days'
+
+2023-09-01 15:24:45,452 - ERROR - Error desconocido con la ip 10.230.127.1
+2023-09-01 15:24:45,452 - ERROR - Error: 'last_downpercent'
+2023-09-01 15:24:45,452 - ERROR - TRAZABILIDAD: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 108, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 216, in save_bd
+    last_downtimepercent = data_wan['last_downpercent']
+KeyError: 'last_downpercent'
+
+2023-09-01 15:27:54,855 - ERROR - Error desconocido con la ip 10.230.127.1
+2023-09-01 15:27:54,855 - ERROR - Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '29d 19h 38m 19s', '100', '00s', '0.0', '100', '100')' at line 1
+2023-09-01 15:27:54,865 - ERROR - TRAZABILIDAD: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '29d 19h 38m 19s', '100', '00s', '0.0', '100', '100')' at line 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 108, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 223, in save_bd
+    cursor.execute(query + values)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '29d 19h 38m 19s', '100', '00s', '0.0', '100', '100')' at line 1
+
+2023-09-01 15:30:25,305 - ERROR - Data WAN: {'sensor_name': 'Not Found', 'last_uptimedays': 'Not Found', 'last_downtimedays': 'Not Found', 'last_uptimepercent': 'Not Found', 'last_downtimepercent': 'Not Found', 'current_uptimepercent': 'Not Found', 'today_uptimepercent': 'Not Found'}
+2023-09-01 15:30:25,306 - ERROR - Error desconocido con la ip 20.226.31.2
+2023-09-01 15:30:25,307 - ERROR - Error: 1265 (01000): Data truncated for column 'last_uptime_percent' at row 1
+2023-09-01 15:30:25,307 - ERROR - TRAZABILIDAD: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Data truncated for column 'last_uptime_percent' at row 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 69, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 223, in save_bd
+    cursor.execute(query + values)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1265 (01000): Data truncated for column 'last_uptime_percent' at row 1
+
+2023-09-01 15:35:21,938 - ERROR - Data WAN: {'sensor_name': 'Not Found', 'last_uptimedays': 'Not Found', 'last_downtimedays': 'Not Found', 'last_uptimepercent': 0.0, 'last_downtimepercent': 0.0, 'current_uptimepercent': 0.0, 'today_uptimepercent': 0.0}
+2023-09-01 15:38:09,033 - ERROR - Error desconocido con la ip 10.230.127.1
+2023-09-01 15:38:09,033 - ERROR - Error: 1364 (HY000): Field 'ip' doesn't have a default value
+2023-09-01 15:38:09,033 - ERROR - TRAZABILIDAD: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'ip' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 103, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 218, in save_bd
+    cursor.execute(query + values)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'ip' doesn't have a default value
+
+2023-09-01 15:39:02,665 - ERROR - Error desconocido con la ip 10.230.127.1
+2023-09-01 15:39:02,665 - ERROR - Error: 1265 (01000): Data truncated for column 'id' at row 1
+2023-09-01 15:39:02,666 - ERROR - TRAZABILIDAD: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 611, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Data truncated for column 'id' at row 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 103, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 219, in save_bd
+    cursor.execute(query + values)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 330, in execute
+    result = self._cnx.cmd_query(
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 619, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1265 (01000): Data truncated for column 'id' at row 1
+
+2023-09-01 15:39:57,789 - ERROR - Data WAN: {'ip': '20.226.31.2', 'sensor_name': 'Not Found', 'last_uptimedays': 'Not Found', 'last_downtimedays': 'Not Found', 'last_uptimepercent': 0.0, 'last_downtimepercent': 0.0, 'current_uptimepercent': 0.0, 'today_uptimepercent': 0.0}
+2023-09-01 15:40:41,293 - ERROR - Data WAN: {'ip': '10.230.127.11x', 'sensor_name': 'Not Found', 'last_uptimedays': 'Not Found', 'last_downtimedays': 'Not Found', 'last_uptimepercent': 0.0, 'last_downtimepercent': 0.0, 'current_uptimepercent': 0.0, 'today_uptimepercent': 0.0}

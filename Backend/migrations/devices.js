@@ -20,7 +20,7 @@ module.exports = {
         allowNull: true,
       },
       dpto: {
-        type: Sequelize.STRING(10),
+        type: Sequelize.STRING(32),
         allowNull: true,
       },
       red: {

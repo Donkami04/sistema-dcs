@@ -19,6 +19,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
+      vdom: {
+        type: Sequelize.STRING(10),
+        allowNull: false,
+      },
     });
 
     await queryInterface.createTable("firewalls", {

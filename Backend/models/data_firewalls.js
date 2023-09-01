@@ -16,6 +16,10 @@ const DataFirewalls = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: true,
     },
+    vdom: {
+      type: DataTypes.STRING(10),
+      allowNull: true,
+    },
   },
   {
     tableName: "data_firewalls",

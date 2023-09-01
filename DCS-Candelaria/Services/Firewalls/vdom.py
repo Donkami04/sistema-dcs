@@ -1,35 +1,72 @@
-from netmiko import ConnectHandler
-import os, logging
+import paramiko
+import time
+import re
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-try: 
-    USER = os.getenv('NETMIKO_USER')
-    PASSWORD = os.getenv('NETMIKO_PASSWORD')
-    network_device_list = {
-        "host": '10.224.113.161',
-        "username": 'roadmin',
-        "password": 'C4nd3*2023',
-        "device_type": "fortinet",
-        "port": 2221,
-        "timeout": 180,
-    }
+def vdom_connection(host, username, password):
 
-    net_connect = ConnectHandler(**network_device_list)
+    # Crear una instancia SSHClient de Paramiko
+    client = paramiko.SSHClient()
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+    # Conectar al dispositivo
+    client.connect(hostname=host, port=2221, username=username, password=password)
+
+    # Abrir un canal SSH
+    channel = client.invoke_shell()
+
+    # Enviar el comando 'config vdom'
+    channel.send("config vdom\n")
+    time.sleep(1)  # Esperar para que el comando se procese
+
+    # Enviar otros comandos dentro del contexto 'config vdom'
     commands = [
-        ["config vdom"],
-        ["edit root"],
-        ["diagnose sys sdwan health-check Check_Internet"]
+        "edit root\n",
+        "diagnose sys sdwan health-check Check_Internet\n",
+        "exit\n"  # Salir del contexto 'config vdom'
     ]
+
+    for command in commands:
+        channel.send(command)
+        time.sleep(1)  # Esperar para que el comando se procese
+
+    # Recopilar la salida
+    output = ""
+    while channel.recv_ready():
+        output += channel.recv(1024).decode('utf-8')
+
+    # Cerrar el canal y la conexión
+    channel.close()
+    client.close()
     
-    # Enviar los comandos en una sola consulta y obtener la salida
-    output = net_connect.send_multiline(commands)
-    
-    # Registrar la salida de los comandos
-    logging.info(output)
-    net_connect.disconnect()
-    
-except Exception as e:
-    logging.error(e)
-    if net_connect:
-        net_connect.disconnect()
+    # Analizar la salida con regex
+    if 'Health Check' in output:
+        pattern = r'Seq\((\d+)\s+([^\s:)]+)\): state\(([^)]+)\), packet-loss\(([^)]+)\) latency\(([^)]+)\), jitter\(([^)]+)\)'
+        matches = re.findall(pattern, output)
+        for match in matches:
+            try:
+                canal = match[1]
+                state = match[2]
+                packet_loss = match[3]
+                packet_loss = packet_loss.replace("%", "")
+                latency = match[4]
+                jitter = match[5]
+                
+                print(f"Canal: {canal}, State: {state}, Packet Loss: {packet_loss}%, Latency: {latency}, Jitter: {jitter}")
+                return canal, state, packet_loss, latency, jitter
+            
+            except IndexError:
+                canal = 'Not Found'
+                state = 'Not Found'
+                packet_loss = 'Not Found'
+                latency = 'Not Found'
+                jitter = 'Not Found'
+                return canal, state, packet_loss, latency, jitter
+            
+    else:
+        canal = 'Not Found'
+        state = 'Not Found'
+        packet_loss = 'Not Found'
+        latency = 'Not Found'
+        jitter = 'Not Found'
+        return canal, state, packet_loss, latency, jitter

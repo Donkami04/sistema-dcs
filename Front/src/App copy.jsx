@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { Home } from './components/Home/Home';
 import { Dcs } from './components/Dcs/Dcs';
@@ -36,46 +36,21 @@ function getPageTitle(pathname) {
 
 function App() {
   const location = useLocation();
-  const [inactive, setInactive] = useState(false);
-  
+
   useEffect(() => {
     const pageTitle = getPageTitle(location.pathname);
     document.title = pageTitle;
-
-    let activityTimeout = setTimeout(() => {
-      setInactive(true);
-    }, 5 * 60 * 1000);
-
-    const resetActivity = () => {
-      setInactive(false);
-      clearTimeout(activityTimeout);
-      activityTimeout = setTimeout(() => {
-        setInactive(true);
-      }, 5 * 60 * 1000);
-    };
-
-    window.addEventListener('mousemove', resetActivity);
-
-    return () => {
-      clearInterval(refreshInterval);
-      clearTimeout(activityTimeout);
-      window.removeEventListener('mousemove', resetActivity);
-    };
   }, [location.pathname]);
 
   useEffect(() => {
-    let refreshInterval;
-
-    if (inactive) {
-      refreshInterval = setInterval(() => {
-        window.location.reload();
-      }, 5 * 60 * 1000);
-    }
+    const refreshInterval = setInterval(() => {
+      window.location.reload();
+    }, 5 * 60 * 1000);
 
     return () => {
-      clearInterval(refreshInterval);
+      clearInterval(refreshInterval); // Limpiar el intervalo al desmontar el componente
     };
-  }, [inactive]);
+  }, []);
 
   return (
     <div className="MainContainer">

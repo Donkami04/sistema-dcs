@@ -1,8 +1,8 @@
-1,FW-Admin,10.224.126.89,3
-2,FW-Conce,10.224.126.93,3
-3,FW-Ojos,10.224.126.97,3
-4,FW-Santiago,10.224.28.1,2
-5,FW-Dpto-Legal,10.224.113.97,2
-6,FW-Chamonate,10.224.113.129,2
-7,FW-RALUN,10.224.113.161,2
-8,FW-Copiapo,10.224.21.1,2
+1,FW-Admin,10.224.126.89,3,false
+2,FW-Conce,10.224.126.93,3,false
+3,FW-Ojos,10.224.126.97,2,false
+4,FW-Santiago,10.224.28.1,2,false
+5,FW-Dpto-Legal,10.224.113.97,1,false
+6,FW-Chamonate,10.224.113.129,2,true
+7,FW-RALUN,10.224.113.161,1,true
+8,FW-Copiapo,10.224.21.1,1,true
