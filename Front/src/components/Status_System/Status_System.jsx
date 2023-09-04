@@ -33,6 +33,8 @@ export function Status_System({ tableToShow }) {
       return 'Dispositivos'
     } else if(tableToShow === 'fw') {
       return 'Firewalls'
+    } else if(tableToShow === 'wan') {
+      return 'WAN'
     }
   } 
 

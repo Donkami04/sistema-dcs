@@ -8,6 +8,7 @@ const vpnRoutes = require("./vpn.routes");
 const meshRoutes = require("./mesh.routes");
 const devicesRoutes = require("./devices.routes");
 const firewallsRoutes = require("./firewalls.routes");
+const wanRoutes = require("./wan.routes");
 const router = express.Router();
 
 const allRoutes = (app) => {
@@ -21,6 +22,7 @@ const allRoutes = (app) => {
   router.use("/mesh", meshRoutes);
   router.use("/devices", devicesRoutes);
   router.use("/firewalls", firewallsRoutes);
+  router.use("/wan", wanRoutes);
 };
 
 module.exports = { allRoutes };

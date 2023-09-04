@@ -68,7 +68,6 @@ def get_uptime():
                 logging.info(f"Device data not Found {ip_wan}")
                 logging.error(f"Data WAN: {data_wan}")
                 save_bd(data_wan)
-                #! Definir todas las variables a guardar como NF
             else:
                 device_id = device_data[0].get('objid')
                 get_id_ping_url = os.getenv('URL_PRTG_GET_ID_PING_WITH_ID').format(id_device=device_id)
@@ -81,7 +80,6 @@ def get_uptime():
                     logging.error(f"Sensor ping id not Found {ip_wan}")
                     logging.error(f"Data WAN: {data_wan}")
                     save_bd(data_wan)
-                    #! Definir todas las variables a guardar como NF:
                 else:
                     sdate_anterior, edate_anterior, sdate_actual, edate_actual, sdate_hoy, edate_hoy = dates()
                     
@@ -101,7 +99,6 @@ def get_uptime():
                     }
                     
                     save_bd(data_wan)
-                    logging.info(f"DATA_WAN EXITOSA: {data_wan}")
                     
         cursor.close()
                     
@@ -109,18 +106,14 @@ def get_uptime():
         logging.error(f"Error desconocido con la ip {ip_wan}")
         logging.error(f"Error: {e}")
         logging.error(f"TRAZABILIDAD: {traceback.format_exc()}")
-        save_bd(data_wan)
-                     
-
-            
+        save_bd_datetime(status='ERROR')
+                                
 # Convierte el dato en float
 def format_historic_data(data):
-    if data == '100':
-        return data
-    if data == '':
-        data = round(float(0), 2)
-    if data != '100':
-        data = round((float(data) / 1000), 2)
+    data = ''.join(data.split())
+    data = data.replace('%', '')
+    data = data.replace(',', '.')
+    data = round(float(data), 2)
     return data
 
 # Extrae la informacion de PRTG respecto a los datos historicos entre dos fechas y horas
@@ -152,15 +145,13 @@ def get_wan_data(sensor_ping_id, sdate, edate):
     downtime_percent = xml_dict.get('downtimepercent', 'Not Found')
     uptime_days = xml_dict.get('uptime', 'Not Found')
     downtime_days = xml_dict.get('downtime', 'Not Found')
-    
+
     try:
         uptime_days = ' '.join(uptime_days.split())
         downtime_days = ' '.join(downtime_days.split())
-        downtime_percent = re.sub(r'[^\d.]', '', downtime_percent)
-        uptime_percent = re.sub(r'[^\d.]', '', uptime_percent)
-        
-        downtime_percent = format_historic_data(downtime_percent)
+
         uptime_percent = format_historic_data(uptime_percent)
+        downtime_percent = format_historic_data(downtime_percent)
 
         data = {
             "uptime_days": uptime_days,
@@ -168,10 +159,11 @@ def get_wan_data(sensor_ping_id, sdate, edate):
             "uptime_percent": uptime_percent,
             "downtime_percent": downtime_percent
         }
-        
         return data
+    
     except Exception as e:
-        #! Poner logging error
+        logging.error(f"Error con la data en la funcion xml_to_dict {root}: {e}")
+        
         data = {
             "uptime_days": uptime_days,
             "downtime_days": downtime_days,
@@ -215,7 +207,7 @@ def save_bd(data_wan):
     current_uptimepercent = data_wan['current_uptimepercent']
     today_uptimepercent = data_wan['today_uptimepercent']
     
-    query = f"INSERT INTO dcs.wan (`ip`, `sensor`, `last_uptime_days`, `last_uptime_percent`, `last_down_days`, `last_down_percent`, `current_uptime_percent`, `today_uptime_days`)"
+    query = f"INSERT INTO dcs.wan (`ip`, `sensor`, `last_uptime_days`, `last_uptime_percent`, `last_down_days`, `last_down_percent`, `current_uptime_percent`, `today_uptime_percent`)"
     values = f"VALUES ('{ip}', '{sensor_name}', '{last_uptimedays}', '{last_uptimepercent}', '{last_downtimedays}', '{last_downtimepercent}', '{current_uptimepercent}', '{today_uptimepercent}')"
     cursor.execute(query + values)
     mydb.commit()

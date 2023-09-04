@@ -831,3 +831,239 @@ mysql.connector.errors.DatabaseError: 1265 (01000): Data truncated for column 'i
 
 2023-09-01 15:39:57,789 - ERROR - Data WAN: {'ip': '20.226.31.2', 'sensor_name': 'Not Found', 'last_uptimedays': 'Not Found', 'last_downtimedays': 'Not Found', 'last_uptimepercent': 0.0, 'last_downtimepercent': 0.0, 'current_uptimepercent': 0.0, 'today_uptimepercent': 0.0}
 2023-09-01 15:40:41,293 - ERROR - Data WAN: {'ip': '10.230.127.11x', 'sensor_name': 'Not Found', 'last_uptimedays': 'Not Found', 'last_downtimedays': 'Not Found', 'last_uptimepercent': 0.0, 'last_downtimepercent': 0.0, 'current_uptimepercent': 0.0, 'today_uptimepercent': 0.0}
+2023-09-01 15:49:42,995 - ERROR - Data WAN: {'ip': '10.230.127.11x', 'sensor_name': 'Not Found', 'last_uptimedays': 'Not Found', 'last_downtimedays': 'Not Found', 'last_uptimepercent': 0.0, 'last_downtimepercent': 0.0, 'current_uptimepercent': 0.0, 'today_uptimepercent': 0.0}
+2023-09-01 15:56:22,809 - ERROR - Data WAN: {'ip': '10.230.127.11x', 'sensor_name': 'Not Found', 'last_uptimedays': 'Not Found', 'last_downtimedays': 'Not Found', 'last_uptimepercent': 0.0, 'last_downtimepercent': 0.0, 'current_uptimepercent': 0.0, 'today_uptimepercent': 0.0}
+2023-09-01 15:56:22,809 - ERROR - Unknwon Error: 10.230.127.11x
+2023-09-01 15:56:22,810 - ERROR - Error: Unread result found
+2023-09-01 15:56:22,810 - ERROR - Traceability: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 71, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 226, in save_bd
+    cursor.execute(query + values)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 303, in execute
+    self._cnx.handle_unread_result()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 932, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+2023-09-01 15:56:22,810 - ERROR - Fatal Unknow error: 10.230.127.11x
+2023-09-01 15:56:22,810 - ERROR - Error: Unread result found
+2023-09-01 15:56:22,810 - ERROR - Traceability: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 71, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 226, in save_bd
+    cursor.execute(query + values)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 303, in execute
+    self._cnx.handle_unread_result()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 932, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 111, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 226, in save_bd
+    cursor.execute(query + values)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 303, in execute
+    self._cnx.handle_unread_result()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 932, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+2023-09-01 16:00:13,854 - ERROR - Data WAN: {'ip': '10.230.127.11x', 'sensor_name': 'Not Found', 'last_uptimedays': 'Not Found', 'last_downtimedays': 'Not Found', 'last_uptimepercent': 0.0, 'last_downtimepercent': 0.0, 'current_uptimepercent': 0.0, 'today_uptimepercent': 0.0}
+2023-09-01 16:00:13,855 - ERROR - Unknwon Error: 10.230.127.11x
+2023-09-01 16:00:13,855 - ERROR - Error: Unread result found
+2023-09-01 16:00:13,855 - ERROR - Traceability: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 71, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 226, in save_bd
+    cursor.execute(query + values)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 303, in execute
+    self._cnx.handle_unread_result()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 932, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+2023-09-01 16:00:13,855 - ERROR - Fatal Unknow error: 10.230.127.11x
+2023-09-01 16:00:13,855 - ERROR - Error: Unread result found
+2023-09-01 16:00:13,856 - ERROR - Traceability: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 71, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 226, in save_bd
+    cursor.execute(query + values)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 303, in execute
+    self._cnx.handle_unread_result()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 932, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 111, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 226, in save_bd
+    cursor.execute(query + values)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 303, in execute
+    self._cnx.handle_unread_result()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 932, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+2023-09-01 16:00:47,301 - ERROR - Data WAN: {'ip': '10.230.127.11x', 'sensor_name': 'Not Found', 'last_uptimedays': 'Not Found', 'last_downtimedays': 'Not Found', 'last_uptimepercent': 0.0, 'last_downtimepercent': 0.0, 'current_uptimepercent': 0.0, 'today_uptimepercent': 0.0}
+2023-09-01 16:00:47,301 - ERROR - Unknwon Error: 10.230.127.11x
+2023-09-01 16:00:47,301 - ERROR - Error: Unread result found
+2023-09-01 16:00:47,302 - ERROR - Traceability: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 71, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 226, in save_bd
+    cursor.execute(query + values)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 303, in execute
+    self._cnx.handle_unread_result()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 932, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+2023-09-01 16:00:47,302 - ERROR - Fatal Unknow error: 10.230.127.11x
+2023-09-01 16:00:47,302 - ERROR - Error: Unread result found
+2023-09-01 16:00:47,302 - ERROR - Traceability: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 71, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 226, in save_bd
+    cursor.execute(query + values)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 303, in execute
+    self._cnx.handle_unread_result()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 932, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 111, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 226, in save_bd
+    cursor.execute(query + values)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 303, in execute
+    self._cnx.handle_unread_result()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 932, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+2023-09-01 16:02:05,878 - ERROR - Data WAN: {'ip': '10.230.127.11x', 'sensor_name': 'Not Found', 'last_uptimedays': 'Not Found', 'last_downtimedays': 'Not Found', 'last_uptimepercent': 0.0, 'last_downtimepercent': 0.0, 'current_uptimepercent': 0.0, 'today_uptimepercent': 0.0}
+2023-09-01 16:02:05,878 - ERROR - Unknwon Error: 10.230.127.11x
+2023-09-01 16:02:05,878 - ERROR - Error: Unread result found
+2023-09-01 16:02:05,879 - ERROR - Traceability: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 71, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 226, in save_bd
+    cursor.execute(query + values)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 303, in execute
+    self._cnx.handle_unread_result()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 932, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+2023-09-01 16:02:05,879 - ERROR - Fatal Unknow error: 10.230.127.11x
+2023-09-01 16:02:05,879 - ERROR - Error: Unread result found
+2023-09-01 16:02:05,879 - ERROR - Traceability: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 71, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 226, in save_bd
+    cursor.execute(query + values)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 303, in execute
+    self._cnx.handle_unread_result()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 932, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 111, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 226, in save_bd
+    cursor.execute(query + values)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 303, in execute
+    self._cnx.handle_unread_result()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 932, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+2023-09-01 16:03:03,087 - ERROR - Data WAN: {'ip': '10.230.127.11x', 'sensor_name': 'Not Found', 'last_uptimedays': 'Not Found', 'last_downtimedays': 'Not Found', 'last_uptimepercent': 0.0, 'last_downtimepercent': 0.0, 'current_uptimepercent': 0.0, 'today_uptimepercent': 0.0}
+2023-09-01 16:03:03,087 - ERROR - Unknwon Error: 10.230.127.11x
+2023-09-01 16:03:03,087 - ERROR - Error: Unread result found
+2023-09-01 16:03:03,088 - ERROR - Traceability: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 71, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 221, in save_bd
+    cursor.execute(query + values)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 303, in execute
+    self._cnx.handle_unread_result()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 932, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+2023-09-01 16:03:17,242 - ERROR - Data WAN: {'ip': '10.230.127.11x', 'sensor_name': 'Not Found', 'last_uptimedays': 'Not Found', 'last_downtimedays': 'Not Found', 'last_uptimepercent': 0.0, 'last_downtimepercent': 0.0, 'current_uptimepercent': 0.0, 'today_uptimepercent': 0.0}
+2023-09-01 16:03:17,242 - ERROR - Unknwon Error: 10.230.127.11x
+2023-09-01 16:03:17,242 - ERROR - Error: Unread result found
+2023-09-01 16:03:17,243 - ERROR - Traceability: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 71, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 221, in save_bd
+    cursor.execute(query + values)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 303, in execute
+    self._cnx.handle_unread_result()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 932, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+2023-09-01 16:04:49,338 - ERROR - Data WAN: {'ip': '10.230.127.11x', 'sensor_name': 'Not Found', 'last_uptimedays': 'Not Found', 'last_downtimedays': 'Not Found', 'last_uptimepercent': 0.0, 'last_downtimepercent': 0.0, 'current_uptimepercent': 0.0, 'today_uptimepercent': 0.0}
+2023-09-01 16:04:49,338 - ERROR - Error desconocido con la ip 10.230.127.11x
+2023-09-01 16:04:49,339 - ERROR - Error: Unread result found
+2023-09-01 16:04:49,339 - ERROR - TRAZABILIDAD: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 71, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 221, in save_bd
+    cursor.execute(query + values)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 303, in execute
+    self._cnx.handle_unread_result()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 932, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+2023-09-01 16:05:04,400 - ERROR - Data WAN: {'ip': '10.230.127.11x', 'sensor_name': 'Not Found', 'last_uptimedays': 'Not Found', 'last_downtimedays': 'Not Found', 'last_uptimepercent': 0.0, 'last_downtimepercent': 0.0, 'current_uptimepercent': 0.0, 'today_uptimepercent': 0.0}
+2023-09-01 16:05:04,400 - ERROR - Error desconocido con la ip 10.230.127.11x
+2023-09-01 16:05:04,400 - ERROR - Error: Unread result found
+2023-09-01 16:05:04,401 - ERROR - TRAZABILIDAD: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 71, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 221, in save_bd
+    cursor.execute(query + values)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 303, in execute
+    self._cnx.handle_unread_result()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 932, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+2023-09-01 16:06:30,525 - ERROR - Data WAN: {'ip': '10.230.127.11x', 'sensor_name': 'Not Found', 'last_uptimedays': 'Not Found', 'last_downtimedays': 'Not Found', 'last_uptimepercent': 0.0, 'last_downtimepercent': 0.0, 'current_uptimepercent': 0.0, 'today_uptimepercent': 0.0}
+2023-09-01 16:06:30,525 - ERROR - Error desconocido con la ip 10.230.127.11x
+2023-09-01 16:06:30,525 - ERROR - Error: Unread result found
+2023-09-01 16:06:30,526 - ERROR - TRAZABILIDAD: Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 71, in get_uptime
+    save_bd(data_wan)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/WAN/uptime.py", line 221, in save_bd
+    cursor.execute(query + values)
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 303, in execute
+    self._cnx.handle_unread_result()
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Mesh/venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 932, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+
+2023-09-01 16:07:08,813 - ERROR - Data WAN: {'ip': '10.230.127.11x', 'sensor_name': 'Not Found', 'last_uptimedays': 'Not Found', 'last_downtimedays': 'Not Found', 'last_uptimepercent': 0.0, 'last_downtimepercent': 0.0, 'current_uptimepercent': 0.0, 'today_uptimepercent': 0.0}
+2023-09-01 16:07:45,498 - ERROR - Data WAN: {'ip': '20.226.31.2', 'sensor_name': 'Not Found', 'last_uptimedays': 'Not Found', 'last_downtimedays': 'Not Found', 'last_uptimepercent': 0.0, 'last_downtimepercent': 0.0, 'current_uptimepercent': 0.0, 'today_uptimepercent': 0.0}
+2023-09-04 10:52:15,516 - ERROR - Data WAN: {'ip': '10.230.127.11x', 'sensor_name': 'Not Found', 'last_uptimedays': 'Not Found', 'last_downtimedays': 'Not Found', 'last_uptimepercent': 0.0, 'last_downtimepercent': 0.0, 'current_uptimepercent': 0.0, 'today_uptimepercent': 0.0}
+2023-09-04 10:52:52,922 - ERROR - Data WAN: {'ip': '20.226.31.2', 'sensor_name': 'Not Found', 'last_uptimedays': 'Not Found', 'last_downtimedays': 'Not Found', 'last_uptimepercent': 0.0, 'last_downtimepercent': 0.0, 'current_uptimepercent': 0.0, 'today_uptimepercent': 0.0}
+2023-09-04 11:00:03,014 - ERROR - Data WAN: {'ip': '20.226.31.2', 'sensor_name': 'Not Found', 'last_uptimedays': 'Not Found', 'last_downtimedays': 'Not Found', 'last_uptimepercent': 0.0, 'last_downtimepercent': 0.0, 'current_uptimepercent': 0.0, 'today_uptimepercent': 0.0}

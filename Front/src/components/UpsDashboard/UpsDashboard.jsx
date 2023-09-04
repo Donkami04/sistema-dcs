@@ -34,7 +34,7 @@ export function UpsDashboard({ allUps }) {
         enLinea++;
       } if (ups.status_ups === 3) {
         usandoBateria++;
-      } if (ups.status_ups !== 3 && ups.status_ups !== 2 && ups.status_prtg && !ups.status_prtg.includes('Paused')){
+      } if (ups.status_ups !== 3 && ups.status_ups !== 2 ){
         otro++;
       } if (ups.batery === 2) {
         changeBateria++;

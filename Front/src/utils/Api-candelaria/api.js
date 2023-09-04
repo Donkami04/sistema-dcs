@@ -81,3 +81,10 @@ export const getFirewalls = async () => {
     .then((response) => response.data)
     .catch((error) => console.error('FIREWALLS: Error del API REST Candealaria : ',error));
 };
+
+export const getWan = async () => {
+  return axios
+    .get(`${BASE_API_URL}/wan`)
+    .then((response) => response.data)
+    .catch((error) => console.error('WAN: Error del API REST Candealaria : ',error));
+};
