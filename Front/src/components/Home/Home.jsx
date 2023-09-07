@@ -4,6 +4,8 @@ import { DevicesDash } from "../../components/Devices/DevicesDash/DevicesDash";
 import { DashMesh } from "../Mesh/DashMesh/DashMesh"
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
+import { DashFirewalls } from "../Firewalls/DashFirewalls/DashFirewalls";
+import { WanDashboard } from "../Wan/WanDashboard/WanDashboard"
 import "./home.css";
 
 export function Home() {
@@ -19,7 +21,7 @@ export function Home() {
   const [vpn2Users, setVpn2Users] = useState([]);
   const [vpn3Users, setVpn3Users] = useState([]);
 
-  const [meshIndicators, setMeshIndicators] = useState(null)
+
   useEffect(() => {
     let enLinea = 0;
     let usandoBateria = 0;
@@ -34,7 +36,6 @@ export function Home() {
         const vpnData = await getVpn();
         
         setIndicators(allIndicators);
-        setMeshIndicators(allIndicators.mesh);
 
         allUps && allUps.forEach((ups) => {
         if (ups.status_ups === 2) {
@@ -66,6 +67,27 @@ export function Home() {
     };
     dataIndicators();
   }, []);
+
+  const fechaActual = new Date();
+  const mesActual = fechaActual.getMonth();
+  const nombresMeses = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ];
+
+  const nombreMesActual = nombresMeses[mesActual];
+  const mesAnterior = mesActual === 0 ? 11 : mesActual - 1;
+  const nombreMesAnterior = nombresMeses[mesAnterior];
 
   const overAll = indicators && indicators.overallKpi.indicador;
   const disponibilidad = indicators && indicators.disponibilidad.indicador;
@@ -135,7 +157,7 @@ export function Home() {
           </div>
 
           <div className="link-system-container">
-            <Link to="/monitoreo/ups" className="link-system button-ups button-link" style={{ color: 'white' }}>Ver detalles</Link>
+            <Link to="/monitoreo/ups" className="link-system button-link" style={{ color: 'white' }}>Ver detalles</Link>
           </div>
       </section>
 
@@ -164,7 +186,7 @@ export function Home() {
         </div>
 
           <div className="link-system-container">
-            <Link to="/monitoreo/vpn" className="link-system button-vpn button-link" style={{ color: 'white' }}>Ver detalles</Link>
+            <Link to="/monitoreo/vpn" className="link-system button-link" style={{ color: 'white' }}>Ver detalles</Link>
           </div>
           
       </section>
@@ -178,7 +200,7 @@ export function Home() {
           <DashMesh />
         </div>
         <div className="link-system-container">
-            <Link to="/monitoreo/candelaria/mesh" className="link-system button-mesh button-link" style={{ color: 'white' }}>Ver detalles</Link>
+            <Link to="/monitoreo/candelaria/mesh" className="link-system button-link" style={{ color: 'white' }}>Ver detalles</Link>
         </div>
       </section>
 
@@ -191,7 +213,35 @@ export function Home() {
           <DevicesDash />
         </div>
         <div className="link-system-container">
-            <Link to="/monitoreo/devices" className="link-system button-devices button-link" style={{ color: 'white' }}>Ver detalles</Link>
+            <Link to="/monitoreo/devices" className="link-system button-link" style={{ color: 'white' }}>Ver detalles</Link>
+        </div>
+      </section>
+
+      <section className="system-container">
+        <div className="name-system-container">
+          <h1>Canales Internet</h1>
+        </div>
+
+        <div className="home-kpi-container">
+          <DashFirewalls />
+        </div>
+
+        <div className="link-system-container">
+            <Link to="/monitoreo/firewalls" className="link-system button-link" style={{ color: 'white' }}>Ver detalles</Link>
+        </div>
+      </section>
+
+      <section className="system-container">
+        <div className="name-system-container">
+          <h1>WAN</h1>
+        </div>
+
+        <div className="home-kpi-container">
+          <WanDashboard nombreMesAnterior={nombreMesAnterior}/>
+        </div>
+
+        <div className="link-system-container">
+            <Link to="/monitoreo/wan" className="link-system button-link" style={{ color: 'white' }}>Ver detalles</Link>
         </div>
       </section>
 

@@ -7,6 +7,8 @@ const { getDisponibilidad } = require("../controllers/indicators/disponibilidad"
 const { getInfraSolucion } = require("../controllers/indicators/infra_solucion");
 const { dashboardMesh } = require("../controllers/indicators/mesh");
 const { dashboardDevices } = require("../controllers/indicators/devices");
+const { dashboardFirewalls } = require("../controllers/indicators/firewalls");
+const { dashboardWan } = require("../controllers/indicators/wan");
 
 const allClients = async () => {
   try {
@@ -32,6 +34,8 @@ router.get("/", async (req, res, next) => {
     const listAllSwitches = await allSwitches();
     const dataMesh = await dashboardMesh();
     const dataDevices = await dashboardDevices();
+    const dataFirewalls = await dashboardFirewalls();
+    const kpiWan = await dashboardWan();
 
     const overallKpi = overall(listAllClients);
     const disponibilidad = getDisponibilidad(listAllClients);
@@ -65,6 +69,14 @@ router.get("/", async (req, res, next) => {
         numApDown: dataDevices.numApDown,
         numOthersUp: dataDevices.numOthersUp,
         numOthersDown: dataDevices.numOthersDown
+      }, 
+      firewalls: {
+        numFwAlive: dataFirewalls.numFwAlive,
+        numFwDown: dataFirewalls.numFwDown,
+        totalFw: dataFirewalls.totalFw
+      },
+      wan: {
+        kpiWan: kpiWan,
       }
     };
     

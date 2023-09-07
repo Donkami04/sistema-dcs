@@ -1,20 +1,20 @@
-.mesh-dash-table,
-.mesh-dash-table-home {
+.fw-dash-table,
+.fw-dash-table-home {
   border-collapse: collapse;
   font-family: Arial, sans-serif;
   text-align: center;
 }
 
-.mesh-dash-table th,
-.mesh-dash-table td,
-.mesh-dash-table-home th,
-.mesh-dash-table-home td {
+.fw-dash-table th,
+.fw-dash-table td,
+.fw-dash-table-home th,
+.fw-dash-table-home td {
   border: 1px solid black;
   padding: 8px;
 }
 
-.mesh-dash-table {
-  width: 45rem;
+.fw-dash-table {
+  width: 35rem;
   margin: auto;
   table-layout: fixed;
   border-collapse: collapse;
@@ -22,19 +22,18 @@
   margin-top: 1rem;
 }
 
-.mesh-dash-table th {
+.fw-dash-table th {
   font-size: 1rem;
 }
-.mesh-dash-table td {
+.fw-dash-table td {
   font-size: 0.9rem;
 }
 
-.mesh-dash-table-home {
+.fw-dash-table-home {
   width: 90%;
-  
 }
 
-.mesh-dash-table-home th,
-.mesh-dash-table-home td {
+.fw-dash-table-home th,
+.fw-dash-table-home td {
   font-size: 0.9rem;
 }

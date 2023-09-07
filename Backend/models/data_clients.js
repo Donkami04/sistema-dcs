@@ -38,7 +38,9 @@ const DataClient = sequelize.define(
     },
   },
   {
-    tableName: "data_switches",
+    tableName: "data_clients",
     timestamps: false,
   }
 );
+
+module.exports = { DataClient };

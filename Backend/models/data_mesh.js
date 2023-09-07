@@ -22,3 +22,5 @@ const DataMesh= sequelize.define(
     timestamps: false,
   }
 );
+
+module.exports = { DataMesh };

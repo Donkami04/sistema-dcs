@@ -1,7 +1,7 @@
 import paramiko
 import time
 import re
-
+# from vdom import check_failed_before
 
 def vdom_connection(host, username, password):
 
@@ -38,35 +38,32 @@ def vdom_connection(host, username, password):
     # Cerrar el canal y la conexión
     channel.close()
     client.close()
+    print(output)
     
     # Analizar la salida con regex
-    if 'Health Check' in output:
-        pattern = r'Seq\((\d+)\s+([^\s:)]+)\): state\(([^)]+)\), packet-loss\(([^)]+)\) latency\(([^)]+)\), jitter\(([^)]+)\)'
-        matches = re.findall(pattern, output)
-        for match in matches:
-            try:
-                canal = match[1]
-                state = match[2]
-                packet_loss = match[3]
-                packet_loss = packet_loss.replace("%", "")
-                latency = match[4]
-                jitter = match[5]
-                
-                print(f"Canal: {canal}, State: {state}, Packet Loss: {packet_loss}%, Latency: {latency}, Jitter: {jitter}")
-                return canal, state, packet_loss, latency, jitter
+    pattern = r'Seq\(\d+ ([^\s]+)\): state\(([^)]+)\), packet-loss\(([^)]+)\) latency\(([^)]+)\), jitter\(([^)]+)\)'
+    matches = re.findall(pattern, output)
+    
+    result = []
+    
+    for match in matches:
+        try:
+            canal = match[0]
+            state = match[1]
+            packet_loss = match[2]
+            packet_loss = packet_loss.replace("%", "")
+            latency = match[3]
+            jitter = match[4]
+
+            print(f"Canal: {canal}, State: {state}, Packet Loss: {packet_loss}%, Latency: {latency}, Jitter: {jitter}")
             
-            except IndexError:
-                canal = 'Not Found'
-                state = 'Not Found'
-                packet_loss = 'Not Found'
-                latency = 'Not Found'
-                jitter = 'Not Found'
-                return canal, state, packet_loss, latency, jitter
+            result.append((canal, state, packet_loss, latency, jitter))
             
-    else:
-        canal = 'Not Found'
-        state = 'Not Found'
-        packet_loss = 'Not Found'
-        latency = 'Not Found'
-        jitter = 'Not Found'
-        return canal, state, packet_loss, latency, jitter
+        except IndexError:
+            continue
+
+    if not result:
+        result = [('Not Found', 'Not Found', 'Not Found', 'Not Found', 'Not Found')]
+
+    return result
+

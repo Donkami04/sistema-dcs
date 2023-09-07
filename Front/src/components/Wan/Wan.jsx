@@ -2,17 +2,39 @@ import { getWan } from "../../utils/Api-candelaria/api";
 import { useEffect, useState } from "react";
 import { Navbar } from "../Navbar/Navbar";
 import { Status_System } from "../Status_System/Status_System";
+import { WanDashboard } from "./WanDashboard/WanDashboard"
 import "./wan.css";
 
 export function Wan() {
   const [wan, setWan] = useState([]);
+
+  const fechaActual = new Date();
+  const mesActual = fechaActual.getMonth();
+  const nombresMeses = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ];
+
+  const nombreMesActual = nombresMeses[mesActual];
+  const mesAnterior = mesActual === 0 ? 11 : mesActual - 1;
+  const nombreMesAnterior = nombresMeses[mesAnterior];
+  const hoy = fechaActual.getDate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const wanList = await getWan();
         setWan(wanList);
-        console.log(wan);
       } catch (error) {
         console.error("Error al obtener el listado de WAN:", error);
         return error;
@@ -24,17 +46,18 @@ export function Wan() {
     <>
       <Navbar title={"WAN"} />
       <Status_System tableToShow={"wan"} />
+      <WanDashboard nombreMesAnterior={nombreMesAnterior} nombreMesActual={nombreMesActual}/>
       <table className="wan-table">
         <thead>
           <tr>
             <th>IP</th>
             <th>SENSOR</th>
-            <th>UPTIME(%) MES ANTERIOR</th>
-            <th>UPTIME(s) MES ANTERIOR</th>
-            <th>DOWNTIME(%) MES ANTERIOR</th>
-            <th>DOWNTIME(s) MES ANTERIOR</th>
-            <th>UPTIME(%) MES ACTUAL</th>
-            <th>UPTIME(%) HOY</th>
+            <th>UPTIME(%) MES ANTERIOR<br/> ({nombreMesAnterior}) </th>
+            <th>UPTIME(s) MES ANTERIOR<br/> ({nombreMesAnterior})</th>
+            <th>DOWNTIME(%) MES ANTERIOR<br/> ({nombreMesAnterior})</th>
+            <th>DOWNTIME(s) MES ANTERIOR<br/> ({nombreMesAnterior})</th>
+            <th>UPTIME(%) MES ACTUAL<br/> ({nombreMesActual})</th>
+            <th>UPTIME(%) HOY <br/> ({hoy} de {nombreMesActual})</th>
           </tr>
         </thead>
         <tbody>

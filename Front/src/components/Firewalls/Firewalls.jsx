@@ -2,6 +2,7 @@ import { getFirewalls } from "../../utils/Api-candelaria/api";
 import { useEffect, useState } from "react";
 import { Navbar } from "../Navbar/Navbar";
 import { Status_System } from "../Status_System/Status_System";
+import { DashFirewalls } from "./DashFirewalls/DashFirewalls";
 import "./firewalls.css";
 
 export function Firewalls() {
@@ -94,8 +95,9 @@ export function Firewalls() {
 
   return (
     <>
-      <Navbar title={"Firewalls"} />
+      <Navbar title={"Firewalls - Canales Internet"} />
       <Status_System tableToShow={"fw"} />
+      <DashFirewalls />
       <div className="firewalls-container">
         <table>
           <thead>

@@ -18,3 +18,5 @@ const DataUps= sequelize.define(
     timestamps: false,
   }
 );
+
+module.exports = {DataUps};

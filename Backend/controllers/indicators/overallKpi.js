@@ -11,7 +11,7 @@ const getDownClients = (listAllClients) => {
     const client = listAllClients[i];
     if (
       client['status_prtg'].includes("Down") ||
-      client['status_prtg'].includes("Paused (paused)")
+      client['status_prtg'].includes("Paused")
     ) {
       allDownClients.push(client);
     };

@@ -62,12 +62,13 @@ def fw_status():
             net_connect = None
             try:
                 if vdom == 'true':
-                    canal, state, packet_loss, latency, jitter = vdom_connection(host, USER, PASSWORD)
-                    failed_before = check_failed_before(name)
-                    query = "INSERT INTO dcs.firewalls (`fw`, `canal`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`)"
-                    value = f"VALUES ('{name}', '{canal}', '{state}', '{packet_loss}', '{latency}', '{jitter}', '{failed_before}', '{fecha_y_hora}')"
-                    cursor.execute(query + value)
-                    mydb.commit()
+                    results = vdom_connection(host, USER, PASSWORD)
+                    for canal, state, packet_loss, latency, jitter in results:
+                        failed_before = check_failed_before(name)
+                        query = "INSERT INTO dcs.firewalls (`fw`, `canal`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`)"
+                        value = f"VALUES ('{name}', '{canal}', '{state}', '{packet_loss}', '{latency}', '{jitter}', '{failed_before}', '{fecha_y_hora}')"
+                        cursor.execute(query + value)
+                        mydb.commit()
                     
                 else:
                     network_device_list = {
@@ -85,16 +86,16 @@ def fw_status():
                     net_connect.disconnect()
                     
                     if 'Health Check' in output:
-                        pattern = r'Seq\((\d+)\s+([^\s:)]+)\): state\(([^)]+)\), packet-loss\(([^)]+)\) latency\(([^)]+)\), jitter\(([^)]+)\)'
+                        pattern = r'Seq\(\d+\s+([^\s:)]+)\): state\(([^)]+)\), packet-loss\(([^)]+)\) latency\(([^)]+)\), jitter\(([^)]+)\)'
                         matches = re.findall(pattern, output)
                         for match in matches:
                             try:
-                                canal = match[1]
-                                state = match[2]
-                                packet_loss = match[3]
+                                canal = match[0]
+                                state = match[1]
+                                packet_loss = match[2]
                                 packet_loss = packet_loss.replace("%", "")
-                                latency = match[4]
-                                jitter = match[5]
+                                latency = match[3]
+                                jitter = match[4]
                                 failed_before = check_failed_before(name)
                                 
                                 query = "INSERT INTO dcs.firewalls (`fw`, `canal`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`)"
@@ -103,13 +104,13 @@ def fw_status():
                                 mydb.commit()
 
                             except:
-                                logging.error(f"Error en la expresion regular Health Check - FW {host}")
-                                logging.error(e)
+                                logging.error(f"Error en la expresión regular Health Check - FW {host}")
+                                logging.error(traceback.format_exc())
                                 for _ in range(num_connections):
                                     save_bd_error(name, fecha_y_hora)
-                                
+                                    
                     else:
-                        logging.error(f"No se encontro las palabras 'Health Check - FW {host}")
+                        logging.error(f"No se encontraron las palabras 'Health Check - FW {host}'")
                         for _ in range(num_connections):
                             save_bd_error(name, fecha_y_hora)
                                     

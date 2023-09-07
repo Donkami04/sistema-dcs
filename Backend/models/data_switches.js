@@ -22,3 +22,5 @@ const DataSwitches = sequelize.define(
     timestamps: false,
   }
 );
+
+module.exports = { DataSwitches };

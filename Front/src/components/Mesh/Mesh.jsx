@@ -34,6 +34,15 @@ export function Mesh() {
     .filter(device =>
       statusFilter === "" || device.status_dispatch.includes(statusFilter)
     );
+
+    const renderRowCount = () => {
+      const rowCount = filteredData.length;
+      return (
+        <div className="row-count" style={{ fontSize: "0.8rem" }}>
+          Total de elementos: {rowCount}
+        </div>
+      );
+    };
   return (
     <div>
       <Navbar title={"Equipos Mesh Críticos"} />
@@ -191,6 +200,7 @@ export function Mesh() {
             </tbody>
           </table>
         </main>
+          {renderRowCount()}
         </div>
     </div>
   );

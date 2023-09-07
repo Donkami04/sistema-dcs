@@ -1,16 +1,18 @@
-const { ValidationError } = require('sequelize');
+const { ValidationError } = require("sequelize");
 
-function logErrors (err, req, res, next) {
+function logErrors(err, req, res, next) {
   console.error(err);
   next(err);
 }
 
 function errorHandler(err, req, res, next) {
+  console.error(err);
   res.status(500).json({
-    message: err.message,
-    stack: err.stack,
+    status: 500,
+    message: "Ocurrió un error en el servidor.",
+    error: err.message,
   });
-  next(err);
+  next(error);
 }
 
 function ormErrorHandler(err, req, res, next) {
@@ -18,11 +20,10 @@ function ormErrorHandler(err, req, res, next) {
     res.status(409).json({
       statusCode: 409,
       message: err.name,
-      errors: err.errors
+      errors: err.errors,
     });
   }
   next(err);
 }
 
-
-module.exports = { logErrors, errorHandler, ormErrorHandler }
+module.exports = { logErrors, errorHandler, ormErrorHandler };

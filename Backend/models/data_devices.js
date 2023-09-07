@@ -30,3 +30,5 @@ const DataDevices= sequelize.define(
     timestamps: false,
   }
 );
+
+module.exports = { DataDevices }
