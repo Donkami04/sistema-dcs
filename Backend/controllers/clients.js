@@ -85,4 +85,91 @@ async function getNumberClients() {
   return clientCounts;
 };
 
-module.exports = { getClients };
+async function createClient(data) {
+  try {
+    const clientDoesExist = await DataClient.findOne({
+      where: { ip: data.ip },
+    });
+    if (clientDoesExist === null) {
+      const newClient = await DataClient.create({
+        ip: data.ip,
+        group: data.group,
+        name: data.name,
+        importancia: data.importancia,
+        clave: data.clave,
+        description: data.description
+      });
+      return {
+        status: 201,
+        message: "El Cliente ha sido creado exitosamente.",
+        data: newClient,
+      };
+    }
+    return {
+      status: 409,
+      message: "El Cliente ya existe en la base de datos.",
+    };
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+async function editOneClient(id, changes) {
+  try {
+    const client = await DataClient.findByPk(id);
+    if (client !== null) {
+      await DataClient.update(
+        {
+          ip: changes.ip,
+          group: changes.group,
+          name: changes.name,
+          importancia: changes.importancia,
+          clave: changes.clave,
+          description: changes.description
+        },
+        { where: { id: id } }
+      );
+      const clientUpdated = await DataClient.findByPk(id);
+      return {
+        status: 200,
+        message: "El Cliente ha sido modificado exitosamente.",
+        data: clientUpdated,
+      };
+    }
+    return {
+      status: 404,
+      message: "El Cliente no existe en la base de datos.",
+    };
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+async function deleteClient(id) {
+  try {
+    const client = await DataClient.findByPk(id);
+    if (client !== null) {
+      await DataClient.destroy({ where: { id: id } });
+      const checkClientIsDeleted = await DataClient.findByPk(id);
+      if (checkClientIsDeleted === null) {
+        return {
+          status: 200,
+          message: "El Cliente ha sido eliminado exitosamente",
+        };
+      } else {
+        throw error;
+      }
+    }
+    return {
+      status: 404,
+      message: "El Cliente no existe en la base de datos",
+    };
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+module.exports = { getClients, createClient, editOneClient, deleteClient };

@@ -12,6 +12,8 @@ import { Firewalls } from "./components/Firewalls/Firewalls";
 import { Wan } from "./components/Wan/Wan";
 import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { UpsForm }  from "./components/AdminPanel/UpsForm";
+import { DataClientForm } from "./components/AdminPanel/ClientsForm";
 import "./app.css";
 
 function getPageTitle(pathname) {
@@ -96,6 +98,8 @@ function App() {
         <Route path="/monitoreo/devices" element={<Devices />} />
         <Route path="/monitoreo/firewalls" element={<Firewalls />} />
         <Route path="/monitoreo/wan" element={<Wan />} />
+        <Route path="/admin/new-ups" element={<UpsForm />} />
+        <Route path="/admin/new-client" element={<DataClientForm />} />
       </Routes>
       <div className="refresh-button-container">
         <button className="refresh-button" onClick={toggleTimer} title={timerActive ? 'Pausar Autorefresco de la página' : 'Activar Autorefresco de la página'}>

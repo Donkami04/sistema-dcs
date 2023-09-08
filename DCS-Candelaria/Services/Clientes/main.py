@@ -60,8 +60,7 @@ def clients():
             description = element['description']
             clave = element['clave']
             importancia = element['importancia']
-            id_device_prtg = element['id_prtg']
-            cisco_id_client = element['id_cisco']
+            id_device_prtg, cisco_id_client = get_ids(ip)
             
             if id_device_prtg == 'Not Found':
                 status_prtg = 'Not Found'
@@ -163,7 +162,29 @@ def clients():
         cursor.execute(f"INSERT INTO dcs.fechas_consultas_clientes (ultima_consulta, estado) VALUES ('{fecha_y_hora}', 'ERROR')")
         mydb.commit()
         cursor.close()
-                
+
+
+def get_ids(ip):
+    try:
+        url_prtg_ip = os.getenv('URL_PRTG_IP').format(ip=ip)
+        prtg_response = requests.get(url_prtg_ip, verify=False).json()
+        if len(prtg_response['devices']) == 0:
+            id_prtg = 'Not Found'
+        else:
+            id_prtg = prtg_response['devices'][0]['objid']
+
+        url_cisco_id = os.getenv('URL_CISCO_IP').format(ip=ip)
+        cisco_response = requests.get(url_cisco_id, verify=False).json()
+        if cisco_response['queryResponse']['@count'] == 0:
+            cisco_id = 'Not Found'
+        else:
+            cisco_id = cisco_response['queryResponse']['entityId'][0]['$']
+        return id_prtg, cisco_id
+    
+    except Exception as e:
+        logging.error(f"Error con el Cliente {ip}")
+        logging.error(traceback.format_exc())
+        return 'Not Found', 'Not Found'
                   
 def bucle(scheduler):
     clients()

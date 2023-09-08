@@ -635,14 +635,6 @@ module.exports = {
         type: Sequelize.STRING(100),
         allowNull: true,
       },
-      id_prtg: {
-        type: Sequelize.STRING(100),
-        allowNull: true,
-      },
-      id_cisco: {
-        type: Sequelize.STRING(100),
-        allowNull: true,
-      },
     });
 
     await queryInterface.createTable('data_switches', {
@@ -912,7 +904,7 @@ module.exports = {
         allowNull: true,
       },
       eqmt: {
-        type: Sequelize.STRING(100),
+        type: Sequelize.STRING(32),
         allowNull: true,
       },
     });

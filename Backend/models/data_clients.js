@@ -28,14 +28,6 @@ const DataClient = sequelize.define(
       type: DataTypes.STRING(100),
       allowNull: true,
     },
-    id_prtg: {
-      type: DataTypes.STRING(100),
-      allowNull: true,
-    },
-    id_cisco: {
-      type: DataTypes.STRING(100),
-      allowNull: true,
-    },
   },
   {
     tableName: "data_clients",

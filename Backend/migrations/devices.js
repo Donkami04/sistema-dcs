@@ -7,7 +7,7 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
-      ip_device: {
+      ip: {
         type: Sequelize.STRING(100),
         allowNull: true,
       },

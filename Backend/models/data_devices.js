@@ -4,7 +4,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 const DataDevices= sequelize.define(
   "DataDevices",
   {
-    ip_device: {
+    ip: {
       type: DataTypes.STRING(100),
       allowNull: true,
     },

@@ -1,6 +1,7 @@
 const { Ups } = require("../models/ups");
 const { DataUps } = require("../models/data_ups");
 
+
 async function getUps() {
   const numUps = await getNumberUps();
   const ups = await Ups.findAll({
@@ -16,14 +17,9 @@ async function getNumberUps() {
   return numUps;
 }
 
-async function getOneUps(ip) {
-  const ups = await DataUps.findOne({ where: { ip: ip } });
-  return ups;
-}
-
 async function createUps(data) {
   try {
-    const upsDoesExist = await getOneUps(data.ip);
+    const upsDoesExist = await DataUps.findOne({ where: { ip: data.ip } });
     if (upsDoesExist === null) {
       const newUps = await DataUps.create({
         ip: data.ip,
@@ -45,27 +41,27 @@ async function createUps(data) {
   }
 }
 
-async function editOneUps(ip, changes) {
+async function editOneUps(id, changes) {
   try {
-    const ups = await getOneUps(ip);
-    if (ups === null) {
+    const ups = await DataUps.findByPk(id);
+    if (ups !== null) {
+      await DataUps.update(
+        {
+          ip: changes.ip,
+          ubication: changes.ubication,
+        },
+        { where: { id: id } }
+      );
+      const upsUpdated = await DataUps.findByPk(id);
       return {
-        status: 404,
-        message: "La UPS no existe en la base de datos.",
+        status: 200,
+        message: "UPS modificado exitosamente.",
+        data: upsUpdated,
       };
     }
-    await DataUps.update(
-      {
-        ip: changes.ip,
-        ubication: changes.ubication,
-      },
-      { where: { ip: ip } }
-    );
-    const upsUpdated = await getOneUps(changes.ip);
     return {
-      status: 200,
-      message: "UPS modificado exitosamente.",
-      data: upsUpdated,
+      status: 404,
+      message: "La UPS no existe en la base de datos.",
     };
   } catch (error) {
     console.error(error);
@@ -73,24 +69,26 @@ async function editOneUps(ip, changes) {
   }
 }
 
-async function deleteUps(ip) {
+async function deleteUps(id) {
   try {
-    const ups = await getOneUps(ip);
-    if (ups === null) {
-      return {
-        status: 404,
-        message: `UPS con IP ${ip} no existe en la base de datos`,
-      };
+    const ups = await DataUps.findByPk(id);
+    if (ups !== null) {
+      await DataUps.destroy({ where: { id: id } });
+
+      const checkUpsIsDeleted = await DataUps.findByPk(id);
+      if (checkUpsIsDeleted === null) {
+        return {
+          status: 200,
+          message: "UPS eliminada exitosamente",
+        };
+      } else {
+        throw error;
+      }
     }
-    await DataUps.destroy({ where: { ip: ip } });
-    const checkUpsDeleted = await getOneUps(ip);
-    if (checkUpsDeleted === null) {
-      return { 
-        status: 200, 
-        message: `UPS con IP ${ip} eliminada exitosamente` };
-    } else {
-      throw error;
-    }
+    return {
+      status: 404,
+      message: "UPS no existe en la base de datos",
+    };
   } catch (error) {
     console.error(error);
     throw error;

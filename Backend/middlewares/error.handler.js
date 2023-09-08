@@ -12,7 +12,7 @@ function errorHandler(err, req, res, next) {
     message: "Ocurrió un error en el servidor.",
     error: err.message,
   });
-  next(error);
+  next(err);
 }
 
 function ormErrorHandler(err, req, res, next) {

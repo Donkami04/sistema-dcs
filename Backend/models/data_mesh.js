@@ -13,7 +13,7 @@ const DataMesh= sequelize.define(
       allowNull: true,
     },
     eqmt: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(32),
       allowNull: true,
     },
   },
