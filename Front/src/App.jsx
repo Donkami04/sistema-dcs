@@ -12,8 +12,10 @@ import { Firewalls } from "./components/Firewalls/Firewalls";
 import { Wan } from "./components/Wan/Wan";
 import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { UpsForm }  from "./components/AdminPanel/UpsForm";
-import { DataClientForm } from "./components/AdminPanel/ClientsForm";
+import { AdminUps }  from "./components/AdminPanel/AdminHome/AdminUps/AdminUps";
+import { AdminClients } from "./components/AdminPanel/AdminHome/AdminClients/AdminClients";
+import { AdminDevices } from "./components/AdminPanel/AdminHome/AdminDevices/AdminDevices";
+import { AdminHome } from "./components/AdminPanel/AdminHome/AdminHome";
 import "./app.css";
 
 function getPageTitle(pathname) {
@@ -62,7 +64,7 @@ function App() {
     if (timerActive) {
       activityTimeout = setTimeout(() => {
         setInactive(true);
-      }, 3000);
+      }, 5 * 60 * 1000);
     }
 
     return () => {
@@ -75,7 +77,7 @@ function App() {
     if (inactive && timerActive) {
       refreshInterval = setInterval(() => {
         window.location.reload();
-      }, 3000);
+      }, 5 * 60 * 1000);
     }
 
     return () => {
@@ -98,8 +100,10 @@ function App() {
         <Route path="/monitoreo/devices" element={<Devices />} />
         <Route path="/monitoreo/firewalls" element={<Firewalls />} />
         <Route path="/monitoreo/wan" element={<Wan />} />
-        <Route path="/admin/new-ups" element={<UpsForm />} />
-        <Route path="/admin/new-client" element={<DataClientForm />} />
+        <Route path="/admin/home" element={<AdminHome />} />
+        <Route path="/admin/ups" element={<AdminUps />} />
+        <Route path="/admin/clients" element={<AdminClients />} />
+        <Route path="/admin/devices" element={<AdminDevices />} />
       </Routes>
       <div className="refresh-button-container">
         <button className="refresh-button" onClick={toggleTimer} title={timerActive ? 'Pausar Autorefresco de la página' : 'Activar Autorefresco de la página'}>

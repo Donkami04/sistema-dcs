@@ -85,6 +85,20 @@ async function getNumberClients() {
   return clientCounts;
 };
 
+async function getOneClient(ip) {
+  const client = await DataClient.findOne({ where: { ip: ip } });
+  if (client !== null) {
+    return {
+      status: 200,
+      data: client,
+    };
+  };
+  return {
+    status: 404,
+    message: "El Cliente no existe en la base de datos.",
+  };
+}
+
 async function createClient(data) {
   try {
     const clientDoesExist = await DataClient.findOne({
@@ -147,16 +161,17 @@ async function editOneClient(id, changes) {
   }
 }
 
-async function deleteClient(id) {
+async function deleteClient(ip) {
   try {
-    const client = await DataClient.findByPk(id);
+    const client = await DataClient.findOne({ where: { ip: ip } });
     if (client !== null) {
-      await DataClient.destroy({ where: { id: id } });
-      const checkClientIsDeleted = await DataClient.findByPk(id);
+      await DataClient.destroy({ where: { id: client.id } });
+
+      const checkClientIsDeleted = await DataClient.findByPk(client.id);
       if (checkClientIsDeleted === null) {
         return {
           status: 200,
-          message: "El Cliente ha sido eliminado exitosamente",
+          message: "Cliente eliminado exitosamente",
         };
       } else {
         throw error;
@@ -172,4 +187,4 @@ async function deleteClient(id) {
   }
 }
 
-module.exports = { getClients, createClient, editOneClient, deleteClient };
+module.exports = { getClients, createClient, editOneClient, deleteClient, getOneClient };

@@ -13,7 +13,7 @@ app.use(cors({
   'http://10.224.116.78:4000',
   'http://10.224.116.14:4000',
 ],
-  methods: ['GET'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 

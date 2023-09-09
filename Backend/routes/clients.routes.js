@@ -3,7 +3,7 @@ const router = express.Router();
 const { validateData } = require("../middlewares/validator.handler");
 const { createClientSchema, editClientSchema } = require("../schemas/clients.schema");
 
-const { getClients, createClient, editOneClient, deleteClient } = require("../controllers/clients");
+const { getClients, createClient, editOneClient, deleteClient, getOneClient } = require("../controllers/clients");
 
 router.get("/", async (req, res, next) => {
   try {
@@ -13,6 +13,22 @@ router.get("/", async (req, res, next) => {
     next(error);
   }
 });
+
+router.get("/:ip", async (req, res, next) => {
+  try {
+    const ip = req.params.ip;
+    const client = await getOneClient(ip);
+    res.status(client.status).json({
+      status: client.status,
+      message: client.message,
+      error: client.error,
+      data: client.data,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
 
 router.post("/new", validateData(createClientSchema), async (req, res, next) => {
   try {
@@ -47,10 +63,10 @@ router.put("/edit/:id", validateData(editClientSchema), async (req, res, next) =
   }
 });
 
-router.delete("/remove/:id", async (req, res, next) => {
+router.delete("/remove/:ip", async (req, res, next) => {
   try {
-    const id = req.params.id;
-    const clientDeleted = await deleteClient(id);
+    const ip = req.params.ip;
+    const clientDeleted = await deleteClient(ip);
     res.status(clientDeleted.status).json({
       status: clientDeleted.status,
       message: clientDeleted.message,

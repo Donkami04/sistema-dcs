@@ -1,0 +1,25 @@
+/* TuComponente.css */
+
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(3, 10rem);
+    /* grid-template-columns: repeat(auto-fill, 10rem); */
+    gap: 2rem;
+    text-align: center;
+    place-content: center;
+  }
+  
+  .icono-contenedor {
+    width: 8rem;
+    height: 8rem;
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente la imagen */
+    align-items: center; /* Centrar verticalmente la imagen */
+    border: 1px solid #ccc; /* Borde opcional */
+  }
+  
+  .icono {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  

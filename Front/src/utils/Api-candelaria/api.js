@@ -12,7 +12,7 @@ if (ENVIRONMENT === "local") {
 }
 
 
-const BASE_API_URL = `http://${envi}:3000/api/v1/candelaria`;
+export const BASE_API_URL = `http://${envi}:3000/api/v1/candelaria`;
 
 // Url para redirigir a PRTG y CISCO desde la tabla
 export const PRTG_URL = 'https://10.224.241.25/device.htm?id='

@@ -1,7 +1,6 @@
 const { Ups } = require("../models/ups");
 const { DataUps } = require("../models/data_ups");
 
-
 async function getUps() {
   const numUps = await getNumberUps();
   const ups = await Ups.findAll({
@@ -15,6 +14,20 @@ async function getNumberUps() {
   const listUps = await DataUps.findAll();
   const numUps = listUps.length;
   return numUps;
+}
+
+async function getOneUps(ip) {
+  const ups = await DataUps.findOne({ where: { ip: ip } });
+  if (ups !== null) {
+    return {
+      status: 200,
+      data: ups,
+    };
+  };
+  return {
+    status: 404,
+    message: "La UPS no existe en la base de datos.",
+  };
 }
 
 async function createUps(data) {
@@ -69,13 +82,13 @@ async function editOneUps(id, changes) {
   }
 }
 
-async function deleteUps(id) {
+async function deleteUps(ip) {
   try {
-    const ups = await DataUps.findByPk(id);
+    const ups = await DataUps.findOne({ where: { ip: ip } });
     if (ups !== null) {
-      await DataUps.destroy({ where: { id: id } });
+      await DataUps.destroy({ where: { id: ups.id } });
 
-      const checkUpsIsDeleted = await DataUps.findByPk(id);
+      const checkUpsIsDeleted = await DataUps.findByPk(ups.id);
       if (checkUpsIsDeleted === null) {
         return {
           status: 200,
@@ -95,4 +108,6 @@ async function deleteUps(id) {
   }
 }
 
-module.exports = { getUps, createUps, editOneUps, deleteUps };
+
+
+module.exports = { getUps, createUps, editOneUps, deleteUps, getOneUps };

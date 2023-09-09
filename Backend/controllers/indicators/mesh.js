@@ -31,9 +31,9 @@ const dashboardMesh = async () => {
       // Contador para total de estado 2 Failed!!
       if (device.status_dispatch.includes("2") &&
         (
-          (device.nivel_senal !== 'Not Found' && device.nivel_senal !== 'N/A' && Math.abs(parseInt(device.nivel_senal)) >= 80) ||
+          (device.nivel_senal !== 'Not Found' && device.nivel_senal !== 'N/A' && Math.abs(parseInt(device.nivel_senal)) >= 85) ||
           (device.packet_loss !== 'Not Found' && parseInt(device.packet_loss, 10) >= 5) ||
-          (device.snr !== 'Not Found' && device.snr !== 'N/A' && parseInt(device.snr) <= 5)
+          (device.snr !== 'Not Found' && device.snr !== 'N/A' && parseInt(device.snr) <= 10)
         )
       ) {
         if (device.device.includes("Pala")) {palasFailed.push(device)};
@@ -43,11 +43,11 @@ const dashboardMesh = async () => {
       if (device.status_dispatch.includes("2") &&
         (
           (device.nivel_senal !== 'Not Found' && device.nivel_senal !== 'N/A' &&
-            Math.abs(parseInt(device.nivel_senal)) > 69 && Math.abs(parseInt(device.nivel_senal)) <= 79) ||
+            Math.abs(parseInt(device.nivel_senal)) > 80 && Math.abs(parseInt(device.nivel_senal)) < 85) ||
           (device.packet_loss !== 'Not Found' && 
             parseInt(device.packet_loss, 10) > 2 && parseInt(device.packet_loss, 10) < 5) ||
           (device.snr !== 'Not Found' && device.snr !== 'N/A' && 
-            parseInt(device.snr) > 11 && parseInt(device.snr) <= 19)
+            parseInt(device.snr) > 10 && parseInt(device.snr) <= 13)
         )
       ) 
       // Si el device pasa los filtros de warning pero ya existe en Failed no pushearemos a palas o caex Warnings!

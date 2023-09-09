@@ -2,13 +2,28 @@ const express = require("express");
 const router = express.Router();
 const { validateData } = require("../middlewares/validator.handler");
 const { createDevicesSchema, editDevicesSchema } = require("../schemas/devices.schema");
-const { getDevices, createDevice, editOneDevice, deleteDevice } = require("../controllers/devices");
+const { getDevices, createDevice, editOneDevice, deleteDevice, getOneDevice } = require("../controllers/devices");
 
 router.get("/", async (req, res, next) => {
   try {
     const allDevices = await getDevices();
     res.json(allDevices);
     
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get("/:ip", async (req, res, next) => {
+  try {
+    const ip = req.params.ip;
+    const device = await getOneDevice(ip);
+    res.status(device.status).json({
+      status: device.status,
+      message: device.message,
+      error: device.error,
+      data: device.data,
+    });
   } catch (error) {
     next(error);
   }

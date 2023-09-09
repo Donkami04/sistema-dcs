@@ -95,17 +95,17 @@ export function Mesh() {
                 let colorPacketLoss = "";
                 const nivelSenal = Math.abs(parseInt(device.nivel_senal));
 
-                if (nivelSenal >= 80) {
+                if (nivelSenal >= 85) {
                   colorNivelSenal = "kpi-red";
-                } else if (nivelSenal > 69 && nivelSenal <= 79) {
+                } else if (nivelSenal > 80 && nivelSenal < 85) {
                   colorNivelSenal = "kpi-yellow";
                 }
 
                 if (device.snr !== "Not Found" || device.snr !== "N/A") {
                   const nivelSnr = device.snr;
-                  if (nivelSnr <= 11) {
+                  if (nivelSnr <= 10) {
                     colorNivelSnr = "kpi-red";
-                  } else if (nivelSnr > 11 && nivelSnr <= 19) {
+                  } else if (nivelSnr > 10 && nivelSnr <= 13) {
                     colorNivelSnr = "kpi-yellow";
                   }
                 }

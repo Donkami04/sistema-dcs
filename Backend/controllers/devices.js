@@ -16,6 +16,20 @@ async function getNumberDevices() {
   return numDevices;
 }
 
+async function getOneDevice(ip) {
+  const device = await DataDevices.findOne({ where: { ip: ip } });
+  if (device !== null) {
+    return {
+      status: 200,
+      data: device,
+    };
+  };
+  return {
+    status: 404,
+    message: "El Dispositivo no existe en la base de datos.",
+  };
+}
+
 async function createDevice(data) {
   try {
     const deviceDoesExist = await DataDevices.findOne({
@@ -76,12 +90,12 @@ async function editOneDevice(id, changes) {
   }
 }
 
-async function deleteDevice(id) {
+async function deleteDevice(ip) {
   try {
-    const device = await DataDevices.findByPk(id);
+    const device = await DataDevices.findOne({ where: { ip: ip } });
     if (device !== null) {
-      await DataDevices.destroy({ where: { id: id } });
-      const checkDeviceIsDeleted = await DataDevices.findByPk(id);
+      await DataDevices.destroy({ where: { id: device.id } });
+      const checkDeviceIsDeleted = await DataDevices.findByPk(device.id);
       if (checkDeviceIsDeleted === null) {
         return {
           status: 200,
@@ -101,4 +115,4 @@ async function deleteDevice(id) {
   }
 }
 
-module.exports = { getDevices, createDevice, editOneDevice, deleteDevice };
+module.exports = { getDevices, createDevice, editOneDevice, deleteDevice, getOneDevice };

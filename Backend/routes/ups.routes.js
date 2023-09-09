@@ -2,12 +2,27 @@ const express = require("express");
 const router = express.Router();
 const { createUpsSchema, editUpsSchema } = require("../schemas/ups.schema");
 const { validateData } = require("../middlewares/validator.handler");
-const {getUps,createUps,editOneUps,deleteUps} = require("../controllers/ups");
+const {getUps,createUps,editOneUps,deleteUps, getOneUps} = require("../controllers/ups");
 
 router.get("/", async (req, res, next) => {
   try {
     const upsList = await getUps();
     res.json(upsList);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get("/:ip", async (req, res, next) => {
+  try {
+    const ip = req.params.ip;
+    const ups = await getOneUps(ip);
+    res.status(ups.status).json({
+      status: ups.status,
+      message: ups.message,
+      error: ups.error,
+      data: ups.data,
+    });
   } catch (error) {
     next(error);
   }
@@ -29,8 +44,9 @@ router.post("/new", validateData(createUpsSchema), async (req, res, next) => {
   }
 });
 
-router.put("/edit/:id", validateData(editUpsSchema),async (req, res, next) => {
+router.put("/edit/:id", validateData(editUpsSchema), async (req, res, next) => {
   try {
+    
     const id = req.params.id;
     const changes = req.body;
     const upsEdit = await editOneUps(id, changes);
@@ -46,10 +62,10 @@ router.put("/edit/:id", validateData(editUpsSchema),async (req, res, next) => {
   }
 });
 
-router.delete("/remove/:id", async (req, res, next) => {
+router.delete("/remove/:ip", async (req, res, next) => {
   try {
-    const id = req.params.id;
-    const upsDeleted = await deleteUps(id);
+    const ip = req.params.ip;
+    const upsDeleted = await deleteUps(ip);
     res.status(upsDeleted.status).json({
       status: upsDeleted.status,
       message: upsDeleted.message,
