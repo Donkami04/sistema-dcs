@@ -3,17 +3,22 @@ import axios from "axios";
 import { BASE_API_URL } from "../../../../utils/Api-candelaria/api"
 import "../form.css"
 
-export const CreateUps = () => {
+export const CreateMesh = () => {
   const [ip, setIp] = useState("");
-  const [ubication, setUbication] = useState("");
+  const [device, setDevice] = useState("");
+  const [eqmt, setEqmt] = useState("");
   const [mensaje, setMensaje] = useState("");
 
   const handleIpChange = (event) => {
     setIp(event.target.value);
   };
 
-  const handleUbicationChange = (event) => {
-    setUbication(event.target.value);
+  const handleDeviceChange = (event) => {
+    setDevice(event.target.value);
+  };
+
+  const handleEqmtChange = (event) => {
+    setEqmt(event.target.value);
   };
 
   const handleSubmit = async (event) => {
@@ -21,15 +26,17 @@ export const CreateUps = () => {
 
     try {
       const response = await axios.post(
-        `${BASE_API_URL}/ups/new`,
+        `${BASE_API_URL}/mesh/new`,
         {
           ip,
-          ubication,
+          device,
+          eqmt,
         }
       );
       setMensaje(response.data.message);
       setIp("");
-      setUbication("");
+      setDevice("");
+      setEqmt("");
     } catch (error) {
       if (
         error.response &&
@@ -38,7 +45,6 @@ export const CreateUps = () => {
       ) {
         const errorMessage = error.response.data.message;
         setMensaje(errorMessage);
-        // Ahora puedes trabajar con el mensaje de error, por ejemplo, mostrarlo en la interfaz de usuario o tomar decisiones basadas en él.
       } else {
         console.error("Error desconocido:", error);
         setMensaje("Error desconocido: ", error);
@@ -49,7 +55,7 @@ export const CreateUps = () => {
   return (
     <>
       <div className="form-container">
-        <h2 className="form-title">Registrar UPS</h2>
+        <h2 className="form-title">Registrar mesh</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <label className="form-label" htmlFor="ip">IP:</label>
@@ -62,13 +68,24 @@ export const CreateUps = () => {
             />
           </div>
           <div>
-            <label className="form-label" htmlFor="ubication">Ubicación:</label>
+            <label className="form-label" htmlFor="device">Dispositivo:</label>
+            <input
+              className="form-input"
+              placeholder="Ej: Pala 99, Caex 99"
+              type="text"
+              id="device"
+              value={device}
+              onChange={handleDeviceChange}
+            />
+          </div>
+          <div>
+            <label className="form-label" htmlFor="eqmt">EQMT:</label>
             <input
               className="form-input"
               type="text"
-              id="ubication"
-              value={ubication}
-              onChange={handleUbicationChange}
+              id="eqmt"
+              value={eqmt}
+              onChange={handleEqmtChange}
             />
           </div>
           <div>

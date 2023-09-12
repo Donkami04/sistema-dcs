@@ -1,35 +1,29 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { BASE_API_URL } from "../../../../utils/Api-candelaria/api"
-import "../form.css"
+import "../form.css";
 
-export const CreateUps = () => {
+export const DeleteFirewall = () => {
   const [ip, setIp] = useState("");
-  const [ubication, setUbication] = useState("");
   const [mensaje, setMensaje] = useState("");
 
   const handleIpChange = (event) => {
     setIp(event.target.value);
   };
 
-  const handleUbicationChange = (event) => {
-    setUbication(event.target.value);
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await axios.post(
-        `${BASE_API_URL}/ups/new`,
-        {
-          ip,
-          ubication,
-        }
+      if (ip.trim() === "") {
+        setMensaje("Por favor, ingrese una dirección IP válida.");
+        return; // No realizar la solicitud si ip está vacío
+      }
+      const response = await axios.delete(
+        `${BASE_API_URL}/firewalls/remove/${ip}`
       );
       setMensaje(response.data.message);
       setIp("");
-      setUbication("");
     } catch (error) {
       if (
         error.response &&
@@ -38,7 +32,6 @@ export const CreateUps = () => {
       ) {
         const errorMessage = error.response.data.message;
         setMensaje(errorMessage);
-        // Ahora puedes trabajar con el mensaje de error, por ejemplo, mostrarlo en la interfaz de usuario o tomar decisiones basadas en él.
       } else {
         console.error("Error desconocido:", error);
         setMensaje("Error desconocido: ", error);
@@ -47,9 +40,9 @@ export const CreateUps = () => {
   };
 
   return (
-    <>
+
       <div className="form-container">
-        <h2 className="form-title">Registrar UPS</h2>
+        <h2 className="form-title">Eliminar Firewall - Canal Internet</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <label className="form-label" htmlFor="ip">IP:</label>
@@ -62,23 +55,13 @@ export const CreateUps = () => {
             />
           </div>
           <div>
-            <label className="form-label" htmlFor="ubication">Ubicación:</label>
-            <input
-              className="form-input"
-              type="text"
-              id="ubication"
-              value={ubication}
-              onChange={handleUbicationChange}
-            />
-          </div>
-          <div>
             <button className="form-button" type="submit">
-              Enviar
+              Eliminar
             </button>
           </div>
         </form>
         <p className="form-message">{mensaje}</p>
       </div>
-    </>
+
   );
 };

@@ -1,0 +1,8 @@
+2023-09-11 15:57:16,092 - ERROR - Error GENERAL 10.224.113.129
+2023-09-11 15:57:16,092 - ERROR - list index out of range
+2023-09-11 16:03:40,533 - ERROR - Error GENERAL 10.224.113.129
+2023-09-11 16:03:40,533 - ERROR - list index out of range
+2023-09-11 17:14:15,938 - ERROR - Error en el FW 10.224.21.1
+2023-09-11 17:14:15,938 - ERROR - 1054 (42S22): Unknown column 'getway' in 'field list'
+2023-09-11 17:14:15,939 - ERROR - Error GENERAL 10.224.21.1
+2023-09-11 17:14:15,939 - ERROR - 1054 (42S22): Unknown column 'getway' in 'field list'

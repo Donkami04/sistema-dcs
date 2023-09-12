@@ -2,12 +2,27 @@ const express = require("express");
 const router = express.Router();
 const { validateData } = require("../middlewares/validator.handler");
 const { createFirewallSchema, editFirewallSchema } = require("../schemas/firewalls.schema");
-const { getFirewalls, createFirewall, editOneFirewall, deleteFirewall } = require("../controllers/firewalls");
+const { getFirewalls, createFirewall, editOneFirewall, deleteFirewall, getOneFirewall } = require("../controllers/firewalls");
 
 router.get("/", async (req, res, next) => {
   try {
     const allFirewalls = await getFirewalls();
     res.json(allFirewalls);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get("/:ip", async (req, res, next) => {
+  try {
+    const ip = req.params.ip;
+    const firewall = await getOneFirewall(ip);
+    res.status(firewall.status).json({
+      status: firewall.status,
+      message: firewall.message,
+      error: firewall.error,
+      data: firewall.data,
+    });
   } catch (error) {
     next(error);
   }
@@ -46,10 +61,10 @@ router.put("/edit/:id", validateData(editFirewallSchema), async (req, res, next)
   }
 });
 
-router.delete("/remove/:id", async (req, res, next) => {
+router.delete("/remove/:ip", async (req, res, next) => {
   try {
-    const id = req.params.id;
-    const firewallDeleted = await deleteFirewall(id);
+    const ip = req.params.ip;
+    const firewallDeleted = await deleteFirewall(ip);
     res.status(firewallDeleted.status).json({
       status: firewallDeleted.status,
       message: firewallDeleted.message,

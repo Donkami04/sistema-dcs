@@ -5,6 +5,10 @@ const DataFirewalls = sequelize.define(
   "DataFirewalls",
   {
     name: {
+      type: DataTypes.STRING(50),
+      allowNull: true,
+    },
+    channel: {
       type: DataTypes.STRING(32),
       allowNull: true,
     },
@@ -12,12 +16,20 @@ const DataFirewalls = sequelize.define(
       type: DataTypes.STRING(32),
       allowNull: true,
     },
-    num_conn: {
-      type: DataTypes.INTEGER,
+    link: {
+      type: DataTypes.STRING(100),
       allowNull: true,
     },
     vdom: {
-      type: DataTypes.STRING(10),
+      type: DataTypes.STRING(32),
+      allowNull: true,
+    },
+    gateway: {
+      type: DataTypes.STRING(32),
+      allowNull: true,
+    },
+    ubication: {
+      type: DataTypes.STRING(32),
       allowNull: true,
     },
   },

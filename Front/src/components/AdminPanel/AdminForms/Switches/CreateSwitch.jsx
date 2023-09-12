@@ -3,17 +3,22 @@ import axios from "axios";
 import { BASE_API_URL } from "../../../../utils/Api-candelaria/api"
 import "../form.css"
 
-export const CreateUps = () => {
+export const CreateSwitch = () => {
   const [ip, setIp] = useState("");
-  const [ubication, setUbication] = useState("");
+  const [dispositivo, setDispositivo] = useState("");
+  const [group, setGroup] = useState("");
   const [mensaje, setMensaje] = useState("");
 
   const handleIpChange = (event) => {
     setIp(event.target.value);
   };
 
-  const handleUbicationChange = (event) => {
-    setUbication(event.target.value);
+  const handleDispositivoChange = (event) => {
+    setDispositivo(event.target.value);
+  };
+
+  const handleGroupChange = (event) => {
+    setGroup(event.target.value);
   };
 
   const handleSubmit = async (event) => {
@@ -21,15 +26,18 @@ export const CreateUps = () => {
 
     try {
       const response = await axios.post(
-        `${BASE_API_URL}/ups/new`,
+        `${BASE_API_URL}/switches/new`,
         {
           ip,
-          ubication,
+          dispositivo,
+          group,
         }
       );
       setMensaje(response.data.message);
       setIp("");
-      setUbication("");
+      setDispositivo("");
+      setGroup("");
+
     } catch (error) {
       if (
         error.response &&
@@ -49,7 +57,7 @@ export const CreateUps = () => {
   return (
     <>
       <div className="form-container">
-        <h2 className="form-title">Registrar UPS</h2>
+        <h2 className="form-title">Registrar Switch - DCS Candelaria</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <label className="form-label" htmlFor="ip">IP:</label>
@@ -62,13 +70,24 @@ export const CreateUps = () => {
             />
           </div>
           <div>
-            <label className="form-label" htmlFor="ubication">Ubicación:</label>
+            <label className="form-label" htmlFor="dispositivo">Nombre:</label>
             <input
               className="form-input"
               type="text"
-              id="ubication"
-              value={ubication}
-              onChange={handleUbicationChange}
+              id="dispositivo"
+              value={dispositivo}
+              onChange={handleDispositivoChange}
+            />
+          </div>
+          <div>
+            <label className="form-label" htmlFor="group">Grupo:</label>
+            <input
+              className="form-input"
+              placeholder="CSP, CSS, CNP, CNS, HSE, CNPB, CNSB"
+              type="text"
+              id="group"
+              value={group}
+              onChange={handleGroupChange}
             />
           </div>
           <div>
@@ -82,3 +101,4 @@ export const CreateUps = () => {
     </>
   );
 };
+

@@ -115,7 +115,7 @@ async function createClient(data) {
       });
       return {
         status: 201,
-        message: "El Cliente ha sido creado exitosamente.",
+        message: "El Cliente ha sido creado exitosamente, espere unos minutos para que el sistema actualice los datos.",
         data: newClient,
       };
     }

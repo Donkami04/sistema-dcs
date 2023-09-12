@@ -9,12 +9,24 @@ export function Firewalls() {
   const [firewalls, setFirewalls] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterDownPaused, setFilterDownPaused] = useState(true);
+  const [fwCommunity, setFwCommunity] = useState([]);
+  const [fwCorporate, setFwCorporate] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const firewallsList = await getFirewalls();
         setFirewalls(firewallsList);
+
+        // Filtrar los arreglos después de obtener los datos
+        const corporateFirewalls = firewallsList.filter(
+          (fw) => fw.ubication === "corporate"
+        );
+        const communityFirewalls = firewallsList.filter(
+          (fw) => fw.ubication === "community"
+        );
+        setFwCorporate(corporateFirewalls);
+        setFwCommunity(communityFirewalls);
       } catch (error) {
         console.error("Error al obtener el listado de firewalls:", error);
         return error;
@@ -23,8 +35,9 @@ export function Firewalls() {
     fetchData();
   }, []);
 
-  const renderTableBody = () => {
-    if (firewalls.length === 0) {
+  // Función para renderizar el cuerpo de la tabla
+  const renderTableBody = (firewallsArray) => {
+    if (firewallsArray.length === 0) {
       return (
         <tr>
           <td className="no-match" colSpan="14" style={{ fontSize: "13px" }}>
@@ -34,10 +47,11 @@ export function Firewalls() {
       );
     }
 
-    return firewalls.map((fw) => (
+    return firewallsArray.map((fw) => (
       <tr key={fw.id}>
         <td>{fw.fw}</td>
         <td>{fw.canal}</td>
+        <td>{fw.link}</td>
         <td>{fw.state}</td>
         <td
           className={
@@ -67,25 +81,40 @@ export function Firewalls() {
           {fw.latency === "Not Found" ? "Not Found" : fw.latency + " ms"}
         </td>
         <td
-        className={
-          fw.jitter === "Not Found"
-            ? ""
-            : parseFloat(fw.jitter) > 30
-            ? "kpi-red"
-            : parseFloat(fw.jitter) >= 10 && parseFloat(fw.jitter) <= 30
-            ? "kpi-yellow"
-            : ""
-        }
-      >
-        {fw.jitter === "Not Found" ? "Not Found" : fw.jitter + " ms"}
-      </td>
+          className={
+            fw.jitter === "Not Found"
+              ? ""
+              : parseFloat(fw.jitter) > 30
+              ? "kpi-red"
+              : parseFloat(fw.jitter) >= 10 && parseFloat(fw.jitter) <= 30
+              ? "kpi-yellow"
+              : ""
+          }
+        >
+          {fw.jitter === "Not Found" ? "Not Found" : fw.jitter + " ms"}
+        </td>
+        <td
+          className={
+            fw.status_gateway.includes("Up")
+              ? "kpi-green"
+              : fw.gateway.includes("Paused")
+              ? "kpi-yellow"
+              : fw.gateway.includes("Down")
+              ? "kpi-red"
+              : ""
+          }
+        >
+          {fw.gateway}
+        </td>
+
         <td>{fw.failed_before}</td>
       </tr>
     ));
   };
 
-  const renderRowCount = () => {
-    const rowCount = firewalls.length;
+  // Función para renderizar el contador de líneas
+  const renderRowCount = (firewallsArray) => {
+    const rowCount = firewallsArray.length;
     return (
       <div className="row-count" style={{ fontSize: "0.8rem" }}>
         Total de elementos: {rowCount}
@@ -99,21 +128,45 @@ export function Firewalls() {
       <Status_System tableToShow={"fw"} />
       <DashFirewalls />
       <div className="firewalls-container">
+        <h2>FW - Canales Corporativos</h2>
         <table>
           <thead>
             <tr>
               <th>NOMBRE</th>
               <th>CANAL</th>
+              <th>DATOS ENLACE</th>
               <th>ESTADO</th>
               <th>PERDIDAS</th>
               <th>LATENCIA</th>
               <th>JITTER</th>
+              <th>GATEWAY</th>
               <th>FALLO 24Hrs</th>
             </tr>
           </thead>
-          <tbody>{renderTableBody()}</tbody>
+          <tbody>{renderTableBody(fwCorporate)}</tbody>
         </table>
-        {renderRowCount()}
+        {renderRowCount(fwCorporate)}
+      </div>
+
+      <div className="firewalls-container">
+        <h2>FW - Canales Comunitarios</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>NOMBRE</th>
+              <th>CANAL</th>
+              <th>DATOS ENLACE</th>
+              <th>ESTADO</th>
+              <th>PERDIDAS</th>
+              <th>LATENCIA</th>
+              <th>JITTER</th>
+              <th>GATEWAY</th>
+              <th>FALLO 24Hrs</th>
+            </tr>
+          </thead>
+          <tbody>{renderTableBody(fwCommunity)}</tbody>
+        </table>
+        {renderRowCount(fwCommunity)}
       </div>
     </>
   );

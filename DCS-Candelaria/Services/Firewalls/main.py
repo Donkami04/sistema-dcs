@@ -1,9 +1,10 @@
-import mysql.connector, time, sched, datetime, os, re, traceback, logging
+import mysql.connector, warnings, time, sched, datetime, os, re, traceback, logging, requests
 from netmiko import ConnectHandler
 from dotenv import load_dotenv
 from config import database
 from vdom import vdom_connection
 
+warnings.filterwarnings('ignore', message='Unverified HTTPS request')
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 file_handler = logging.FileHandler('issues.log')
@@ -54,21 +55,27 @@ def fw_status():
             fecha_y_hora = str(fecha_y_hora)
             
             host = fw.get('ip')
-            name = fw.get('name')
-            num_connections = fw.get('num_conn')
-            vdom = fw.get('vdom')
             logging.info(f'Corriendo : {host}')
-            
+            name = fw.get('name')
+            link = fw.get('link')
+            vdom = fw.get('vdom')
+            gateway = fw.get('gateway')
+            ubication = fw.get('ubication')
+            channel = fw.get('channel')
+            status_gateway = get_prtg_status(gateway)
+            logging.info(f'Estado de gateway : {status_gateway}')
+                        
             net_connect = None
             try:
-                if vdom == 'true':
-                    results = vdom_connection(host, USER, PASSWORD)
+                if vdom != 'N/A':
+                    results = vdom_connection(host, vdom, USER, PASSWORD)
                     for canal, state, packet_loss, latency, jitter in results:
-                        failed_before = check_failed_before(name)
-                        query = "INSERT INTO dcs.firewalls (`fw`, `canal`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`)"
-                        value = f"VALUES ('{name}', '{canal}', '{state}', '{packet_loss}', '{latency}', '{jitter}', '{failed_before}', '{fecha_y_hora}')"
-                        cursor.execute(query + value)
-                        mydb.commit()
+                        if canal == channel or canal == 'Not Found':
+                            failed_before = check_failed_before(name)
+                            query = "INSERT INTO dcs.firewalls (`fw`, `canal`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`, `link`, `gateway`, `ubication`, `status_gateway`)"
+                            value = f"VALUES ('{name}', '{canal}', '{state}', '{packet_loss}', '{latency}', '{jitter}', '{failed_before}', '{fecha_y_hora}', '{link}', '{gateway}', '{ubication}', '{status_gateway}')"
+                            cursor.execute(query + value)
+                            mydb.commit()
                     
                 else:
                     network_device_list = {
@@ -82,8 +89,8 @@ def fw_status():
 
                     net_connect = ConnectHandler(**network_device_list)
                     output = net_connect.send_command("diagnose sys sdwan health-check Check_Internet")
-                    logging.info(output)
                     net_connect.disconnect()
+                    logging.info(output)
                     
                     if 'Health Check' in output:
                         pattern = r'Seq\(\d+\s+([^\s:)]+)\): state\(([^)]+)\), packet-loss\(([^)]+)\) latency\(([^)]+)\), jitter\(([^)]+)\)'
@@ -91,37 +98,34 @@ def fw_status():
                         for match in matches:
                             try:
                                 canal = match[0]
-                                state = match[1]
-                                packet_loss = match[2]
-                                packet_loss = packet_loss.replace("%", "")
-                                latency = match[3]
-                                jitter = match[4]
-                                failed_before = check_failed_before(name)
-                                
-                                query = "INSERT INTO dcs.firewalls (`fw`, `canal`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`)"
-                                value = f"VALUES ('{name}', '{canal}', '{state}', '{packet_loss}', '{latency}', '{jitter}', '{failed_before}', '{fecha_y_hora}')"
-                                cursor.execute(query + value)
-                                mydb.commit()
+                                if canal == channel:
+                                    state = match[1]
+                                    packet_loss = match[2]
+                                    packet_loss = packet_loss.replace("%", "")
+                                    latency = match[3]
+                                    jitter = match[4]
+                                    failed_before = check_failed_before(name)
+                                    
+                                    query = "INSERT INTO dcs.firewalls (`fw`, `canal`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`, `link`, `gateway`, `ubication`, `status_gateway`)"
+                                    value = f"VALUES ('{name}', '{canal}', '{state}', '{packet_loss}', '{latency}', '{jitter}', '{failed_before}', '{fecha_y_hora}', '{link}', '{gateway}', '{ubication}', '{status_gateway}')"
+                                    cursor.execute(query + value)
+                                    mydb.commit()
 
                             except:
                                 logging.error(f"Error en la expresión regular Health Check - FW {host}")
                                 logging.error(traceback.format_exc())
-                                for _ in range(num_connections):
-                                    save_bd_error(name, fecha_y_hora)
+                                save_bd_error(name, fecha_y_hora, link, gateway, ubication, status_gateway)
                                     
                     else:
                         logging.error(f"No se encontraron las palabras 'Health Check - FW {host}'")
-                        for _ in range(num_connections):
-                            save_bd_error(name, fecha_y_hora)
+                        save_bd_error(name, fecha_y_hora, link, gateway, ubication, status_gateway)
                                     
             except Exception as e:
                 if net_connect:
                     net_connect.disconnect()
                 logging.error(f"Error en el FW {host}")
                 logging.error(e)
-                
-                for _ in range(num_connections):
-                    save_bd_error(name, fecha_y_hora)
+                save_bd_error(name, fecha_y_hora, link, gateway, ubication, status_gateway)
                     
         now = datetime.datetime.now()
         fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
@@ -140,13 +144,29 @@ def fw_status():
         fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
         fecha_y_hora = str(fecha_y_hora)
         
-        cursor.execute(f"INSERT INTO dcs.fechas_consultas_fw (`ultima_consulta`, `estado`) VALUES ('{fecha_y_hora}', 'OK')")
+        cursor.execute(f"INSERT INTO dcs.fechas_consultas_fw (`ultima_consulta`, `estado`) VALUES ('{fecha_y_hora}', 'ERROR')")
         mydb.commit()
         cursor.close()
         
 
+def get_prtg_status(ip_gateway):
+    url_prtg_ip = os.getenv('URL_PRTG_IP').format(ip=ip_gateway)
+    response_1 = requests.get(url_prtg_ip, verify=False).json()
+    devices = response_1.get('devices', [])
 
-def save_bd_error(name, fecha_y_hora):
+    if devices:
+        id_device = devices[0].get('objid', 'Not Found')
+    else:
+        id_device = 'Not Found'
+        return 'Not Found'
+        
+    url_prtg_id = os.getenv('URL_PRTG_ID').format(id_device=id_device)
+    response_2 = requests.get(url_prtg_id, verify=False).json()
+    status = response_2.get('sensors', [{}])[0].get('status', 'Not Found')
+    
+    return status
+
+def save_bd_error(name, fecha_y_hora, link, gateway, ubication, status_gateway):
     canal = 'Not Found'
     state = 'Not Found'
     packet_loss = 'Not Found'
@@ -154,10 +174,8 @@ def save_bd_error(name, fecha_y_hora):
     jitter = 'Not Found'
     failed_before = check_failed_before(name)
 
-    
-    
-    query = "INSERT INTO dcs.firewalls (`fw`, `canal`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`)"
-    value = f"VALUES ('{name}', '{canal}', '{state}', '{packet_loss}', '{latency}', '{jitter}', '{failed_before}','{fecha_y_hora}')"
+    query = "INSERT INTO dcs.firewalls (`fw`, `canal`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`, `link`, `gateway`, `ubication`, `status_gateway`)"
+    value = f"VALUES ('{name}', '{canal}', '{state}', '{packet_loss}', '{latency}', '{jitter}', '{failed_before}', '{fecha_y_hora}', '{link}', '{gateway}', '{ubication}', '{status_gateway}')"
     cursor.execute(query + value)
     mydb.commit()
     

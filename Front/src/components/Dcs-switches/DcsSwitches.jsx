@@ -14,7 +14,7 @@ export function Switches() {
     <>
       <Navbar title={'Candelaria'} />
       <Status_System tableToShow={switchesTable}/>
-      <Button buttonTag={buttonTag} urlRedirect={urlRedirect} />
+      {/* <Button buttonTag={buttonTag} urlRedirect={urlRedirect} /> */}
       <Dashboard />
       <TableSwitches />
       <Hamburmenu

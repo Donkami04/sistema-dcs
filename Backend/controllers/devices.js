@@ -45,7 +45,7 @@ async function createDevice(data) {
       });
       return {
         status: 201,
-        message: "El Dispositivo ha sido creado exitosamente.",
+        message: "El Dispositivo ha sido creado exitosamente, espere unos minutos para que el sistema actualice los datos.",
         data: newDevice,
       };
     }

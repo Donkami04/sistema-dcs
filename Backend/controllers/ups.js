@@ -40,7 +40,7 @@ async function createUps(data) {
       });
       return {
         status: 201,
-        message: "UPS creada exitosamente.",
+        message: "UPS creada exitosamente, espere unos minutos para que el sistema actualice los datos.",
         data: newUps,
       };
     }

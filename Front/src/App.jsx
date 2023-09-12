@@ -12,9 +12,13 @@ import { Firewalls } from "./components/Firewalls/Firewalls";
 import { Wan } from "./components/Wan/Wan";
 import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { AdminUps }  from "./components/AdminPanel/AdminHome/AdminUps/AdminUps";
-import { AdminClients } from "./components/AdminPanel/AdminHome/AdminClients/AdminClients";
-import { AdminDevices } from "./components/AdminPanel/AdminHome/AdminDevices/AdminDevices";
+import { AdminUps }  from "./components/AdminPanel/AdminViews/AdminUps/AdminUps";
+import { AdminClients } from "./components/AdminPanel/AdminViews/AdminClients/AdminClients";
+import { AdminDevices } from "./components/AdminPanel/AdminViews/AdminDevices/AdminDevices";
+import { AdminWan } from "./components/AdminPanel/AdminViews/AdminWan/AdminWan";
+import { AdminSwitches } from "./components/AdminPanel/AdminViews/AdminSwitches/AdminSwitches";
+import { AdminMesh } from "./components/AdminPanel/AdminViews/AdminMesh/AdminMesh";
+import { AdminFirewalls } from "./components/AdminPanel/AdminViews/AdminFirewalls/AdminFirewalls";
 import { AdminHome } from "./components/AdminPanel/AdminHome/AdminHome";
 import "./app.css";
 
@@ -104,6 +108,11 @@ function App() {
         <Route path="/admin/ups" element={<AdminUps />} />
         <Route path="/admin/clients" element={<AdminClients />} />
         <Route path="/admin/devices" element={<AdminDevices />} />
+        <Route path="/admin/wan" element={<AdminWan />} />
+        <Route path="/admin/switches" element={<AdminSwitches />} />
+        <Route path="/admin/mesh" element={<AdminMesh />} />
+        <Route path="/admin/firewalls" element={<AdminFirewalls />} />
+
       </Routes>
       <div className="refresh-button-container">
         <button className="refresh-button" onClick={toggleTimer} title={timerActive ? 'Pausar Autorefresco de la página' : 'Activar Autorefresco de la página'}>

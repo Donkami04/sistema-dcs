@@ -8,8 +8,9 @@ const createWanSchema = Joi.object({
 });
 
 const editWanSchema = Joi.object({
-  ip: Joi.string().ip().allow('').empty('').messages({
-    "string.ip": "La IP debe tener un formato valido"
+  ip: Joi.string().ip().allow('').required().empty('').messages({
+    "string.ip": "La IP debe tener un formato valido",
+    "any.required": "La IP es requerida",
   }),
 });
 

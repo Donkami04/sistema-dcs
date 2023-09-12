@@ -35,6 +35,22 @@ const Firewalls = sequelize.define(
     datetime: {
       type: DataTypes.STRING(32),
       allowNull: true,
+    },
+    link: {
+      type: DataTypes.STRING(50),
+      allowNull: true,
+    },
+    gateway: {
+      type: DataTypes.STRING(32),
+      allowNull: true,
+    },
+    ubication: {
+      type: DataTypes.STRING(32),
+      allowNull: true,
+    },
+    status_gateway: {
+      type: DataTypes.STRING(32),
+      allowNull: true,
     }
   },
   {

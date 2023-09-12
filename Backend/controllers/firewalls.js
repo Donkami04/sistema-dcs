@@ -7,17 +7,29 @@ async function getFirewalls() {
     order: [["id", "DESC"]],
     limit: numFw,
   });
+  firewalls.reverse();
   return firewalls;
 }
 
 async function getNumberFw() {
-  let numFw = 0;
   const listFw = await DataFirewalls.findAll();
-  listFw.forEach((fw) => {
-    const num_connections = fw.num_conn;
-    numFw += num_connections;
-  });
+  console.log(listFw);
+  const numFw = listFw.length;
   return numFw;
+}
+
+async function getOneFirewall(ip) {
+  const firewall = await DataFirewalls.findOne({ where: { ip: ip } });
+  if (firewall !== null) {
+    return {
+      status: 200,
+      data: firewall,
+    };
+  }
+  return {
+    status: 404,
+    message: "El Firewall - Canal de Internet no existe en la base de datos.",
+  };
 }
 
 async function createFirewall(data) {
@@ -27,20 +39,24 @@ async function createFirewall(data) {
     });
     if (firewallDoesExist === null) {
       const newFirewall = await DataFirewalls.create({
-        ip: data.ip,
         name: data.name,
-        num_conn: data.num_conn,
+        channel: data.channel,
+        ip: data.ip,
+        link: data.link,
         vdom: data.vdom,
+        gateway: data.gateway,
+        ubication: data.ubication,
       });
       return {
         status: 201,
-        message: "El Firewall ha sido creado exitosamente.",
+        message:
+          "El Firewall - Canal de Internet ha sido creado exitosamente, espere unos minutos para que el sistema actualice los datos.",
         data: newFirewall,
       };
     }
     return {
       status: 409,
-      message: "El Firewall ya existe en la base de datos.",
+      message: "El Firewall - Canal de Internet ya existe en la base de datos.",
     };
   } catch (error) {
     console.error(error);
@@ -54,23 +70,27 @@ async function editOneFirewall(id, changes) {
     if (firewall !== null) {
       await DataFirewalls.update(
         {
-          ip: changes.ip,
           name: changes.name,
-          num_conn: changes.num_conn,
+          channel: changes.channel,
+          ip: changes.ip,
+          link: changes.link,
           vdom: changes.vdom,
+          gateway: changes.gateway,
+          ubication: changes.ubication,
         },
         { where: { id: id } }
       );
       const firewallUpdated = await DataFirewalls.findByPk(id);
       return {
         status: 200,
-        message: "El Firewall ha sido modificado exitosamente.",
+        message:
+          "El Firewall - Canal de Internet ha sido modificado exitosamente.",
         data: firewallUpdated,
       };
     }
     return {
       status: 404,
-      message: "El Firewall no existe en la base de datos.",
+      message: "El Firewall - Canal de Internet no existe en la base de datos.",
     };
   } catch (error) {
     console.error(error);
@@ -80,14 +100,15 @@ async function editOneFirewall(id, changes) {
 
 async function deleteFirewall(id) {
   try {
-    const firewall = await DataFirewalls.findByPk(id);
+    const firewall = await DataFirewalls.findOne({ where: { ip: ip } });
     if (firewall !== null) {
-      await DataFirewalls.destroy({ where: { id: id } });
-      const checkFirewallIsDeleted = await DataFirewalls.findByPk(id);
+      await DataFirewalls.destroy({ where: { id: firewall.id } });
+      const checkFirewallIsDeleted = await DataFirewalls.findByPk(firewall.id);
       if (checkFirewallIsDeleted === null) {
         return {
           status: 200,
-          message: "El Firewall ha sido eliminado exitosamente",
+          message:
+            "El Firewalll - Canal de Internet ha sido eliminado exitosamente",
         };
       } else {
         throw error;
@@ -95,7 +116,7 @@ async function deleteFirewall(id) {
     }
     return {
       status: 404,
-      message: "El Firewall no existe en la base de datos",
+      message: "El Firewalll - Canal de Internet no existe en la base de datos",
     };
   } catch (error) {
     console.error(error);
@@ -103,4 +124,10 @@ async function deleteFirewall(id) {
   }
 }
 
-module.exports = { getFirewalls, createFirewall, editOneFirewall, deleteFirewall };
+module.exports = {
+  getFirewalls,
+  createFirewall,
+  editOneFirewall,
+  deleteFirewall,
+  getOneFirewall,
+};

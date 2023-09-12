@@ -8,20 +8,32 @@ module.exports = {
         primaryKey: true,
       },
       name: {
+        type: Sequelize.STRING(50),
+        allowNull: true,
+      },
+      channel: {
         type: Sequelize.STRING(32),
-        allowNull: false,
+        allowNull: true,
       },
       ip: {
         type: Sequelize.STRING(32),
-        allowNull: false,
+        allowNull: true,
       },
-      num_conn: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
+      link: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
       },
       vdom: {
-        type: Sequelize.STRING(10),
-        allowNull: false,
+        type: Sequelize.STRING(32),
+        allowNull: true,
+      },
+      gateway: {
+        type: Sequelize.STRING(32),
+        allowNull: true,
+      },
+      ubication: {
+        type: Sequelize.STRING(32),
+        allowNull: true,
       },
     });
 
@@ -64,6 +76,22 @@ module.exports = {
         type: Sequelize.STRING(32),
         allowNull: true,
       },
+      link: {
+        type: Sequelize.STRING(50),
+        allowNull: true,
+      },
+      gateway: {
+        type: Sequelize.STRING(32),
+        allowNull: true,
+      },
+      ubication: {
+        type: Sequelize.STRING(32),
+        allowNull: true,
+      },
+      status_gateway: {
+        type: Sequelize.STRING(32),
+        allowNull: true,
+      }
     });
 
     await queryInterface.createTable('fechas_consultas_fw', {

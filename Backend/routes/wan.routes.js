@@ -2,12 +2,27 @@ const express = require("express");
 const router = express.Router();
 const { validateData } = require("../middlewares/validator.handler");
 const { createWanSchema, editWanSchema } = require("../schemas/wan.schema");
-const { getWan, createWan, editOneWan, deleteWan } = require("../controllers/wan");
+const { getWan, createWan, editOneWan, deleteWan, getOneWan } = require("../controllers/wan");
 
 router.get("/", async (req, res, next) => {
   try {
     const wanList = await getWan();
     res.json(wanList);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get("/:ip", async (req, res, next) => {
+  try {
+    const ip = req.params.ip;
+    const wan = await getOneWan(ip);
+    res.status(wan.status).json({
+      status: wan.status,
+      message: wan.message,
+      error: wan.error,
+      data: wan.data,
+    });
   } catch (error) {
     next(error);
   }
@@ -46,10 +61,10 @@ router.put("/edit/:id", validateData(editWanSchema), async (req, res, next) => {
   }
 });
 
-router.delete("/remove/:id", async (req, res, next) => {
+router.delete("/remove/:ip", async (req, res, next) => {
   try {
-    const id = req.params.id;
-    const wanDeleted = await deleteWan(id);
+    const ip = req.params.ip;
+    const wanDeleted = await deleteWan(ip);
     res.status(wanDeleted.status).json({
       status: wanDeleted.status,
       message: wanDeleted.message,

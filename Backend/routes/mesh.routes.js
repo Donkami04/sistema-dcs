@@ -2,12 +2,27 @@ const express = require("express");
 const router = express.Router();
 const { validateData } = require("../middlewares/validator.handler");
 const { createMeshSchema, editMeshSchema } = require("../schemas/mesh.schema");
-const { getMesh, createMesh, editOneMesh, deleteMesh } = require("../controllers/mesh");
+const { getMesh, createMesh, editOneMesh, deleteMesh, getOneMesh } = require("../controllers/mesh");
 
 router.get("/", async (req, res, next) => {
   try {
     const allMesh = await getMesh();
     res.json(allMesh);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get("/:ip", async (req, res, next) => {
+  try {
+    const ip = req.params.ip;
+    const mesh = await getOneMesh(ip);
+    res.status(mesh.status).json({
+      status: mesh.status,
+      message: mesh.message,
+      error: mesh.error,
+      data: mesh.data,
+    });
   } catch (error) {
     next(error);
   }
@@ -46,10 +61,10 @@ router.put("/edit/:id", validateData(editMeshSchema), async (req, res, next) => 
   }
 });
 
-router.delete("/remove/:id", async (req, res, next) => {
+router.delete("/remove/:ip", async (req, res, next) => {
   try {
-    const id = req.params.id;
-    const meshDeleted = await deleteMesh(id);
+    const ip = req.params.ip;
+    const meshDeleted = await deleteMesh(ip);
     res.status(meshDeleted.status).json({
       status: meshDeleted.status,
       message: meshDeleted.message,

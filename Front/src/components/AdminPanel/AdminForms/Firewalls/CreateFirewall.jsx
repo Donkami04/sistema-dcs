@@ -3,22 +3,23 @@ import axios from "axios";
 import { BASE_API_URL } from "../../../../utils/Api-candelaria/api"
 import "../form.css";
 
-export const CreateClient = () => {
-  const [dataClient, setDataClient] = useState({
-    group: "",
+export const CreateFirewall = () => {
+  const [dataFirewall, setDataFirewall] = useState({
     name: "",
-    importancia: "",
-    clave: 0,
-    description: "",
+    channel: "",
     ip: "",
+    link: "",
+    vdom: "",
+    gateway: "",
+    ubication: "",
   });
 
   const [mensaje, setMensaje] = useState("");
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setDataClient({
-      ...dataClient,
+    setDataFirewall({
+      ...dataFirewall,
       [name]: value,
     });
   };
@@ -28,17 +29,18 @@ export const CreateClient = () => {
 
     try {
       const response = await axios.post(
-        `${BASE_API_URL}/clients/new`,
-        dataClient
+        `${BASE_API_URL}/firewalls/new`,
+        dataFirewall
       );
       setMensaje(response.data.message);
-      setDataClient({
-        group: "",
+      setDataFirewall({
         name: "",
-        importancia: "",
-        clave: 0,
-        description: "",
+        channel: "",
         ip: "",
+        link: "",
+        vdom: "",
+        gateway: "",
+        ubication: "",
       });
 
 
@@ -59,7 +61,7 @@ export const CreateClient = () => {
 
   return (
       <div className="form-container">
-        <h2 className="form-title">Registrar Cliente - DCS Candelaria</h2>
+        <h2 className="form-title">Registrar Firewall - Canal Internet</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <label className="form-label" htmlFor="ip">
@@ -70,21 +72,7 @@ export const CreateClient = () => {
               type="text"
               id="ip"
               name="ip"
-              value={dataClient.ip}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <label className="form-label" htmlFor="group">
-              Grupo:
-            </label>
-            <input
-              className="form-input"
-              placeholder="CSP, CSS, CNP, CNS, HSE, CNPB, CNSB"
-              type="text"
-              id="group"
-              name="group"
-              value={dataClient.group}
+              value={dataFirewall.ip}
               onChange={handleInputChange}
             />
           </div>
@@ -97,47 +85,74 @@ export const CreateClient = () => {
               type="text"
               id="name"
               name="name"
-              value={dataClient.name}
+              value={dataFirewall.name}
               onChange={handleInputChange}
             />
           </div>
           <div>
-            <label className="form-label" htmlFor="importancia">
-              Importancia:
-            </label>
-            <input
-              className="form-input"
-              placeholder="ALTA, MEDIA, BAJA"
-              type="text"
-              id="importancia"
-              name="importancia"
-              value={dataClient.importancia}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <label className="form-label" htmlFor="clave">
-              Clave:
-            </label>
-            <input
-              className="form-input"
-              type="number"
-              id="clave"
-              name="clave"
-              value={dataClient.clave}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <label className="form-label" htmlFor="description">
-              Descripción:
+            <label className="form-label" htmlFor="channel">
+              Canal:
             </label>
             <input
               className="form-input"
               type="text"
-              id="description"
-              name="description"
-              value={dataClient.description}
+              id="channel"
+              name="channel"
+              value={dataFirewall.channel}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div>
+            <label className="form-label" htmlFor="link">
+              Enlace:
+            </label>
+            <input
+              className="form-input"
+              type="text"
+              id="link"
+              name="link"
+              value={dataFirewall.link}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div>
+            <label className="form-label" htmlFor="vdom">
+              VDOM:
+            </label>
+            <input
+              className="form-input"
+              placeholder="N/A, root, Villa, Comunitario"
+              type="text"
+              id="vdom"
+              name="vdom"
+              value={dataFirewall.vdom}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div>
+            <label className="form-label" htmlFor="gateway">
+              Gateway:
+            </label>
+            <input
+              className="form-input"
+              type="text"
+              id="gateway"
+              name="gateway"
+              value={dataFirewall.gateway}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div>
+            <label className="form-label" htmlFor="ubication">
+              Ubicación:
+            </label>
+            <input
+              className="form-input"
+              placeholder="corporate, community"
+              type="text"
+              id="ubication"
+              name="ubication"
+              value={dataFirewall.ubication}
               onChange={handleInputChange}
             />
           </div>

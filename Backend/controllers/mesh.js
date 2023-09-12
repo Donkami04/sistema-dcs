@@ -4,18 +4,32 @@ const { DataMesh } = require("../models/data_mesh");
 async function getMesh() {
   const numMesh = await getNumberMesh();
 
-    const mesh = await Mesh.findAll({
-      order: [["id", "DESC"]],
-      limit: numMesh,
-    });
-    return mesh;
-};
+  const mesh = await Mesh.findAll({
+    order: [["id", "DESC"]],
+    limit: numMesh,
+  });
+  return mesh;
+}
 
 async function getNumberMesh() {
   const listMesh = await DataMesh.findAll();
   const numMesh = listMesh.length;
   return numMesh;
-};
+}
+
+async function getOneMesh(ip) {
+  const mesh = await DataMesh.findOne({ where: { ip: ip } });
+  if (mesh !== null) {
+    return {
+      status: 200,
+      data: mesh,
+    };
+  }
+  return {
+    status: 404,
+    message: "El Dispositivo MESH no existe en la base de datos.",
+  };
+}
 
 async function createMesh(data) {
   try {
@@ -28,7 +42,7 @@ async function createMesh(data) {
       });
       return {
         status: 201,
-        message: "Elemento MESH creado exitosamente.",
+        message: "Elemento MESH creado exitosamente, espere unos minutos para que el sistema actualice los datos.",
         data: newMesh,
       };
     }
@@ -71,13 +85,13 @@ async function editOneMesh(id, changes) {
   }
 }
 
-async function deleteMesh(id) {
+async function deleteMesh(ip) {
   try {
-    const mesh = await DataMesh.findByPk(id);
+    const mesh = await DataMesh.findOne({ where: { ip: ip } });
     if (mesh !== null) {
-      await DataMesh.destroy({ where: { id: id } });
+      await DataMesh.destroy({ where: { id: mesh.id } });
 
-      const checkMeshIsDeleted = await DataMesh.findByPk(id);
+      const checkMeshIsDeleted = await DataMesh.findByPk(mesh.id);
       if (checkMeshIsDeleted === null) {
         return {
           status: 200,
@@ -97,4 +111,4 @@ async function deleteMesh(id) {
   }
 }
 
-module.exports = { getMesh, createMesh, editOneMesh, deleteMesh };
+module.exports = { getMesh, createMesh, editOneMesh, deleteMesh, getOneMesh };

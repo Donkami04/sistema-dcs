@@ -42,7 +42,7 @@ export const DeleteClient = () => {
   return (
 
       <div className="form-container">
-        <h2 className="form-title">Eliminar Cliente</h2>
+        <h2 className="form-title">Eliminar Cliente - DCS Candelaria</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <label className="form-label" htmlFor="ip">IP:</label>

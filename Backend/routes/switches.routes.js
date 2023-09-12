@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { validateData } = require("../middlewares/validator.handler");
 const { createSwitchesSchema, editSwitchesSchema } = require("../schemas/switches.schema");
-const {getSwitches, createSwitch, editOneSwitch, deleteSwitch} = require('../controllers/switches')
+const {getSwitches, createSwitch, editOneSwitch, deleteSwitch, getOneSwitch} = require('../controllers/switches')
 
 router.get('/', async (req, res, next) => {
     try {
@@ -11,6 +11,21 @@ router.get('/', async (req, res, next) => {
     } catch (error) {
         next(error);
     };
+});
+
+router.get("/:ip", async (req, res, next) => {
+  try {
+    const ip = req.params.ip;
+    const switch_ = await getOneSwitch(ip);
+    res.status(switch_.status).json({
+      status: switch_.status,
+      message: switch_.message,
+      error: switch_.error,
+      data: switch_.data,
+    });
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.post("/new", validateData(createSwitchesSchema), async (req, res, next) => {
@@ -46,10 +61,10 @@ router.post("/new", validateData(createSwitchesSchema), async (req, res, next) =
     }
   });
   
-  router.delete("/remove/:id", async (req, res, next) => {
+  router.delete("/remove/:ip", async (req, res, next) => {
     try {
-      const id = req.params.id;
-      const switchDeleted = await deleteSwitch(id);
+      const ip = req.params.ip;
+      const switchDeleted = await deleteSwitch(ip);
       res.status(switchDeleted.status).json({
         status: switchDeleted.status,
         message: switchDeleted.message,

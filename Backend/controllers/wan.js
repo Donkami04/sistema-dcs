@@ -16,6 +16,20 @@ async function getNumberWan() {
   return numWan;
 }
 
+async function getOneWan(ip) {
+  const wan = await DataWan.findOne({ where: { ip: ip } });
+  if (wan !== null) {
+    return {
+      status: 200,
+      data: wan,
+    };
+  };
+  return {
+    status: 404,
+    message: "La UPS no existe en la base de datos.",
+  };
+}
+
 async function createWan(data) {
   try {
     const wanDoesExist = await DataWan.findOne({ where: { ip: data.ip } });
@@ -25,7 +39,7 @@ async function createWan(data) {
       });
       return {
         status: 201,
-        message: "WAN creada exitosamente.",
+        message: "WAN creada exitosamente, espere unos minutos para que el sistema actualice los datos.",
         data: newWan,
       };
     }
@@ -66,13 +80,13 @@ async function editOneWan(id, changes) {
   }
 }
 
-async function deleteWan(id) {
+async function deleteWan(ip) {
   try {
-    const wan = await DataWan.findByPk(id);
+    const wan = await DataWan.findOne({ where: { ip: ip } });
     if (wan !== null) {
-      await DataWan.destroy({ where: { id: id } });
+      await DataWan.destroy({ where: { id: wan.id } });
 
-      const checkWanIsDeleted = await DataWan.findByPk(id);
+      const checkWanIsDeleted = await DataWan.findByPk(wan.id);
       if (checkWanIsDeleted === null) {
         return {
           status: 200,
@@ -92,4 +106,4 @@ async function deleteWan(id) {
   }
 }
 
-module.exports = { getWan, createWan, editOneWan, deleteWan };
+module.exports = { getWan, createWan, editOneWan, deleteWan, getOneWan };

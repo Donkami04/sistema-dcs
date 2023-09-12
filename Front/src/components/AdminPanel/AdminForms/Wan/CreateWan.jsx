@@ -3,17 +3,12 @@ import axios from "axios";
 import { BASE_API_URL } from "../../../../utils/Api-candelaria/api"
 import "../form.css"
 
-export const CreateUps = () => {
+export const CreateWan = () => {
   const [ip, setIp] = useState("");
-  const [ubication, setUbication] = useState("");
   const [mensaje, setMensaje] = useState("");
 
   const handleIpChange = (event) => {
     setIp(event.target.value);
-  };
-
-  const handleUbicationChange = (event) => {
-    setUbication(event.target.value);
   };
 
   const handleSubmit = async (event) => {
@@ -21,15 +16,13 @@ export const CreateUps = () => {
 
     try {
       const response = await axios.post(
-        `${BASE_API_URL}/ups/new`,
+        `${BASE_API_URL}/wan/new`,
         {
           ip,
-          ubication,
         }
       );
       setMensaje(response.data.message);
       setIp("");
-      setUbication("");
     } catch (error) {
       if (
         error.response &&
@@ -49,7 +42,7 @@ export const CreateUps = () => {
   return (
     <>
       <div className="form-container">
-        <h2 className="form-title">Registrar UPS</h2>
+        <h2 className="form-title">Registrar WAN</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <label className="form-label" htmlFor="ip">IP:</label>
@@ -59,16 +52,6 @@ export const CreateUps = () => {
               id="ip"
               value={ip}
               onChange={handleIpChange}
-            />
-          </div>
-          <div>
-            <label className="form-label" htmlFor="ubication">Ubicación:</label>
-            <input
-              className="form-input"
-              type="text"
-              id="ubication"
-              value={ubication}
-              onChange={handleUbicationChange}
             />
           </div>
           <div>

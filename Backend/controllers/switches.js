@@ -16,6 +16,20 @@ async function getNumberSwitches() {
   return numSwitches;
 }
 
+async function getOneSwitch(ip) {
+  const switch_ = await DataSwitches.findOne({ where: { ip: ip } });
+  if (switch_ !== null) {
+    return {
+      status: 200,
+      data: switch_,
+    };
+  };
+  return {
+    status: 404,
+    message: "El Switch no existe en la base de datos.",
+  };
+}
+
 async function createSwitch(data) {
   try {
     const switchDoesExist = await DataSwitches.findOne({
@@ -29,7 +43,7 @@ async function createSwitch(data) {
       });
       return {
         status: 201,
-        message: "El Switch ha sido creado exitosamente.",
+        message: "El Switch ha sido creado exitosamente, espere unos minutos para que el sistema actualice los datos.",
         data: newSwitch,
       };
     }
@@ -72,12 +86,13 @@ async function editOneSwitch(id, changes) {
   }
 }
 
-async function deleteSwitch(id) {
+async function deleteSwitch(ip) {
   try {
-    const switche = await DataSwitches.findByPk(id);
-    if (switche !== null) {
-      await DataSwitches.destroy({ where: { id: id } });
-      const checkSwitchIsDeleted = await DataSwitches.findByPk(id);
+    const switch_ = await DataSwitches.findOne({ where: { ip: ip } });
+    if (switch_ !== null) {
+      await DataSwitches.destroy({ where: { id: switch_.id } });
+
+      const checkSwitchIsDeleted = await DataSwitches.findByPk(switch_.id);
       if (checkSwitchIsDeleted === null) {
         return {
           status: 200,
@@ -97,4 +112,4 @@ async function deleteSwitch(id) {
   }
 }
 
-module.exports = { getSwitches, createSwitch, editOneSwitch, deleteSwitch };
+module.exports = { getSwitches, createSwitch, editOneSwitch, deleteSwitch, getOneSwitch };

@@ -46,7 +46,6 @@ router.post("/new", validateData(createUpsSchema), async (req, res, next) => {
 
 router.put("/edit/:id", validateData(editUpsSchema), async (req, res, next) => {
   try {
-    
     const id = req.params.id;
     const changes = req.body;
     const upsEdit = await editOneUps(id, changes);

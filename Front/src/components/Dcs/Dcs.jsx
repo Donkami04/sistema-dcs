@@ -15,7 +15,7 @@ export function Dcs(props) {
     <>
       <Navbar title={'Candelaria'} />
       <Status_System tableToShow={clientsTable} />
-      <Button buttonTag={buttonTag} urlRedirect={urlRedirect} />
+      {/* <Button buttonTag={buttonTag} urlRedirect={urlRedirect} /> */}
       <Dashboard />
       <TableClients />
       <Hamburmenu

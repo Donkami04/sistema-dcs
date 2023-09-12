@@ -95,7 +95,7 @@ export const EditClient = () => {
   return (
     <>
       <div className="form-container">
-        <h2 className="form-title">Editar Cliente</h2>
+        <h2 className="form-title">Editar Cliente - DCS Candelaria</h2>
         <div>
           <label className="form-label" htmlFor="ip">Buscar por IP:</label>
           <input

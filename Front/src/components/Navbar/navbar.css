@@ -29,10 +29,9 @@
   color: #bd0b21;
 }
 
-.home-link {
+.home-link, .admin-link {
   display: flex;
   align-items: center;
-  background-color: #b9001f;
   color: white;
   font-size: 1rem;
   border-radius: 10px;
@@ -46,6 +45,16 @@
   width: 4rem;
   align-items: center;
   justify-content: center;
+}
+
+.home-link {
+  background-color: #b9001f;
+}
+
+.admin-link {
+  position: absolute;
+  background-color: #7b00b9;
+  right: 10px;
 }
 
 @media (max-width: 830px) {
