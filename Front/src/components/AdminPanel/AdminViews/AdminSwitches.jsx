@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { CreateSwitch } from "../../AdminForms/Switches/CreateSwitch";
-import { DeleteSwitch } from "../../AdminForms/Switches/DeleteSwitch";
-import { Navbar } from "../../../Navbar/Navbar";
-import { ActionButtons } from "../../AdminButtons/AdminButtons";
-import { EditSwitch } from "../../AdminForms/Switches/EditSwitch";
+import { CreateSwitch } from "../AdminForms/Switches/CreateSwitch";
+import { DeleteSwitch } from "../AdminForms/Switches/DeleteSwitch";
+import { Navbar } from "../../Navbar/Navbar";
+import { ActionButtons } from "../AdminButtons/AdminButtons";
+import { EditSwitch } from "../AdminForms/Switches/EditSwitch";
 
 
 export function AdminSwitches() {
@@ -21,7 +21,7 @@ export function AdminSwitches() {
 
   return (
     <>
-      <Navbar title={"Admin Switches"} />
+      <Navbar title={"DCS Candelaria"} />
       <ActionButtons
         buttons={buttons}
         activeComponent={activeComponent}

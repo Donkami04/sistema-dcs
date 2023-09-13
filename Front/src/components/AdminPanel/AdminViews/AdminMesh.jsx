@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { CreateMesh } from "../../AdminForms/Mesh/CreateMesh";
-import { DeleteMesh } from "../../AdminForms/Mesh/DeleteMesh";
-import { Navbar } from "../../../Navbar/Navbar";
-import { ActionButtons } from "../../AdminButtons/AdminButtons";
-import { EditMesh } from "../../AdminForms/Mesh/EditMesh";
+import { CreateMesh } from "../AdminForms/Mesh/CreateMesh";
+import { DeleteMesh } from "../AdminForms/Mesh/DeleteMesh";
+import { Navbar } from "../../Navbar/Navbar";
+import { ActionButtons } from "../AdminButtons/AdminButtons";
+import { EditMesh } from "../AdminForms/Mesh/EditMesh";
 
 export function AdminMesh() {
   const [activeComponent, setActiveComponent] = useState("CreateMesh");
@@ -20,7 +20,7 @@ export function AdminMesh() {
 
   return (
     <>
-      <Navbar title={"Admin MESH"} />
+      <Navbar title={"MESH"} />
       <ActionButtons
         buttons={buttons}
         activeComponent={activeComponent}

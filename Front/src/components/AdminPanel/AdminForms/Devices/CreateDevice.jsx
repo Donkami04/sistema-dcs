@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { BASE_API_URL } from "../../../../utils/Api-candelaria/api"
+import { BASE_API_URL } from "../../../../utils/Api-candelaria/api";
 import "../form.css";
 
 export const CreateDevice = () => {
@@ -9,7 +9,7 @@ export const CreateDevice = () => {
     type_device: "",
     site: "",
     dpto: "",
-    red: ""
+    red: "",
   });
 
   const [mensaje, setMensaje] = useState("");
@@ -18,7 +18,7 @@ export const CreateDevice = () => {
     const { name, value } = event.target;
     setDataDevice({
       ...dataDevice,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -35,7 +35,7 @@ export const CreateDevice = () => {
         type_device: "",
         site: "",
         dpto: "",
-        red: ""
+        red: "",
       });
       setMensaje(response.data.message);
     } catch (error) {
@@ -113,15 +113,16 @@ export const CreateDevice = () => {
           <label className="form-label" htmlFor="red">
             Red:
           </label>
-          <input
-            className="form-input"
-            placeholder="IT, OT"
-            type="text"
+          <select
+            className="form-select"
             id="red"
             name="red"
             value={dataDevice.red}
             onChange={handleInputChange}
-          />
+          >
+            <option value="IT">IT</option>
+            <option value="OT">OT</option>
+          </select>
         </div>
         <div>
           <button type="submit" className="form-button">

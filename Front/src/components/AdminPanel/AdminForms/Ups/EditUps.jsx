@@ -40,7 +40,6 @@ export const EditUps = () => {
       setMensaje("");
       setShowEditFields(true);
   
-      console.log(currentId);
     } catch (error) {
       if (
         error.response &&

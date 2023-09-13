@@ -12,17 +12,20 @@ import { Firewalls } from "./components/Firewalls/Firewalls";
 import { Wan } from "./components/Wan/Wan";
 import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { AdminUps }  from "./components/AdminPanel/AdminViews/AdminUps/AdminUps";
-import { AdminClients } from "./components/AdminPanel/AdminViews/AdminClients/AdminClients";
-import { AdminDevices } from "./components/AdminPanel/AdminViews/AdminDevices/AdminDevices";
-import { AdminWan } from "./components/AdminPanel/AdminViews/AdminWan/AdminWan";
-import { AdminSwitches } from "./components/AdminPanel/AdminViews/AdminSwitches/AdminSwitches";
-import { AdminMesh } from "./components/AdminPanel/AdminViews/AdminMesh/AdminMesh";
-import { AdminFirewalls } from "./components/AdminPanel/AdminViews/AdminFirewalls/AdminFirewalls";
+import { AdminUps }  from "./components/AdminPanel/AdminViews/AdminUps";
+import { AdminClients } from "./components/AdminPanel/AdminViews/AdminClients";
+import { AdminDevices } from "./components/AdminPanel/AdminViews/AdminDevices";
+import { AdminWan } from "./components/AdminPanel/AdminViews/AdminWan";
+import { AdminSwitches } from "./components/AdminPanel/AdminViews/AdminSwitches";
+import { AdminMesh } from "./components/AdminPanel/AdminViews/AdminMesh";
+import { AdminFirewalls } from "./components/AdminPanel/AdminViews/AdminFirewalls";
 import { AdminHome } from "./components/AdminPanel/AdminHome/AdminHome";
 import "./app.css";
 
 function getPageTitle(pathname) {
+  if (pathname.includes("/admin")) {
+    return "Admin";
+  }
   switch (pathname) {
     case "/monitoreo/candelaria/clients":
       return "Clientes Candelaria";

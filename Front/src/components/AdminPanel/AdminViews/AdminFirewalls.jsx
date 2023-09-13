@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { CreateFirewall } from "../../AdminForms/Firewalls/CreateFirewall";
-import { DeleteFirewall } from "../../AdminForms/Firewalls/DeleteFirewall";
-import { Navbar } from "../../../Navbar/Navbar";
-import { ActionButtons } from "../../AdminButtons/AdminButtons";
-import { EditFirewall } from "../../AdminForms/Firewalls/EditFirewall";
+import { CreateFirewall } from "../AdminForms/Firewalls/CreateFirewall";
+import { DeleteFirewall } from "../AdminForms/Firewalls/DeleteFirewall";
+import { Navbar } from "../../Navbar/Navbar";
+import { ActionButtons } from "../AdminButtons/AdminButtons";
+import { EditFirewall } from "../AdminForms/Firewalls/EditFirewall";
 
 
 export function AdminFirewalls() {
@@ -21,7 +21,7 @@ export function AdminFirewalls() {
 
   return (
     <>
-      <Navbar title={"Admin Firewalles"} />
+      <Navbar title={"FW - Canales Internet"} />
       <ActionButtons
         buttons={buttons}
         activeComponent={activeComponent}

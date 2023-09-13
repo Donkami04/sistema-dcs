@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { CreateWan } from "../../AdminForms/Wan/CreateWan";
-import { DeleteWan } from "../../AdminForms/Wan/DeleteWan";
-import { Navbar } from "../../../Navbar/Navbar";
-import { ActionButtons } from "../../AdminButtons/AdminButtons";
-import { EditWan } from "../../AdminForms/Wan/EditWan";
+import { CreateWan } from "../AdminForms/Wan/CreateWan";
+import { DeleteWan } from "../AdminForms/Wan/DeleteWan";
+import { Navbar } from "../../Navbar/Navbar";
+import { ActionButtons } from "../AdminButtons/AdminButtons";
+import { EditWan } from "../AdminForms/Wan/EditWan";
 
 export function AdminWan() {
   const [activeComponent, setActiveComponent] = useState("CreateWan");
@@ -20,7 +20,7 @@ export function AdminWan() {
 
   return (
     <>
-      <Navbar title={"Admin wan"} />
+      <Navbar title={"WAN"} />
       <ActionButtons
         buttons={buttons}
         activeComponent={activeComponent}

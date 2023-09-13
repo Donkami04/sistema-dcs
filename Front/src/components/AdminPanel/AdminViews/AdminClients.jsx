@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { CreateClient } from "../../AdminForms/Clients/CreateClient";
-import { DeleteClient } from "../../AdminForms/Clients/DeleteClient";
-import { Navbar } from "../../../Navbar/Navbar";
-import { ActionButtons } from "../../AdminButtons/AdminButtons";
-import { EditClient } from "../../AdminForms/Clients/EditClient";
+import { CreateClient } from "../AdminForms/Clients/CreateClient";
+import { DeleteClient } from "../AdminForms/Clients/DeleteClient";
+import { Navbar } from "../../Navbar/Navbar";
+import { ActionButtons } from "../AdminButtons/AdminButtons";
+import { EditClient } from "../AdminForms/Clients/EditClient";
 import axios from "axios";
 
 export function AdminClients() {
@@ -21,7 +21,7 @@ export function AdminClients() {
 
   return (
     <>
-      <Navbar title={"Admin Clientes"} />
+      <Navbar title={"DCS Candelaria"} />
       <ActionButtons
         buttons={buttons}
         activeComponent={activeComponent}

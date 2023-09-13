@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { BASE_API_URL } from "../../../../utils/Api-candelaria/api"
+import { BASE_API_URL } from "../../../../utils/Api-candelaria/api";
 import "../form.css";
 
 export const EditClient = () => {
   const [ip, setIp] = useState("");
-  const [id, setId] = useState(0)
+  const [id, setId] = useState(0);
   const [dataClient, setDataClient] = useState({
     group: "",
     name: "",
@@ -29,9 +29,7 @@ export const EditClient = () => {
     }
 
     try {
-      const response = await axios.get(
-        `${BASE_API_URL}/clients/${ip}`
-      );
+      const response = await axios.get(`${BASE_API_URL}/clients/${ip}`);
 
       const clientData = response?.data?.data;
       const message = response?.data?.message;
@@ -65,12 +63,12 @@ export const EditClient = () => {
 
   const handleEditClient = async (event) => {
     event.preventDefault();
-  
+
     try {
       // Crear una copia de los datos del cliente sin el campo "id"
       const clientDataWithoutId = { ...dataClient };
       delete clientDataWithoutId.id;
-  
+
       const response = await axios.put(
         `${BASE_API_URL}/clients/edit/${id}`,
         clientDataWithoutId
@@ -90,14 +88,15 @@ export const EditClient = () => {
       }
     }
   };
-  
 
   return (
     <>
       <div className="form-container">
         <h2 className="form-title">Editar Cliente - DCS Candelaria</h2>
         <div>
-          <label className="form-label" htmlFor="ip">Buscar por IP:</label>
+          <label className="form-label" htmlFor="ip">
+            Buscar por IP:
+          </label>
           <input
             className="form-input"
             type="text"
@@ -105,10 +104,13 @@ export const EditClient = () => {
             value={ip}
             onChange={handleIpChange}
           />
-          <button className="form-button search-button" onClick={handleGetClientInfo}>
+          <button
+            className="form-button search-button"
+            onClick={handleGetClientInfo}
+          >
             Buscar
           </button>
-          <hr className="form-divider" /> 
+          <hr className="form-divider" />
         </div>
         {showEditFields && (
           <form onSubmit={handleEditClient}>
@@ -122,22 +124,34 @@ export const EditClient = () => {
                 id="ip"
                 name="ip"
                 value={dataClient.ip}
-                onChange={(e) => setDataClient({ ...dataClient, ip: e.target.value })}
+                onChange={(e) =>
+                  setDataClient({ ...dataClient, ip: e.target.value })
+                }
               />
             </div>
             <div>
               <label className="form-label" htmlFor="group">
                 Grupo:
               </label>
-              <input
-                className="form-input"
-                placeholder="CSP, CSS, CNP, CNS, HSE, CNPB, CNSB"
-                type="text"
+              <select
+                className="form-select"
+                // placeholder="CSP, CSS, CNP, CNS, HSE, CNPB, CNSB"
+                // type="text"
                 id="group"
                 name="group"
                 value={dataClient.group}
-                onChange={(e) => setDataClient({ ...dataClient, group: e.target.value })}
-              />
+                onChange={(e) =>
+                  setDataClient({ ...dataClient, group: e.target.value })
+                }
+              >
+                <option value="CSP">CSP</option>
+                <option value="CSS">CSS</option>
+                <option value="CNP">CNP</option>
+                <option value="CNS">CNS</option>
+                <option value="HSE">HSE</option>
+                <option value="CNPB">CNPB</option>
+                <option value="CNSB">CNSB</option>
+              </select>
             </div>
             <div>
               <label className="form-label" htmlFor="name">
@@ -149,7 +163,9 @@ export const EditClient = () => {
                 id="name"
                 name="name"
                 value={dataClient.name}
-                onChange={(e) => setDataClient({ ...dataClient, name: e.target.value })}
+                onChange={(e) =>
+                  setDataClient({ ...dataClient, name: e.target.value })
+                }
               />
             </div>
             <div>
@@ -163,7 +179,9 @@ export const EditClient = () => {
                 id="importancia"
                 name="importancia"
                 value={dataClient.importancia}
-                onChange={(e) => setDataClient({ ...dataClient, importancia: e.target.value })}
+                onChange={(e) =>
+                  setDataClient({ ...dataClient, importancia: e.target.value })
+                }
               />
             </div>
             <div>
@@ -176,7 +194,9 @@ export const EditClient = () => {
                 id="clave"
                 name="clave"
                 value={dataClient.clave}
-                onChange={(e) => setDataClient({ ...dataClient, clave: e.target.value })}
+                onChange={(e) =>
+                  setDataClient({ ...dataClient, clave: e.target.value })
+                }
               />
             </div>
             <div>
@@ -189,7 +209,9 @@ export const EditClient = () => {
                 id="description"
                 name="description"
                 value={dataClient.description}
-                onChange={(e) => setDataClient({ ...dataClient, description: e.target.value })}
+                onChange={(e) =>
+                  setDataClient({ ...dataClient, description: e.target.value })
+                }
               />
             </div>
             <div>

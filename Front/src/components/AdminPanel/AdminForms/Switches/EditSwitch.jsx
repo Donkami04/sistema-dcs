@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { BASE_API_URL } from "../../../../utils/Api-candelaria/api"
+import { BASE_API_URL } from "../../../../utils/Api-candelaria/api";
 import "../form.css";
 
 export const EditSwitch = () => {
   const [ip, setIp] = useState("");
 
-  const [id, setId] = useState(0)
+  const [id, setId] = useState(0);
   const [newIp, setNewIp] = useState("");
   const [dispositivo, setDispositivo] = useState("");
   const [group, setGroup] = useState("");
@@ -25,24 +25,21 @@ export const EditSwitch = () => {
       setShowEditFields(false);
       return; // No realizar la solicitud si ip está vacío
     }
-  
+
     try {
-      const response = await axios.get(
-        `${BASE_API_URL}/switches/${ip}`
-      );
-  
+      const response = await axios.get(`${BASE_API_URL}/switches/${ip}`);
+
       const currentDispositivo = response?.data?.data?.dispositivo;
       const currentGroup = response?.data?.data?.group;
       const currentIp = response?.data?.data?.ip;
       const currentId = response?.data?.data?.id;
-  
+
       setNewIp(currentIp);
       setDispositivo(currentDispositivo);
       setGroup(currentGroup);
       setId(currentId);
       setMensaje("");
       setShowEditFields(true);
-
     } catch (error) {
       if (
         error.response &&
@@ -59,20 +56,16 @@ export const EditSwitch = () => {
       }
     }
   };
-  
 
   const handleEditSwitch = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await axios.put(
-        `${BASE_API_URL}/switches/edit/${id}`,
-        {
-          ip: newIp,
-          dispositivo,
-          group,
-        }
-      );
+      const response = await axios.put(`${BASE_API_URL}/switches/edit/${id}`, {
+        ip: newIp,
+        dispositivo,
+        group,
+      });
       setMensaje(response.data.message);
     } catch (error) {
       if (
@@ -94,7 +87,9 @@ export const EditSwitch = () => {
       <div className="form-container">
         <h2 className="form-title">Editar Switch - DCS Candelaria</h2>
         <div>
-          <label className="form-label" htmlFor="ip">Buscar por IP:</label>
+          <label className="form-label" htmlFor="ip">
+            Buscar por IP:
+          </label>
           <input
             className="form-input"
             type="text"
@@ -102,44 +97,59 @@ export const EditSwitch = () => {
             value={ip}
             onChange={handleIpChange}
           />
-          <button className="form-button search-button" onClick={handleGetSwitchInfo}>
+          <button
+            className="form-button search-button"
+            onClick={handleGetSwitchInfo}
+          >
             Buscar
           </button>
-          <hr className="form-divider" /> 
+          <hr className="form-divider" />
         </div>
 
         {showEditFields && (
           <form onSubmit={handleEditSwitch}>
             <div>
-              <label className="form-label" htmlFor="newIp">IP:</label>
+              <label className="form-label" htmlFor="newIp">
+                IP:
+              </label>
               <input
                 className="form-input"
                 type="text"
                 id="newIp"
-                value={newIp ?? ' '}
-                onChange={(e) => setNewIp(e.target.value)} 
+                value={newIp ?? " "}
+                onChange={(e) => setNewIp(e.target.value)}
               />
             </div>
             <div>
-              <label className="form-label" htmlFor="dispositivo">Nombre:</label>
+              <label className="form-label" htmlFor="dispositivo">
+                Nombre:
+              </label>
               <input
                 className="form-input"
                 type="text"
                 id="dispositivo"
-                value={dispositivo ?? ' '}
+                value={dispositivo ?? " "}
                 onChange={(e) => setDispositivo(e.target.value)}
               />
             </div>
             <div>
-              <label className="form-label" htmlFor="group">Grupo:</label>
-              <input
-                className="form-input"
-                placeholder="CSP, CSS, CNP, CNS, HSE, CNPB, CNSB"
-                type="text"
+              <label className="form-label" htmlFor="group">
+                Grupo:
+              </label>
+              <select
+                className="form-select"
                 id="group"
-                value={group ?? ' '}
+                value={group ?? " "}
                 onChange={(e) => setGroup(e.target.value)}
-              />
+              >
+                <option value="CSP">CSP</option>
+                <option value="CSS">CSS</option>
+                <option value="CNP">CNP</option>
+                <option value="CNS">CNS</option>
+                <option value="HSE">HSE</option>
+                <option value="CNPB">CNPB</option>
+                <option value="CNSB">CNSB</option>
+              </select>
             </div>
             <div>
               <button className="form-button" type="submit">

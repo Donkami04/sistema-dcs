@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { CreateUps } from "../../AdminForms/Ups/CreateUps";
-import { DeleteUps } from "../../AdminForms/Ups/DeleteUps";
-import { Navbar } from "../../../Navbar/Navbar";
-import { ActionButtons } from "../../AdminButtons/AdminButtons";
-import { EditUps } from "../../AdminForms/Ups/EditUps";
+import { CreateUps } from "../AdminForms/Ups/CreateUps";
+import { DeleteUps } from "../AdminForms/Ups/DeleteUps";
+import { Navbar } from "../../Navbar/Navbar";
+import { ActionButtons } from "../AdminButtons/AdminButtons";
+import { EditUps } from "../AdminForms/Ups/EditUps";
 import axios from "axios";
 
 export function AdminUps() {
@@ -21,7 +21,7 @@ export function AdminUps() {
 
   return (
     <>
-      <Navbar title={"Admin UPS"} />
+      <Navbar title={"UPS"} />
       <ActionButtons
         buttons={buttons}
         activeComponent={activeComponent}

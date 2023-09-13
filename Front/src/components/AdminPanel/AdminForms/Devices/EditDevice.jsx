@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { BASE_API_URL } from "../../../../utils/Api-candelaria/api"
+import { BASE_API_URL } from "../../../../utils/Api-candelaria/api";
 import "../form.css";
 
 export const EditDevice = () => {
   const [ip, setIp] = useState("");
-  const [id, setId] = useState(0)
+  const [id, setId] = useState(0);
   const [dataDevice, setDataDevice] = useState({
     ip: "",
     type_device: "",
     site: "",
     dpto: "",
-    red: ""
-  
+    red: "",
   });
   const [mensaje, setMensaje] = useState("");
   const [showEditFields, setShowEditFields] = useState(false);
@@ -29,9 +28,7 @@ export const EditDevice = () => {
     }
 
     try {
-      const response = await axios.get(
-        `${BASE_API_URL}/devices/${ip}`
-      );
+      const response = await axios.get(`${BASE_API_URL}/devices/${ip}`);
 
       const deviceData = response?.data?.data;
       const message = response?.data?.message;
@@ -65,12 +62,12 @@ export const EditDevice = () => {
 
   const handleEditDevice = async (event) => {
     event.preventDefault();
-  
+
     try {
       // Crear una copia de los datos del dispositivo sin el campo "id"
       const deviceDataWithoutId = { ...dataDevice };
       delete deviceDataWithoutId.id;
-  
+
       const response = await axios.put(
         `${BASE_API_URL}/devices/edit/${id}`,
         deviceDataWithoutId
@@ -90,14 +87,15 @@ export const EditDevice = () => {
       }
     }
   };
-  
 
   return (
     <>
       <div className="form-container">
         <h2 className="form-title">Editar Dispositivo</h2>
         <div>
-          <label className="form-label" htmlFor="ip">Buscar por IP:</label>
+          <label className="form-label" htmlFor="ip">
+            Buscar por IP:
+          </label>
           <input
             className="form-input"
             type="text"
@@ -105,10 +103,13 @@ export const EditDevice = () => {
             value={ip}
             onChange={handleIpChange}
           />
-          <button className="form-button search-button" onClick={handleGetDeviceInfo}>
+          <button
+            className="form-button search-button"
+            onClick={handleGetDeviceInfo}
+          >
             Buscar
           </button>
-          <hr className="form-divider" /> 
+          <hr className="form-divider" />
         </div>
         {showEditFields && (
           <form onSubmit={handleEditDevice}>
@@ -122,7 +123,9 @@ export const EditDevice = () => {
                 id="ip"
                 name="ip"
                 value={dataDevice.ip}
-                onChange={(e) => setDataDevice({ ...dataDevice, ip: e.target.value })}
+                onChange={(e) =>
+                  setDataDevice({ ...dataDevice, ip: e.target.value })
+                }
               />
             </div>
             <div>
@@ -135,7 +138,9 @@ export const EditDevice = () => {
                 id="type_device"
                 name="type_device"
                 value={dataDevice.type_device}
-                onChange={(e) => setDataDevice({ ...dataDevice, type_device: e.target.value })}
+                onChange={(e) =>
+                  setDataDevice({ ...dataDevice, type_device: e.target.value })
+                }
               />
             </div>
             <div>
@@ -148,7 +153,9 @@ export const EditDevice = () => {
                 id="site"
                 name="site"
                 value={dataDevice.site}
-                onChange={(e) => setDataDevice({ ...dataDevice, site: e.target.value })}
+                onChange={(e) =>
+                  setDataDevice({ ...dataDevice, site: e.target.value })
+                }
               />
             </div>
             <div>
@@ -161,21 +168,27 @@ export const EditDevice = () => {
                 id="dpto"
                 name="dpto"
                 value={dataDevice.dpto}
-                onChange={(e) => setDataDevice({ ...dataDevice, dpto: e.target.value })}
+                onChange={(e) =>
+                  setDataDevice({ ...dataDevice, dpto: e.target.value })
+                }
               />
             </div>
             <div>
               <label className="form-label" htmlFor="red">
                 Red:
               </label>
-              <input
-                className="form-input"
-                type="text"
+              <select
+                className="form-select"
                 id="red"
                 name="red"
                 value={dataDevice.red}
-                onChange={(e) => setDataDevice({ ...dataDevice, red: e.target.value })}
-              />
+                onChange={(e) =>
+                  setDataDevice({ ...dataDevice, red: e.target.value })
+                }
+              >
+                <option value="IT">IT</option>
+                <option value="OT">OT</option>
+              </select>
             </div>
             <div>
               <button className="form-button" type="submit">

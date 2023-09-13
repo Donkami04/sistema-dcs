@@ -175,21 +175,25 @@ export const EditFirewall = () => {
                 }
               />
             </div>
+
             <div>
               <label className="form-label" htmlFor="vdom">
                 VDOM:
               </label>
-              <input
-                className="form-input"
-                placeholder="N/A, root, Villa, Comunitario"
-                type="text"
+              <select
+                className="form-select"
                 id="vdom"
                 name="vdom"
                 value={dataFirewall.vdom}
                 onChange={(e) =>
                   setDataFirewall({ ...dataFirewall, vdom: e.target.value })
                 }
-              />
+              >
+                <option value="N/A">N/A</option>
+                <option value="Villa">Villa</option>
+                <option value="Comunitario">Comunitario</option>
+                <option value="root">root</option>
+              </select>
             </div>
             <div>
               <label className="form-label" htmlFor="gateway">
@@ -210,10 +214,8 @@ export const EditFirewall = () => {
               <label className="form-label" htmlFor="ubication">
                 Ubicación:
               </label>
-              <input
-                className="form-input"
-                placeholder="corporate, community"
-                type="text"
+              <select
+                className="form-select"
                 id="ubication"
                 name="ubication"
                 value={dataFirewall.ubication}
@@ -223,7 +225,10 @@ export const EditFirewall = () => {
                     ubication: e.target.value,
                   })
                 }
-              />
+              >
+                <option value="corporate">corporate</option>
+                <option value="community">community</option>
+              </select>
             </div>
             <div>
               <button className="form-button" type="submit">

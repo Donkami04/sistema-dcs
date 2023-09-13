@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { CreateDevice } from "../../AdminForms/Devices/CreateDevice";
-import { DeleteDevice } from "../../AdminForms/Devices/DeleteDevice";
-import { Navbar } from "../../../Navbar/Navbar";
-import { ActionButtons } from "../../AdminButtons/AdminButtons";
-import { EditDevice } from "../../AdminForms/Devices/EditDevice";
+import { CreateDevice } from "../AdminForms/Devices/CreateDevice";
+import { DeleteDevice } from "../AdminForms/Devices/DeleteDevice";
+import { Navbar } from "../../Navbar/Navbar";
+import { ActionButtons } from "../AdminButtons/AdminButtons";
+import { EditDevice } from "../AdminForms/Devices/EditDevice";
 
 
 export function AdminDevices() {
@@ -21,7 +21,7 @@ export function AdminDevices() {
 
   return (
     <>
-      <Navbar title={"Admin Dispositivos"} />
+      <Navbar title={"Camaras"} />
       <ActionButtons
         buttons={buttons}
         activeComponent={activeComponent}

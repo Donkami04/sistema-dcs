@@ -81,14 +81,20 @@ export const CreateSwitch = () => {
           </div>
           <div>
             <label className="form-label" htmlFor="group">Grupo:</label>
-            <input
-              className="form-input"
-              placeholder="CSP, CSS, CNP, CNS, HSE, CNPB, CNSB"
-              type="text"
+            <select
+              className="form-select"
               id="group"
               value={group}
               onChange={handleGroupChange}
-            />
+            >
+            <option value="CSP">CSP</option>
+            <option value="CSS">CSS</option>
+            <option value="CNP">CNP</option>
+            <option value="CNS">CNS</option>
+            <option value="HSE">HSE</option>
+            <option value="CNPB">CNPB</option>
+            <option value="CNSB">CNSB</option>
+            </select>
           </div>
           <div>
             <button className="form-button" type="submit">
