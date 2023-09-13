@@ -47,7 +47,7 @@ def get_devices_data():
         devices.append(row_dict)
     
     # devices = [{
-    #     'ip_device': '10.231.0.101',
+    #     'ip': '10.231.0.101',
     #     'type_device': 'Switch',
     #     'site': 'IT',
     #     'dpto': 'IT',
@@ -56,14 +56,14 @@ def get_devices_data():
 
     try:   
         for device in devices:
-            ip_device = device['ip_device']
-            logging.info(ip_device)
+            ip = device['ip']
+            logging.info(ip)
             device_type = device['type_device']
             site = device['site']
             dpto = device['dpto']
             red_type = device['red']
             
-            URL_PRTG_GET_ID = os.getenv('URL_PRTG_IP').format(ip=ip_device)
+            URL_PRTG_GET_ID = os.getenv('URL_PRTG_IP').format(ip=ip)
             response_prtg_get_id = requests.get(URL_PRTG_GET_ID, verify=False).json()
             if len(response_prtg_get_id['devices']) == 0:
                 prtg_name_device = 'Not Found'
@@ -101,7 +101,7 @@ def get_devices_data():
             else:
                 red = '10.224.241.14'
                 
-            URL_CISCO_GET_ID = os.getenv('URL_CISCO_IP').format(red=red, ip_device=ip_device)
+            URL_CISCO_GET_ID = os.getenv('URL_CISCO_IP').format(red=red, ip=ip)
             response_cisco_get_id = requests.get(URL_CISCO_GET_ID, verify=False).json()
             response_cisco_get_id = json.dumps(response_cisco_get_id)
             response_cisco_get_id = json.loads(response_cisco_get_id)
@@ -109,7 +109,7 @@ def get_devices_data():
 
             if cisco_id_device == 'Not Found':
                 try:
-                    query = f"SELECT * FROM dcs.devices WHERE host = '{ip_device}' AND cisco_device_name <> 'Not Found' ORDER BY id DESC LIMIT 1"
+                    query = f"SELECT * FROM dcs.devices WHERE host = '{ip}' AND cisco_device_name <> 'Not Found' ORDER BY id DESC LIMIT 1"
                     cursor.execute(query)
                     results = cursor.fetchall()
                     data_backup = [dict(zip(cursor.column_names, row)) for row in results]
@@ -158,7 +158,7 @@ def get_devices_data():
                     prtg_device_status_response = requests.get(prtg_device_id_url, verify=False).json()
                     prtg_device_status = prtg_device_status_response['sensors'][0]['status']
                     
-                CISCO_DEVICE_IP_URL = os.getenv('URL_CISCO_IP_DEVICE').format(red=red, ip=cisco_device_ip_adrress)
+                CISCO_DEVICE_IP_URL = os.getenv('URL_CISCO_ip').format(red=red, ip=cisco_device_ip_adrress)
                 cisco_device_ip_response = requests.get(CISCO_DEVICE_IP_URL, verify=False).json()
                 if cisco_device_ip_response['queryResponse']['@count'] == 0:
                     cisco_device_reachability = 'Not Found'
@@ -170,7 +170,7 @@ def get_devices_data():
                     
             # print(f"Esta es la red: {red}")
             query = (f"INSERT INTO dcs.devices (host, type, site, dpto, prtg_name_device, prtg_id, prtg_sensorname, prtg_status, prtg_lastup, prtg_lastdown, cisco_device_ip, cisco_device_name, cisco_port, cisco_status, cisco_reachability, cisco_status_device, cisco_mac_address, data_backup, red)"
-                f"VALUES ('{ip_device}', '{device_type}', '{site}', '{dpto}', '{prtg_name_device}', '{prtg_id_device}', '{prtg_name_sensor}', '{prtg_status}', '{prtg_lastup}', '{prtg_lastdown}', '{cisco_device_ip_adrress}', '{cisco_device_name}', '{cisco_client_port}', '{cisco_client_status}', '{cisco_device_reachability}', '{prtg_device_status}', '{cisco_client_mac_address}', '{is_databackup}', '{red_type}')")
+                f"VALUES ('{ip}', '{device_type}', '{site}', '{dpto}', '{prtg_name_device}', '{prtg_id_device}', '{prtg_name_sensor}', '{prtg_status}', '{prtg_lastup}', '{prtg_lastdown}', '{cisco_device_ip_adrress}', '{cisco_device_name}', '{cisco_client_port}', '{cisco_client_status}', '{cisco_device_reachability}', '{prtg_device_status}', '{cisco_client_mac_address}', '{is_databackup}', '{red_type}')")
             cursor.execute(query)
             mydb.commit()
             
