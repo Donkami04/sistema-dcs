@@ -71,9 +71,10 @@ router.get("/", async (req, res, next) => {
         numOthersDown: dataDevices.numOthersDown
       }, 
       firewalls: {
-        numFwAlive: dataFirewalls.numFwAlive,
-        numFwDown: dataFirewalls.numFwDown,
-        totalFw: dataFirewalls.totalFw
+        numFwCorpAlive: dataFirewalls.numFwCorpAlive,
+        numFwCorpDown: dataFirewalls.numFwCorpDown,
+        numFwCommuniAlive: dataFirewalls.numFwCommuniAlive,
+        numFwCommuniDown: dataFirewalls.numFwCommuniDown,
       },
       wan: {
         kpiWan: kpiWan,

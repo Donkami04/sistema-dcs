@@ -5,6 +5,7 @@ import "./dashfirewalls.css";
 export function DashFirewalls() {
   const [fwIndicators, setFwIndicators] = useState(null);
 
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -14,34 +15,45 @@ export function DashFirewalls() {
         console.error("Error al obtener el listado de firewalls:", error);
       }
     };
-
-    // Llamar a fetchData solo una vez cuando el componente se monta
+  
     fetchData();
-  }, []); // El segundo argumento [] asegura que useEffect se ejecute solo una vez
+  }, []);
 
-  // Verificar que fwIndicators no sea nulo antes de acceder a sus propiedades
-  const numFwAlive = fwIndicators ? fwIndicators.firewalls.numFwAlive : 'cargando...';
-  const numFwDown = fwIndicators ? fwIndicators.firewalls.numFwDown : 'cargando...';
-  const numFwTotal = fwIndicators ? fwIndicators.firewalls.totalFw : 'cargando...';
+  const numCorpoAlive = fwIndicators ? fwIndicators.firewalls.numFwCorpAlive : 0;
+  const numCommuniAlive = fwIndicators ? fwIndicators.firewalls.numFwCommuniAlive : 0;
+  const numCorpoDown = fwIndicators ? fwIndicators.firewalls.numFwCorpDown : 0;
+  const numCommuniDown = fwIndicators ? fwIndicators.firewalls.numFwCommuniDown : 0;
 
-  const currentTab = document.title; 
-  const tableClassName = currentTab === "Home" ? "fw-dash-table-home" : "fw-dash-table";
+
+  const currentTab = document.title;
+  const tableClassName =
+    currentTab === "Home" ? "fw-dash-table-home" : "fw-dash-table";
 
   return (
     <>
       <table className={tableClassName}>
         <thead>
           <tr>
+            <th>CANAL</th>
             <th className="kpi-green">ALIVE</th>
             <th className="kpi-red">DOWN</th>
-            <th>TOTAL</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>{numFwAlive}</td>
-            <td>{numFwDown}</td>
-            <td>{numFwTotal}</td>
+            <td>Corporativos</td>
+            <td>{numCorpoAlive}</td>
+            <td>{numCorpoDown}</td>
+          </tr>
+          <tr>
+            <td>Comunitarios</td>
+            <td>{numCommuniAlive}</td>
+            <td>{numCommuniDown}</td>
+          </tr>
+          <tr>
+            <td>TOTAL</td>
+            <td>{numCorpoAlive + numCommuniAlive }</td>
+            <td>{numCorpoDown + numCommuniDown}</td>
           </tr>
         </tbody>
       </table>

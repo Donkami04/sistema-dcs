@@ -73,7 +73,7 @@ services:
       
   camaras:
     build:
-      context: DCS-Candelaria/Services/Devices
+      context: DCS-Candelaria/Services/Camaras
     restart: always
     depends_on:
       - db
@@ -84,7 +84,7 @@ services:
     build:
       context: Backend
     ports:
-      - '3000:3000'
+      - '3001:3001'
     restart: always
     environment:
       - NODE_ENV=production
