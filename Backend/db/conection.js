@@ -20,9 +20,9 @@ const sequelize = new Sequelize(
 async function checkDatabaseConnection() {
   try {
     await sequelize.authenticate();
-    console.log("La conexión a la base de datos se ha establecido correctamente.");
+    console.log("The connection to the database has been established successfully.");
   } catch (error) {
-    console.error("No se pudo conectar a la base de datos:", error);
+    console.error("Could not connect to database:", error);
   }
 }
 

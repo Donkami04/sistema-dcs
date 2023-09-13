@@ -1,6 +1,7 @@
 const express = require('express');
+require('dotenv').config();
 const app = express();
-const port = 3000;
+const port = process.env.NODE_PORT;
 const cors = require('cors');
 const {allRoutes} = require('./routes/index.routes');
 const { logErrors, errorHandler, ormErrorHandler } = require('./middlewares/error.handler');
@@ -25,5 +26,5 @@ app.use(errorHandler);
 app.use(ormErrorHandler);
 
 app.listen(port, () => {
-  console.log(`DCS listening on port ${port}`)
+  console.log(`System running on port ${port}`)
 });

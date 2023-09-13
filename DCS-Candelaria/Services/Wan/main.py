@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-import requests, warnings, os, datetime, re, calendar, mysql.connector, logging, traceback
+import requests, warnings, os, datetime, time, calendar, mysql.connector, logging, traceback
 from dotenv import load_dotenv
 from config import database
 
@@ -66,7 +66,6 @@ def get_uptime():
             }
             
             if device_data == 'Not Found' or device_data == []:
-                logging.info(f"Device data not Found {ip_wan}")
                 save_bd(data_wan)
             else:
                 device_id = device_data[0].get('objid')
@@ -77,7 +76,6 @@ def get_uptime():
                 sensor_name = response_2.get('sensors', [{}])[0].get('device', 'Not Found')
                 if sensor_ping_id == 'Not Found' or sensor_ping_id == []:
                     logging.error(f"Sensor ping id not Found {ip_wan}")
-                    logging.error(f"Data WAN: {data_wan}")
                     save_bd(data_wan)
                 else:
                     sdate_anterior, edate_anterior, sdate_actual, edate_actual, sdate_hoy, edate_hoy = dates()
@@ -179,11 +177,10 @@ def dates():
 
     if mes_actual == 1:  # Si es enero, restamos un mes y ajustamos el año
         mes_anterior = 12
-        ano_anterior = ano_actual - 1
+        ano_actual = ano_actual - 1
 
     else:
         mes_anterior = mes_actual - 1
-        ano_anterior = ano_actual
     _, num_days = calendar.monthrange(ano_actual, mes_actual)
 
     sdate_anterior = f"{ano_actual}-{mes_anterior:02d}-01-00-00-00"
@@ -226,4 +223,13 @@ def save_bd_datetime(status):
     cursor.execute(f"INSERT INTO fechas_consultas_wan (ultima_consulta, estado) VALUES ('{fecha_y_hora}', '{status}')")
     mydb.commit()
     
-get_uptime()
+
+
+def bucle(scheduler):
+    get_uptime()
+    scheduler.enter(7200, 1, bucle, (scheduler,))
+
+if __name__ == '__main__':
+    s = sched.scheduler(time.time, time.sleep)
+    s.enter(0, 1, bucle, (s,))
+    s.run()

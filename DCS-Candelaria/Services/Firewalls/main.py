@@ -55,23 +55,22 @@ def fw_status():
             fecha_y_hora = str(fecha_y_hora)
             
             host = fw.get('ip')
-            logging.info(f'Corriendo : {host}')
             name = fw.get('name')
             link = fw.get('link')
             vdom = fw.get('vdom')
             gateway = fw.get('gateway')
             ubication = fw.get('ubication')
             channel = fw.get('channel')
-            status_gateway = get_prtg_status(gateway)
-            logging.info(f'Estado de gateway : {status_gateway}')
-                        
+            logging.info(f'Corriendo : {host} - {name} - {channel}')
+            status_gateway = get_prtg_status(gateway)    
             net_connect = None
+            
             try:
                 if vdom != 'N/A':
                     results = vdom_connection(host, vdom, USER, PASSWORD)
                     for canal, state, packet_loss, latency, jitter in results:
                         if canal == channel or canal == 'Not Found':
-                            failed_before = check_failed_before(name)
+                            failed_before = check_failed_before(name, channel)
                             query = "INSERT INTO dcs.firewalls (`fw`, `canal`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`, `link`, `gateway`, `ubication`, `status_gateway`)"
                             value = f"VALUES ('{name}', '{canal}', '{state}', '{packet_loss}', '{latency}', '{jitter}', '{failed_before}', '{fecha_y_hora}', '{link}', '{gateway}', '{ubication}', '{status_gateway}')"
                             cursor.execute(query + value)
@@ -90,7 +89,6 @@ def fw_status():
                     net_connect = ConnectHandler(**network_device_list)
                     output = net_connect.send_command("diagnose sys sdwan health-check Check_Internet")
                     net_connect.disconnect()
-                    logging.info(output)
                     
                     if 'Health Check' in output:
                         pattern = r'Seq\(\d+\s+([^\s:)]+)\): state\(([^)]+)\), packet-loss\(([^)]+)\) latency\(([^)]+)\), jitter\(([^)]+)\)'
@@ -104,7 +102,7 @@ def fw_status():
                                     packet_loss = packet_loss.replace("%", "")
                                     latency = match[3]
                                     jitter = match[4]
-                                    failed_before = check_failed_before(name)
+                                    failed_before = check_failed_before(name, channel)
                                     
                                     query = "INSERT INTO dcs.firewalls (`fw`, `canal`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`, `link`, `gateway`, `ubication`, `status_gateway`)"
                                     value = f"VALUES ('{name}', '{canal}', '{state}', '{packet_loss}', '{latency}', '{jitter}', '{failed_before}', '{fecha_y_hora}', '{link}', '{gateway}', '{ubication}', '{status_gateway}')"
@@ -114,18 +112,18 @@ def fw_status():
                             except:
                                 logging.error(f"Error en la expresión regular Health Check - FW {host}")
                                 logging.error(traceback.format_exc())
-                                save_bd_error(name, fecha_y_hora, link, gateway, ubication, status_gateway)
+                                save_bd_error(channel, name, fecha_y_hora, link, gateway, ubication, status_gateway)
                                     
                     else:
                         logging.error(f"No se encontraron las palabras 'Health Check - FW {host}'")
-                        save_bd_error(name, fecha_y_hora, link, gateway, ubication, status_gateway)
+                        save_bd_error(channel, name, fecha_y_hora, link, gateway, ubication, status_gateway)
                                     
             except Exception as e:
                 if net_connect:
                     net_connect.disconnect()
-                logging.error(f"Error en el FW {host}")
+                logging.error(f"Error en el segundo Try, FW {host}")
                 logging.error(e)
-                save_bd_error(name, fecha_y_hora, link, gateway, ubication, status_gateway)
+                save_bd_error(channel, name, fecha_y_hora, link, gateway, ubication, status_gateway)
                     
         now = datetime.datetime.now()
         fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
@@ -137,7 +135,7 @@ def fw_status():
     except Exception as e:
         if net_connect:
             net_connect.disconnect()
-        logging.error(f"Error GENERAL {host}")
+        logging.error(f"Error de bajo nivel, posible error en Netmiko, FW {host}")
         logging.error(e)
         
         now = datetime.datetime.now()
@@ -166,13 +164,13 @@ def get_prtg_status(ip_gateway):
     
     return status
 
-def save_bd_error(name, fecha_y_hora, link, gateway, ubication, status_gateway):
+def save_bd_error(channel, name, fecha_y_hora, link, gateway, ubication, status_gateway):
     canal = 'Not Found'
     state = 'Not Found'
     packet_loss = 'Not Found'
     latency = 'Not Found'
     jitter = 'Not Found'
-    failed_before = check_failed_before(name)
+    failed_before = check_failed_before(name, channel)
 
     query = "INSERT INTO dcs.firewalls (`fw`, `canal`, `state`, `packet_loss`, `latency`, `jitter`, `failed_before`, `datetime`, `link`, `gateway`, `ubication`, `status_gateway`)"
     value = f"VALUES ('{name}', '{canal}', '{state}', '{packet_loss}', '{latency}', '{jitter}', '{failed_before}', '{fecha_y_hora}', '{link}', '{gateway}', '{ubication}', '{status_gateway}')"
@@ -180,9 +178,10 @@ def save_bd_error(name, fecha_y_hora, link, gateway, ubication, status_gateway):
     mydb.commit()
     
     
-def check_failed_before(name):
+def check_failed_before(name, channel):
     try:
-        query = f"SELECT * FROM dcs.firewalls WHERE fw = '{name}' AND state = 'down' AND datetime >= NOW() - INTERVAL 24 HOUR ORDER BY datetime DESC LIMIT 1"
+        query = f"SELECT * FROM dcs.firewalls WHERE fw = '{name}' AND canal = '{channel}' AND state = 'down' AND datetime >= NOW() - INTERVAL 24 HOUR ORDER BY datetime DESC LIMIT 1"
+        # query = f"SELECT * FROM dcs.firewalls WHERE fw = '{name}' AND state = 'down' AND datetime >= NOW() - INTERVAL 24 HOUR ORDER BY datetime DESC LIMIT 1"
         cursor.execute(query)
         row = cursor.fetchone()
         if row:
@@ -196,13 +195,11 @@ def check_failed_before(name):
         return 'Error'
     
 
-fw_status()
+def bucle(scheduler):
+    fw_status()
+    scheduler.enter(300, 1, bucle, (scheduler,))
 
-
-# def bucle(scheduler):
-#     scheduler.enter(300, 1, bucle, (scheduler,))
-
-# if __name__ == '__main__':
-#     s = sched.scheduler(time.time, time.sleep)
-#     s.enter(0, 1, bucle, (s,))
-    # s.run()
+if __name__ == '__main__':
+    s = sched.scheduler(time.time, time.sleep)
+    s.enter(0, 1, bucle, (s,))
+    s.run()
