@@ -21,7 +21,7 @@ const createFirewallSchema = Joi.object({
     .max(10)
     .valid("N/A", "root", "Villa", "Comunitario")
     .messages({
-      "any.required": "El valor del VDOM debe ser: root, Villa, Comunitario",
+      "any.required": "El valor del VDOM es requerido",
       "any.only": "El valor del VDOM debe ser: N/A, root, Villa, Comunitario",
     }),
   gateway: Joi.string().required().allow("").empty("").max(32).messages({

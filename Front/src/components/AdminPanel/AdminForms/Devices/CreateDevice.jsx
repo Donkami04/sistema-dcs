@@ -120,6 +120,7 @@ export const CreateDevice = () => {
             value={dataDevice.red}
             onChange={handleInputChange}
           >
+            <option value=""></option>
             <option value="IT">IT</option>
             <option value="OT">OT</option>
           </select>

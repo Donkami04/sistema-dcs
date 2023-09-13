@@ -87,6 +87,7 @@ export const CreateSwitch = () => {
               value={group}
               onChange={handleGroupChange}
             >
+            <option value=""></option>
             <option value="CSP">CSP</option>
             <option value="CSS">CSS</option>
             <option value="CNP">CNP</option>

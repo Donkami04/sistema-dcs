@@ -124,6 +124,7 @@ export const CreateFirewall = () => {
             value={dataFirewall.vdom}
             onChange={handleInputChange}
           >
+            <option value=""></option>
             <option value="N/A">N/A</option>
             <option value="Villa">Villa</option>
             <option value="Comunitario">Comunitario</option>
@@ -154,6 +155,7 @@ export const CreateFirewall = () => {
             value={dataFirewall.ubication}
             onChange={handleInputChange}
           >
+            <option value=""></option>
             <option value="corporate">corporate</option>
             <option value="community">community</option>
           </select>

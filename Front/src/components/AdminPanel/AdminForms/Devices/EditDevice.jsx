@@ -186,6 +186,7 @@ export const EditDevice = () => {
                   setDataDevice({ ...dataDevice, red: e.target.value })
                 }
               >
+                <option value=""></option>
                 <option value="IT">IT</option>
                 <option value="OT">OT</option>
               </select>

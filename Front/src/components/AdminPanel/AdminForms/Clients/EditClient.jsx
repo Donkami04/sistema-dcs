@@ -144,6 +144,7 @@ export const EditClient = () => {
                   setDataClient({ ...dataClient, group: e.target.value })
                 }
               >
+                <option value=""></option>
                 <option value="CSP">CSP</option>
                 <option value="CSS">CSS</option>
                 <option value="CNP">CNP</option>
@@ -172,8 +173,8 @@ export const EditClient = () => {
               <label className="form-label" htmlFor="importancia">
                 Importancia:
               </label>
-              <input
-                className="form-input"
+              <select
+                className="form-select"
                 placeholder="ALTA, MEDIA, BAJA"
                 type="text"
                 id="importancia"
@@ -182,7 +183,12 @@ export const EditClient = () => {
                 onChange={(e) =>
                   setDataClient({ ...dataClient, importancia: e.target.value })
                 }
-              />
+              >
+                <option value=""></option>
+                <option value="ALTA">ALTA</option>
+                <option value="MEDIA">MEDIA</option>
+                <option value="BAJA">BAJA</option>
+              </select>
             </div>
             <div>
               <label className="form-label" htmlFor="clave">

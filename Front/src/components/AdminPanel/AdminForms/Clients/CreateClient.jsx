@@ -83,6 +83,7 @@ export const CreateClient = () => {
             value={dataClient.group}
             onChange={handleInputChange}
           >
+            <option value=""></option>
             <option value="CSP">CSP</option>
             <option value="CSS">CSS</option>
             <option value="CNP">CNP</option>
@@ -116,6 +117,7 @@ export const CreateClient = () => {
             value={dataClient.importancia}
             onChange={handleInputChange}
           >
+            <option value=""></option>
             <option value="ALTA">ALTA</option>
             <option value="MEDIA">MEDIA</option>
             <option value="BAJA">BAJA</option>

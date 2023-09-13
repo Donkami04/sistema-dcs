@@ -189,6 +189,7 @@ export const EditFirewall = () => {
                   setDataFirewall({ ...dataFirewall, vdom: e.target.value })
                 }
               >
+                <option value=""></option>
                 <option value="N/A">N/A</option>
                 <option value="Villa">Villa</option>
                 <option value="Comunitario">Comunitario</option>
@@ -226,6 +227,7 @@ export const EditFirewall = () => {
                   })
                 }
               >
+                <option value=""></option>
                 <option value="corporate">corporate</option>
                 <option value="community">community</option>
               </select>

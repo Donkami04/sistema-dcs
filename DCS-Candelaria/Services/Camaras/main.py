@@ -189,6 +189,7 @@ def get_devices_data():
                 
     except Exception:
         logging.error(traceback.format_exc())
+        logging.error(ip)
         logging.error(cisco_device_id_response['queryResponse'])
         now = datetime.datetime.now()
         fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
