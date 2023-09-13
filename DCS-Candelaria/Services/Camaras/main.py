@@ -40,19 +40,19 @@ def get_devices_data():
 
     # Convertir los resultados a una lista de diccionarios
     devices = []
+    # devices = [{
+    #     'id':1,
+    #     'ip':'10.224.4.31',
+    #     'type_device':'Camara',
+    #     'site':'casa',
+    #     'dpto': 'asda',
+    #     'red': 'IT'
+    # }]
     for row in cursor:
         row_dict = {}
         for i in range(len(column_names)):
             row_dict[column_names[i]] = row[i]
         devices.append(row_dict)
-    
-    # devices = [{
-    #     'ip': '10.231.0.101',
-    #     'type_device': 'Switch',
-    #     'site': 'IT',
-    #     'dpto': 'IT',
-    #     'red': 'IT',
-    # }]
 
     try:   
         for device in devices:
@@ -158,7 +158,7 @@ def get_devices_data():
                     prtg_device_status_response = requests.get(prtg_device_id_url, verify=False).json()
                     prtg_device_status = prtg_device_status_response['sensors'][0]['status']
                     
-                CISCO_DEVICE_IP_URL = os.getenv('URL_CISCO_ip').format(red=red, ip=cisco_device_ip_adrress)
+                CISCO_DEVICE_IP_URL = os.getenv('URL_CISCO_IP').format(red=red, ip=cisco_device_ip_adrress)
                 cisco_device_ip_response = requests.get(CISCO_DEVICE_IP_URL, verify=False).json()
                 if cisco_device_ip_response['queryResponse']['@count'] == 0:
                     cisco_device_reachability = 'Not Found'
@@ -166,7 +166,11 @@ def get_devices_data():
                     cisco_device_id = cisco_device_ip_response['queryResponse']['entityId'][0]['$']
                     CISCO_DEVICE_ID_URL = os.getenv('URL_CISCO_ID_DEVICE').format(red=red, id_device=cisco_device_id)
                     cisco_device_id_response = requests.get(CISCO_DEVICE_ID_URL, verify=False).json()
-                    cisco_device_reachability = cisco_device_id_response['queryResponse']['entity'][0]['devicesDTO']['reachability']
+                    # logging.info(f"cisco_device_id_response: {cisco_device_id_response}")
+                    # cisco_device_reachability = cisco_device_id_response['queryResponse']['entity'][0]['devicesDTO']['reachability']
+                    cisco_device_reachability = cisco_device_id_response.get('queryResponse', {}).get('entity', [{}])[0].get('devicesDTO', {}).get('reachability', 'Not Found')
+                    logging.info(f"cisco_device_reachability: {cisco_device_reachability}")
+
                     
             # print(f"Esta es la red: {red}")
             query = (f"INSERT INTO dcs.devices (host, type, site, dpto, prtg_name_device, prtg_id, prtg_sensorname, prtg_status, prtg_lastup, prtg_lastdown, cisco_device_ip, cisco_device_name, cisco_port, cisco_status, cisco_reachability, cisco_status_device, cisco_mac_address, data_backup, red)"
@@ -185,6 +189,7 @@ def get_devices_data():
                 
     except Exception:
         logging.error(traceback.format_exc())
+        logging.error(cisco_device_id_response['queryResponse'])
         now = datetime.datetime.now()
         fecha_y_hora = now.strftime("%Y-%m-%d %H:%M:%S")
         fecha_y_hora = str(fecha_y_hora)

@@ -6,3 +6,18 @@
 2023-09-11 17:14:15,938 - ERROR - 1054 (42S22): Unknown column 'getway' in 'field list'
 2023-09-11 17:14:15,939 - ERROR - Error GENERAL 10.224.21.1
 2023-09-11 17:14:15,939 - ERROR - 1054 (42S22): Unknown column 'getway' in 'field list'
+2023-09-13 15:08:15,350 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Camaras/main.py", line 153, in get_devices_data
+    CISCO_DEVICE_IP_URL = os.getenv('URL_CISCO_ip').format(red=red, ip=cisco_device_ip_adrress)
+AttributeError: 'NoneType' object has no attribute 'format'
+
+2023-09-13 15:16:02,397 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Camaras/main.py", line 169, in get_devices_data
+    cisco_device_reachability = cisco_device_id_response['queryResponse']['entity'][0]['devicesDTO']['reachability']
+KeyError: 'queryResponse'
+
+2023-09-13 15:18:20,535 - ERROR - Traceback (most recent call last):
+  File "/home/donkami/Sona/SistemaDCS/DCS-Candelaria/Services/Camaras/main.py", line 170, in get_devices_data
+    cisco_device_reachability = cisco_device_id_response['queryResponse']['entity'][0]['devicesDTO']['reachability']
+KeyError: 'queryResponse'
+
