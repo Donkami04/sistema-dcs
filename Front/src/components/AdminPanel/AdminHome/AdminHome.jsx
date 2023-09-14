@@ -1,10 +1,10 @@
-import { FiSettings } from "react-icons/fi";
+// import { FiSettings } from "react-icons/fi";
 import { Navbar } from "../../Navbar/Navbar";
 import { Link } from "react-router-dom";
 import "./adminhome.css";
 
 export const AdminHome = () => {
-  const iconos = [<FiSettings />, <FiSettings />, <FiSettings />, <FiSettings />, <FiSettings />, <FiSettings />, <FiSettings />];
+  const iconos = ["", "", "", "", "", "", ""];
   const linksTables = ["/admin/clients", "/admin/switches", "/admin/ups", "/admin/devices", "/admin/wan", "/admin/mesh", "/admin/firewalls"];
   const titles = ["DCS Clientes Candelaria",  "DCS Switches Candelaria", "UPS", "Camaras", "WAN", "MESH", "Firewalls - Canales Internet"];
 

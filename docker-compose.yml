@@ -26,69 +26,69 @@ services:
     depends_on:
       - db
 
-  vpn-forticlient:
-    build:
-      context: DCS-Candelaria/Services/VpnForti
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # vpn-forticlient:
+  #   build:
+  #     context: Services/VpnForti
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
 
-  dcs-candelaria_switches:
-    build:
-      context: DCS-Candelaria/Services/Switches
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # dcs-candelaria_switches:
+  #   build:
+  #     context: Services/Switches
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
         
-  dcs-candelaria_clients:
-    build:
-      context: DCS-Candelaria/Services/Clientes
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # dcs-candelaria_clients:
+  #   build:
+  #     context: Services/Clientes
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
       
-  ups:
-    build:
-      context: DCS-Candelaria/Services/Ups
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # ups:
+  #   build:
+  #     context: Services/Ups
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
       
-  mesh:
-    build:
-      context: DCS-Candelaria/Services/Mesh
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # mesh:
+  #   build:
+  #     context: Services/Mesh
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
       
-  camaras:
-    build:
-      context: DCS-Candelaria/Services/Camaras
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # camaras:
+  #   build:
+  #     context: Services/Camaras
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
     
-  backend-api-rest:
-    build:
-      context: Backend
-    ports:
-      - '3001:3001'
-    restart: always
-    environment:
-      - NODE_ENV=production
-    command: sh -c "npx sequelize-cli db:migrate && node index.js"
+  # backend-api-rest:
+  #   build:
+  #     context: Backend
+  #   ports:
+  #     - '3001:3001'
+  #   restart: always
+  #   environment:
+  #     - NODE_ENV=production
+  #   command: sh -c "npx sequelize-cli db:migrate && node index.js"
       
   frontend-react:
     build:
@@ -98,20 +98,20 @@ services:
     restart: always
     # environment: Este se define en el archivo .env
 
-  wan:
-    build:
-      context: DCS-Candelaria/Services/Wan
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # wan:
+  #   build:
+  #     context: Services/Wan
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
 
-  firewalls:
-    build:
-      context: DCS-Candelaria/Services/Firewalls
-    restart: always
-    depends_on:
-      - db
-    environment:
-      - ENVIRONMENT=production
+  # firewalls:
+  #   build:
+  #     context: Services/Firewalls
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ENVIRONMENT=production
