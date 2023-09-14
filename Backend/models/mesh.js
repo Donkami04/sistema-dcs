@@ -67,6 +67,10 @@ const Mesh = sequelize.define(
     snr: {
       type: DataTypes.STRING(100),
       allowNull: true,
+    },
+    id_prtg: {
+      type: DataTypes.STRING(32),
+      allowNull: true,
     }
   },
   {

@@ -98,7 +98,7 @@ async function editOneFirewall(id, changes) {
   }
 }
 
-async function deleteFirewall(id) {
+async function deleteFirewall(ip) {
   try {
     const firewall = await DataFirewalls.findOne({ where: { ip: ip } });
     if (firewall !== null) {

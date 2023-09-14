@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { getMesh } from "../../utils/Api-candelaria/api";
 import { Navbar } from "../Navbar/Navbar";
 import { Status_System } from "../Status_System/Status_System";
-import {DashMesh} from "./DashMesh/DashMesh"
+import { DashMesh } from "./DashMesh/DashMesh";
+import { PRTG_URL } from "../../utils/Api-candelaria/api"
 import "./mesh.css";
 
 export function Mesh() {
@@ -29,25 +30,26 @@ export function Mesh() {
   }, []);
 
   const filteredData = dataMesh
-    .filter(device => (!filterByPala || device.device.includes("Pala")))
-    .filter(device => (!filterByCaex || device.device.includes("Caex")))
-    .filter(device =>
-      statusFilter === "" || device.status_dispatch.includes(statusFilter)
+    .filter((device) => !filterByPala || device.device.includes("Pala"))
+    .filter((device) => !filterByCaex || device.device.includes("Caex"))
+    .filter(
+      (device) =>
+        statusFilter === "" || device.status_dispatch.includes(statusFilter)
     );
 
-    const renderRowCount = () => {
-      const rowCount = filteredData.length;
-      return (
-        <div className="row-count" style={{ fontSize: "0.8rem" }}>
-          Total de elementos: {rowCount}
-        </div>
-      );
-    };
+  const renderRowCount = () => {
+    const rowCount = filteredData.length;
+    return (
+      <div className="row-count" style={{ fontSize: "0.8rem" }}>
+        Total de elementos: {rowCount}
+      </div>
+    );
+  };
   return (
     <div>
       <Navbar title={"Equipos Mesh Críticos"} />
       <Status_System tableToShow={tableToShow} />
-      <DashMesh/>
+      <DashMesh />
       <div>
         <div className="filter-mesh-container">
           <label>Status Dispatch: </label>
@@ -55,7 +57,7 @@ export function Mesh() {
             className="text-input-mesh"
             type="text"
             value={statusFilter}
-            onChange={e => setStatusFilter(e.target.value)}
+            onChange={(e) => setStatusFilter(e.target.value)}
           />
           <label>
             <input
@@ -93,6 +95,7 @@ export function Mesh() {
                 let colorNivelSenal = "";
                 let colorNivelSnr = "";
                 let colorPacketLoss = "";
+                let colorAvgPing = "";
                 const nivelSenal = Math.abs(parseInt(device.nivel_senal));
 
                 if (nivelSenal >= 85) {
@@ -120,14 +123,27 @@ export function Mesh() {
                   }
                 }
 
+                if (device.ping_avg !== "Not Found") {
+                  if (parseFloat(device.ping_avg.replace('.', '')) >= 500) {
+                    colorAvgPing = "kpi-red";
+                  } else if (
+                    parseFloat(device.ping_avg.replace('.', '')) > 350 &&
+                    parseFloat(device.ping_avg.replace('.', '')) < 500
+                  ) {
+                    colorAvgPing = "kpi-yellow";
+                  }
+                }
+
                 return (
                   <tr key={device.id}>
                     <td>{device.ip}</td>
-                    <td>{device.device}</td>
+                    <td><a href={`${PRTG_URL}${device.id_prtg}`} target="_blank">{device.device}</a></td>
                     <td>
                       <p>
                         <span>Ping Avg: </span>
-                        {device.ping_avg}
+                        <span className={`mesh-valor ${colorAvgPing}`}>
+                          {device.ping_avg}
+                        </span>
                       </p>
                       <p>
                         <span>Minimo: </span>
@@ -200,8 +216,8 @@ export function Mesh() {
             </tbody>
           </table>
         </main>
-          {renderRowCount()}
-        </div>
+        {renderRowCount()}
+      </div>
     </div>
   );
 }

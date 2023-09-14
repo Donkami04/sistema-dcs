@@ -32,7 +32,7 @@ const dashboardMesh = async () => {
       if (device.status_dispatch.includes("2") &&
         (
           (device.nivel_senal !== 'Not Found' && device.nivel_senal !== 'N/A' && Math.abs(parseInt(device.nivel_senal)) >= 85) ||
-          (device.packet_loss !== 'Not Found' && parseInt(device.packet_loss, 10) >= 5) ||
+          (device.packet_loss !== 'Not Found' && parseFloat(device.ping_avg.replace('.', '')) >= 500) ||
           (device.snr !== 'Not Found' && device.snr !== 'N/A' && parseInt(device.snr) <= 10)
         )
       ) {
@@ -45,7 +45,7 @@ const dashboardMesh = async () => {
           (device.nivel_senal !== 'Not Found' && device.nivel_senal !== 'N/A' &&
             Math.abs(parseInt(device.nivel_senal)) > 80 && Math.abs(parseInt(device.nivel_senal)) < 85) ||
           (device.packet_loss !== 'Not Found' && 
-            parseInt(device.packet_loss, 10) > 2 && parseInt(device.packet_loss, 10) < 5) ||
+            parseFloat(device.ping_avg.replace('.', '')) > 350 && parseFloat(device.ping_avg.replace('.', '')) < 500) ||
           (device.snr !== 'Not Found' && device.snr !== 'N/A' && 
             parseInt(device.snr) > 10 && parseInt(device.snr) <= 13)
         )

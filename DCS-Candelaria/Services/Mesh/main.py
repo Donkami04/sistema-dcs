@@ -118,8 +118,8 @@ def prtg_data():
             
             # logging.info(f"Terminada consulta a la {name_device}")
 
-            query = "INSERT INTO dcs.mesh (`ip`, `device`, `ping_avg`, `minimo`, `maximo`, `packet_loss`, `lastvalue`, `lastup`, `lastdown`, `nivel_senal`, `ruido_senal`, `tiempo_conexion`, `conectado_a`, `status_dispatch`, `operador`, `SNR`) "
-            value = f"VALUES ('{ip_device}', '{name_device}', '{avg_ping}', '{min_ping}', '{max_ping}', '{packet_loss}', '{last_value_ping}', '{last_up_ping}', '{last_down_ping}', '{signal_strength}', '{signal_noise}', '{connected_for}', '{ap_name}', '{status_dispatch}', '{operador}', '{snr_level}')"
+            query = "INSERT INTO dcs.mesh (`ip`, `device`, `ping_avg`, `minimo`, `maximo`, `packet_loss`, `lastvalue`, `lastup`, `lastdown`, `nivel_senal`, `ruido_senal`, `tiempo_conexion`, `conectado_a`, `status_dispatch`, `operador`, `SNR`, `id_prtg`) "
+            value = f"VALUES ('{ip_device}', '{name_device}', '{avg_ping}', '{min_ping}', '{max_ping}', '{packet_loss}', '{last_value_ping}', '{last_up_ping}', '{last_down_ping}', '{signal_strength}', '{signal_noise}', '{connected_for}', '{ap_name}', '{status_dispatch}', '{operador}', '{snr_level}', {id_ping})"
             cursor.execute(query + value)
             mydb.commit()
 
@@ -137,6 +137,7 @@ def prtg_data():
         mydb.commit()
         cursor.close()
         logging.error(traceback.format_exc())
+        
 
 def bucle(scheduler):
     prtg_data()
